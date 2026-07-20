@@ -1,0 +1,61 @@
+import { createAuditMetadata, orcidSource, withTraceability } from "./sources";
+
+export const employment = {
+  ...orcidSource,
+  eyebrow: "Employment",
+  title: "Public employment record",
+  description: "Verified employment entries surfaced in the ORCID public record.",
+  items: [
+    {
+      ...orcidSource,
+      ...withTraceability({ source: orcidSource, identifierType: "URL", identifier: "https://atos.net/en/" }),
+      organization: "Atos",
+      location: "Purchase, New York, US",
+      role: "Senior Consultant (Information Technology and Devolvement)",
+      period: "2021-06-18 to present",
+      url: "https://atos.net/en/",
+      audit: createAuditMetadata({
+        id: "employment-atos-senior-consultant",
+        title: "Atos: Senior Consultant (Information Technology and Devolvement)",
+        sourceName: orcidSource.sourceName,
+        sourceURL: orcidSource.sourceURL,
+        identifierType: "URL",
+        identifier: "https://atos.net/en/",
+      }),
+    },
+    {
+      ...orcidSource,
+      ...withTraceability({ source: orcidSource, identifierType: "URL", identifier: "https://www.cognizant.com/us/en" }),
+      organization: "Cognizant",
+      location: "Teaneck, New Jersey, US",
+      role: "Infra Dev Specialist (Information Technology)",
+      period: "2011-08-03 to 2021-06-17",
+      url: "https://www.cognizant.com/us/en",
+      audit: createAuditMetadata({
+        id: "employment-cognizant-infra-dev-specialist",
+        title: "Cognizant: Infra Dev Specialist (Information Technology)",
+        sourceName: orcidSource.sourceName,
+        sourceURL: orcidSource.sourceURL,
+        identifierType: "URL",
+        identifier: "https://www.cognizant.com/us/en",
+      }),
+    },
+    {
+      ...orcidSource,
+      ...withTraceability({ source: orcidSource, identifierType: "URL", identifier: "https://www.ibm.com/in-en" }),
+      organization: "IBM",
+      location: "Bengaluru, Karnataka, IN",
+      role: "System lead Specialist (Information Technology and Devolvement)",
+      period: "2008-03-22 to 2011-07-04",
+      url: "https://www.ibm.com/in-en",
+      audit: createAuditMetadata({
+        id: "employment-ibm-system-lead-specialist",
+        title: "IBM: System lead Specialist (Information Technology and Devolvement)",
+        sourceName: orcidSource.sourceName,
+        sourceURL: orcidSource.sourceURL,
+        identifierType: "URL",
+        identifier: "https://www.ibm.com/in-en",
+      }),
+    },
+  ],
+} as const;

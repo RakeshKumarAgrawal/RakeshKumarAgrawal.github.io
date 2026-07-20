@@ -1,0 +1,67 @@
+import { createAuditMetadata, githubSource, withTraceability } from "./sources";
+
+export const software = {
+  eyebrow: "Software",
+  title: "Verified public repositories",
+  description: "Public GitHub repositories surfaced from the verified account and profile API.",
+  items: [
+    {
+      title: "RakeshKumarAgrawal.github.io",
+      description: "Personal portfolio repository showcasing enterprise AI research, platform engineering, cloud architecture, open-source projects, and technical publications.",
+      href: "https://github.com/RakeshKumarAgrawal/RakeshKumarAgrawal.github.io",
+      linkLabel: "Open Repository",
+      openInNewTab: true,
+      meta: ["GitHub", "Portfolio", "MIT"],
+      repository: "GitHub",
+      ...withTraceability({ source: githubSource, identifierType: "URL", identifier: "https://github.com/RakeshKumarAgrawal/RakeshKumarAgrawal.github.io" }),
+      audit: createAuditMetadata({
+        id: "software-rakeshkumaragrawal-github-io",
+        title: "RakeshKumarAgrawal.github.io",
+        sourceName: githubSource.sourceName,
+        sourceURL: githubSource.sourceURL,
+        identifierType: "URL",
+        identifier: "https://github.com/RakeshKumarAgrawal/RakeshKumarAgrawal.github.io",
+      }),
+      ...githubSource,
+    },
+    {
+      title: "research-portfolio",
+      description: "Research portfolio repository featuring publications, preprints, datasets, white papers, technical reports, and open research.",
+      href: "https://github.com/RakeshKumarAgrawal/research-portfolio",
+      linkLabel: "Open Repository",
+      openInNewTab: true,
+      meta: ["GitHub", "Research", "MIT"],
+      repository: "GitHub",
+      ...withTraceability({ source: githubSource, identifierType: "URL", identifier: "https://github.com/RakeshKumarAgrawal/research-portfolio" }),
+      audit: createAuditMetadata({
+        id: "software-research-portfolio",
+        title: "research-portfolio",
+        sourceName: githubSource.sourceName,
+        sourceURL: githubSource.sourceURL,
+        identifierType: "URL",
+        identifier: "https://github.com/RakeshKumarAgrawal/research-portfolio",
+      }),
+      ...githubSource,
+    },
+    {
+      title: "Rakesh-K-Agrawal",
+      description: "Public repository profile visible on GitHub.",
+      href: "https://github.com/RakeshKumarAgrawal/Rakesh-K-Agrawal",
+      linkLabel: "Open Repository",
+      openInNewTab: true,
+      meta: ["GitHub", "Public repo"],
+      repository: "GitHub",
+      ...withTraceability({ source: githubSource, identifierType: "URL", identifier: "https://github.com/RakeshKumarAgrawal/Rakesh-K-Agrawal" }),
+      audit: createAuditMetadata({
+        id: "software-rakesh-k-agrawal",
+        title: "Rakesh-K-Agrawal",
+        sourceName: githubSource.sourceName,
+        sourceURL: githubSource.sourceURL,
+        identifierType: "URL",
+        identifier: "https://github.com/RakeshKumarAgrawal/Rakesh-K-Agrawal",
+      }),
+      ...githubSource,
+    },
+  ],
+} as const;
+

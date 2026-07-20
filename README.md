@@ -1,125 +1,79 @@
-# 🌐 Rakesh Kumar Agrawal – Personal Portfolio
+# Rakesh Kumar Agrawal
 
-Welcome to my personal portfolio website.
+Professional research and engineering profile published with Next.js App Router and prepared for GitHub Pages deployment.
 
-This website showcases my professional experience, research, open-source contributions, technical publications, and enterprise AI initiatives.
+Expected public URL:
+https://rakeshkumaragrawal.github.io
 
-> **Live Website** (Coming Soon)  
-> https://rakeshkumaragrawal.github.io
+## Project Layout
 
----
+- Root repository: GitHub Pages repository and workflow configuration
+- App source: `portfolio-temp`
 
-## 👋 About Me
+## Deployment Configuration
 
-I'm **Rakesh Kumar Agrawal**, a Senior Consultant, Enterprise AI Researcher, and Platform Engineer with experience designing and delivering cloud-native platforms, enterprise AI solutions, and intelligent automation systems.
+The Next.js application is configured for static export and GitHub Pages hosting.
 
-My interests include:
+- `next.config.ts` uses `output: "export"`
+- `next.config.ts` uses `images.unoptimized: true`
+- `next.config.ts` uses `trailingSlash: true`
+- No `basePath` is configured because this is the GitHub Pages user repository
 
-- 🤖 Enterprise Artificial Intelligence
-- 🧠 Agentic AI & Multi-Agent Systems
-- ☁️ Cloud Computing & Cloud Architecture
-- ⚙️ Platform Engineering
-- 🚀 DevOps & Site Reliability Engineering
-- 📊 Enterprise Knowledge Systems
-- 🔐 AI Governance & Responsible AI
-- 📈 Intelligent Automation
+## Local Development
 
----
+From `portfolio-temp`:
 
-# 🚀 Website Sections
+```bash
+npm run dev
+```
 
-The portfolio includes:
+## Production Build
 
-- 🏠 Home
-- 👤 About
-- 💼 Professional Experience
-- 🔬 Research
-- 🚀 Projects
-- 📚 Publications
-- 🏆 Certifications
-- 💻 Open Source
-- 📝 Technical Writing
-- 📬 Contact
+From `portfolio-temp`:
 
----
+```bash
+npm run build
+```
 
-# 🔬 Featured Research
+The production build exports a static site into `portfolio-temp/out`.
 
-Current research areas include:
+## GitHub Pages Workflow
 
-- Enterprise Digital Brain
-- Enterprise AI Operating Models
-- Agentic AI for Enterprise Systems
-- Enterprise AI Blueprints
-- Platform Engineering
-- Enterprise Knowledge Graphs
-- Retrieval-Augmented Generation (RAG)
-- LLMOps
-- AI Governance
+The repository includes:
 
----
+- `.github/workflows/deploy.yml`
 
-# 💻 Featured Open Source Projects
+The workflow:
 
-| Project | Description |
-|---------|-------------|
-| Enterprise Digital Brain | AI-powered enterprise knowledge platform |
-| Enterprise AI Blueprints | Enterprise AI reference architectures |
-| Research Portfolio | Publications, datasets, and technical research |
-| Platform Engineering Toolkit | Cloud-native engineering resources |
+- triggers on pushes to `main`
+- installs dependencies with `npm ci`
+- builds the Next.js app in `portfolio-temp`
+- uploads the exported `out` directory
+- deploys the artifact to GitHub Pages
 
----
+## Metadata and Static SEO Files
 
-# 🌐 Professional Profiles
+The deployment prep includes:
 
-- 💼 LinkedIn: https://www.linkedin.com/in/rakeshkumaragrawal/
-- 🐙 GitHub: https://github.com/RakeshKumarAgrawal
-- 🔬 ORCID: https://orcid.org/0009-0009-7113-5539
-- 📚 Lens Scholar: https://www.lens.org/lens/profile/700800239/scholar
-- 🌍 Enterprise Intelligence Lab: https://www.enterpriseintelligencelab.com
-- 📖 Research Portfolio: https://github.com/RakeshKumarAgrawal/research-portfolio
+- title metadata
+- description metadata
+- Open Graph metadata
+- Twitter metadata
+- favicon support
+- `robots.ts`
+- `sitemap.ts` placeholder
 
----
+## Deployment Checklist
 
-# 🛠 Technology Stack
+1. In GitHub repository settings, enable GitHub Pages and set the source to GitHub Actions.
+2. Confirm the default branch is `main`.
+3. Push the latest changes to `main`.
+4. Wait for `.github/workflows/deploy.yml` to complete successfully.
+5. Verify the published site at `https://rakeshkumaragrawal.github.io`.
+6. Confirm `robots.txt`, `sitemap.xml`, metadata, and favicon load correctly.
 
-- Artificial Intelligence
-- Generative AI
-- Agentic AI
-- AWS
-- Microsoft Azure
-- Kubernetes
-- Docker
-- Platform Engineering
-- DevOps
-- Python
-- Java
-- SQL
-- GitHub
-- Linux
+## Notes
 
----
-
-# 🎯 Vision
-
-My goal is to bridge academic research and enterprise engineering by developing scalable, trustworthy, and production-ready AI systems that deliver measurable business value through open research and open-source collaboration.
-
----
-
-# 📬 Contact
-
-**Rakesh Kumar Agrawal**
-
-📧 Connect with me through LinkedIn or GitHub.
-
-- LinkedIn: https://www.linkedin.com/in/rakeshkumaragrawal/
-- GitHub: https://github.com/RakeshKumarAgrawal
-- Website: https://www.enterpriseintelligencelab.com
-
----
-
-<p align="center">
-
-### ⭐ Building Enterprise AI • Advancing Research • Creating Open Innovation
-
-</p>
+- This deployment setup does not redesign the application.
+- The current App Router surface is static-export compatible.
+- Internal navigation is hash-based on the homepage, which is compatible with GitHub Pages static hosting.
