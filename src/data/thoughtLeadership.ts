@@ -1,7 +1,7 @@
 import type { ContentSectionData } from "@/components/home/ContentSection";
 
 import { articles } from "./articles";
-import { linkedInSource, zenodoSource } from "./sources";
+import { zenodoSource } from "./sources";
 import { newsletter } from "./newsletter";
 
 const architectureNotesSource = zenodoSource("https://doi.org/10.5281/zenodo.21347650");

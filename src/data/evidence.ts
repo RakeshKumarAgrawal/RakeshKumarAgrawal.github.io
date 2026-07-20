@@ -2,7 +2,6 @@ import type { ContentSectionData } from "@/components/home/ContentSection";
 
 import { datasets } from "./datasets";
 import { externalProfiles } from "./externalProfiles";
-import { memberships } from "./memberships";
 import { peerReviews } from "./peerReviews";
 import { profile } from "./profile";
 import { publications } from "./publications";
