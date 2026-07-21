@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "title": "Research Ecosystem Knowledge Graph",
+    "description": "Interactive network of research domains, frameworks, projects, publications, datasets, repositories, open science profiles, and professional service.",
+    "version": "1.0.0"
+  },
+  "nodes": [
+    {
+      "id": "ecosystem-root",
+      "label": "Research Ecosystem",
+      "category": "Ecosystem Hub",
+      "description": "Central map connecting all research and engineering artifacts, open science identities, and professional service pathways.",
+      "href": "/"
+    },
+    {
+      "id": "cat-research-domains",
+      "label": "Research Domains",
+      "category": "Ecosystem Hub",
+      "description": "Domain-level research directions and strategic tracks.",
+      "href": "/research"
+    },
+    {
+      "id": "cat-frameworks",
+      "label": "Frameworks",
+      "category": "Ecosystem Hub",
+      "description": "Architecture and governance frameworks for enterprise intelligence.",
+      "href": "/frameworks"
+    },
+    {
+      "id": "cat-projects",
+      "label": "Projects",
+      "category": "Ecosystem Hub",
+      "description": "Public project artifacts and implementation blueprints.",
+      "href": "/#projects"
+    },
+    {
+      "id": "cat-publications",
+      "label": "Publications",
+      "category": "Ecosystem Hub",
+      "description": "Publications, reports, white papers, and scholarly outputs.",
+      "href": "/publications"
+    },
+    {
+      "id": "cat-datasets",
+      "label": "Datasets",
+      "category": "Ecosystem Hub",
+      "description": "Dataset releases and benchmark artifacts.",
+      "href": "/#datasets"
+    },
+    {
+      "id": "cat-github-repositories",
+      "label": "GitHub Repositories",
+      "category": "Ecosystem Hub",
+      "description": "Open source repositories and implementation artifacts.",
+      "href": "/#evidence"
+    },
+    {
+      "id": "cat-open-science-profiles",
+      "label": "Open Science Profiles",
+      "category": "Ecosystem Hub",
+      "description": "Public scholarly identity and dissemination surfaces.",
+      "href": "/open-science"
+    },
+    {
+      "id": "cat-professional-service",
+      "label": "Professional Service",
+      "category": "Ecosystem Hub",
+      "description": "Professional memberships, reviews, and service contributions.",
+      "href": "/professional-service"
+    },
+    {
+      "id": "enterprise-intelligence-lab-core",
+      "label": "Enterprise Intelligence Lab",
+      "category": "Enterprise Intelligence Lab",
+      "description": "Public lab identity connecting research strategy, frameworks, and open dissemination.",
+      "href": "https://www.enterpriseintelligencelab.com/",
+      "external": true,
+      "futureWork": [
+        "Publish additional reference architectures and validated deployment patterns.",
+        "Expand cross-domain benchmark programs for enterprise and scientific AI.",
+        "Increase open release cadence for datasets and reproducibility assets."
+      ]
+    }
+  ],
+  "links": [
+    { "source": "ecosystem-root", "target": "cat-research-domains", "relation": "contains" },
+    { "source": "ecosystem-root", "target": "cat-frameworks", "relation": "contains" },
+    { "source": "ecosystem-root", "target": "cat-projects", "relation": "contains" },
+    { "source": "ecosystem-root", "target": "cat-publications", "relation": "contains" },
+    { "source": "ecosystem-root", "target": "cat-datasets", "relation": "contains" },
+    { "source": "ecosystem-root", "target": "cat-github-repositories", "relation": "contains" },
+    { "source": "ecosystem-root", "target": "cat-open-science-profiles", "relation": "contains" },
+    { "source": "ecosystem-root", "target": "cat-professional-service", "relation": "contains" },
+    { "source": "cat-open-science-profiles", "target": "enterprise-intelligence-lab-core", "relation": "hosts" },
+    { "source": "cat-github-repositories", "target": "enterprise-intelligence-lab-core", "relation": "supports" }
+  ]
+}

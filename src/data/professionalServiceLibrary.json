@@ -1,0 +1,267 @@
+{
+  "hero": {
+    "eyebrow": "Professional Service",
+    "title": "Professional service library and activity timeline",
+    "description": "A structured view of memberships, standards participation, peer review, editorial engagement, technical leadership, mentoring, and volunteer service activities."
+  },
+  "statistics": [
+    {
+      "label": "Professional Service Areas",
+      "value": "9",
+      "description": "Distinct service domains tracked in the library."
+    },
+    {
+      "label": "Professional Membership Records",
+      "value": "5",
+      "description": "Membership and standing records across IEEE, IETE, and PMI pathways."
+    },
+    {
+      "label": "Public Peer Reviews",
+      "value": "9",
+      "description": "Public ORCID peer review records available at aggregate level."
+    },
+    {
+      "label": "Timeline Milestones",
+      "value": "12",
+      "description": "Service milestones currently mapped in timeline view."
+    }
+  ],
+  "categories": [
+    {
+      "slug": "professional-memberships",
+      "title": "Professional Memberships",
+      "description": "Membership standing and professional affiliations across technical and project-delivery communities.",
+      "highlights": [
+        "IEEE Computer Society Senior Member",
+        "IEEE Standards Association Senior Member",
+        "PMI membership"
+      ]
+    },
+    {
+      "slug": "ieee-activities",
+      "title": "IEEE Activities",
+      "description": "IEEE standards, review, and community activities reflected in publicly traceable records.",
+      "highlights": [
+        "IEEE Standards Association puzzle creator/reviewer/ambassador",
+        "IEEE Computer Society reviewer activities",
+        "IEEE DataPort data publication alignment"
+      ]
+    },
+    {
+      "slug": "iete-activities",
+      "title": "IETE Activities",
+      "description": "Professional engagement and standing aligned with Institution of Electronics and Telecommunication Engineers.",
+      "highlights": [
+        "IETE Fellow standing",
+        "Professional body participation",
+        "Engineering community engagement"
+      ]
+    },
+    {
+      "slug": "editorial-activities",
+      "title": "Editorial Activities",
+      "description": "Editorial and review-oriented contribution pathways represented through public service records.",
+      "highlights": [
+        "Review and editorial support across scholarly channels",
+        "Publication quality stewardship",
+        "Knowledge dissemination support"
+      ]
+    },
+    {
+      "slug": "peer-review",
+      "title": "Peer Review",
+      "description": "Public ORCID peer review metadata showing aggregate review contributions.",
+      "highlights": [
+        "9 public peer review records",
+        "IGI Global book chapter review group",
+        "Public visibility-only records"
+      ]
+    },
+    {
+      "slug": "technical-leadership",
+      "title": "Technical Leadership",
+      "description": "Leadership activities spanning framework governance, architecture guidance, and technical direction.",
+      "highlights": [
+        "Enterprise architecture leadership",
+        "AI governance pathway leadership",
+        "Cross-platform technical stewardship"
+      ]
+    },
+    {
+      "slug": "conference-service",
+      "title": "Conference Service",
+      "description": "Conference-related service tracks for future verifiable program and review contributions.",
+      "highlights": [
+        "Program service track",
+        "Review service track",
+        "Session leadership expansion pathway"
+      ]
+    },
+    {
+      "slug": "mentoring",
+      "title": "Mentoring",
+      "description": "Mentorship-oriented activities supporting capability growth, research guidance, and delivery maturity.",
+      "highlights": [
+        "Career and capability mentoring track",
+        "Architecture and research mentorship",
+        "Operational best-practice coaching"
+      ]
+    },
+    {
+      "slug": "volunteer-activities",
+      "title": "Volunteer Activities",
+      "description": "Community volunteer work linked to standards initiatives and technical outreach.",
+      "highlights": [
+        "Volunteer roles in standards ecosystem",
+        "Technical puzzle and knowledge outreach",
+        "Professional community contribution"
+      ]
+    }
+  ],
+  "timelineEntries": [
+    {
+      "id": "iete-fellow-2026",
+      "title": "IETE Fellow Standing",
+      "category": "IETE Activities",
+      "date": "2026-05-22",
+      "status": "Active",
+      "summary": "Fellow status reflected in public membership records.",
+      "details": [
+        "Institution of Electronics and Telecommunication Engineers fellowship reflected in public record.",
+        "Milestone strengthens professional recognition in engineering community service."
+      ]
+    },
+    {
+      "id": "ieee-reviewer-2025",
+      "title": "IEEE Computer Society Reviewer Activity",
+      "category": "IEEE Activities",
+      "date": "2025-07-01",
+      "status": "Active",
+      "summary": "Reviewer service activity tracked in publicly visible membership profile.",
+      "details": [
+        "Reviewer role listed in IEEE Computer Society membership pathway.",
+        "Represents ongoing technical contribution to quality and review processes."
+      ]
+    },
+    {
+      "id": "peer-review-group-activity",
+      "title": "Peer Review Group Activity",
+      "category": "Peer Review",
+      "date": "2025-07-01",
+      "status": "Published",
+      "summary": "Public ORCID group-level peer review records indicate cumulative review contributions.",
+      "details": [
+        "9 public peer review records are exposed at aggregate level.",
+        "Detailed manuscript-level metadata is intentionally not publicly disclosed by source systems."
+      ]
+    },
+    {
+      "id": "ieee-senior-member-2025",
+      "title": "IEEE Computer Society Senior Member",
+      "category": "Professional Memberships",
+      "date": "2025-03-01",
+      "status": "Active",
+      "summary": "Senior member status in IEEE Computer Society reflected in public standing records.",
+      "details": [
+        "Professional membership milestone supports leadership and service progression.",
+        "Aligned with broader IEEE technical and review activities."
+      ]
+    },
+    {
+      "id": "ieee-standards-senior-member-2025",
+      "title": "IEEE Standards Association Senior Member",
+      "category": "Professional Memberships",
+      "date": "2025-01-01",
+      "status": "Active",
+      "summary": "Senior membership in standards-focused professional body reflected in public profile.",
+      "details": [
+        "Supports standards participation and governance-aligned technical engagement.",
+        "Provides basis for standards ecosystem volunteer and review roles."
+      ]
+    },
+    {
+      "id": "pmi-membership-2024",
+      "title": "PMI Membership Cycle",
+      "category": "Professional Memberships",
+      "date": "2024-10-01",
+      "status": "Active",
+      "summary": "Project Management Institute membership tenure supporting delivery leadership disciplines.",
+      "details": [
+        "Membership supports professional delivery governance capability.",
+        "Complements architecture and program execution service dimensions."
+      ]
+    },
+    {
+      "id": "ieee-standards-volunteer-track",
+      "title": "IEEE Standards Volunteer Track",
+      "category": "Volunteer Activities",
+      "date": "2025-01-15",
+      "status": "Active",
+      "summary": "Volunteer activities in standards ecosystem include puzzle creator/reviewer/ambassador track.",
+      "details": [
+        "Volunteer contributions support technical outreach and standards community engagement.",
+        "Role combines education, review, and community participation elements."
+      ]
+    },
+    {
+      "id": "editorial-service-track",
+      "title": "Editorial Service Track",
+      "category": "Editorial Activities",
+      "date": "2026-07-20",
+      "status": "In Progress",
+      "summary": "Editorial activity lane established for current and future public editorial records.",
+      "details": [
+        "Editorial and review support signals are represented through service records.",
+        "Structure is ready for expansion as additional verifiable editorial milestones become public."
+      ]
+    },
+    {
+      "id": "conference-service-track",
+      "title": "Conference Service Track",
+      "category": "Conference Service",
+      "date": "2026-07-20",
+      "status": "Planned",
+      "summary": "Conference service track prepared for future public records of program and review participation.",
+      "details": [
+        "Timeline structure supports adding conference-level service milestones.",
+        "No additional public conference service entries are currently enumerated in verified sources."
+      ]
+    },
+    {
+      "id": "mentoring-track",
+      "title": "Mentoring Service Track",
+      "category": "Mentoring",
+      "date": "2026-07-20",
+      "status": "In Progress",
+      "summary": "Mentoring lane established for capability development and technical guidance activities.",
+      "details": [
+        "Supports future inclusion of verifiable mentorship milestones.",
+        "Complements technical leadership and community contribution goals."
+      ]
+    },
+    {
+      "id": "technical-leadership-track",
+      "title": "Technical Leadership Track",
+      "category": "Technical Leadership",
+      "date": "2026-07-20",
+      "status": "Active",
+      "summary": "Technical leadership trajectory represented through architecture, governance, and delivery-aligned service activities.",
+      "details": [
+        "Integrates framework-oriented leadership with professional service pathways.",
+        "Designed for continuous updates as new verifiable leadership milestones emerge."
+      ]
+    },
+    {
+      "id": "ieee-dataport-alignment",
+      "title": "IEEE DataPort Service Alignment",
+      "category": "IEEE Activities",
+      "date": "2026-04-24",
+      "status": "Published",
+      "summary": "Public data publication activity aligns with IEEE DataPort-linked research dissemination pathways.",
+      "details": [
+        "Dataset and publication surfaces intersect with IEEE ecosystem visibility.",
+        "Provides open-science linkage between service and dissemination contributions."
+      ]
+    }
+  ]
+}

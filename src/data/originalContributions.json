@@ -1,0 +1,424 @@
+{
+  "hero": {
+    "eyebrow": "Original Contributions",
+    "title": "Flagship archive of original research and engineering contributions",
+    "description": "This page presents original contributions across enterprise AI, governance, control architectures, knowledge systems, and operational maturity, with linked evidence from publications, datasets, and repositories.",
+    "supportingText": "Contributions are structured as expandable technical records with linked publications, datasets, and source repositories to support evidence-based review."
+  },
+  "contributions": [
+    {
+      "slug": "enterprise-digital-brain",
+      "title": "Enterprise Digital Brain",
+      "researchStatus": "Active",
+      "overview": "An enterprise reference architecture for integrating institutional memory, decision context, and execution intelligence.",
+      "researchProblem": "Organizations struggle to connect fragmented knowledge, decisions, and operational workflows into a coherent intelligence layer.",
+      "motivation": "Enable traceable enterprise cognition that scales decisions with governance, continuity, and measurable delivery outcomes.",
+      "architecture": "Layered architecture spanning ingestion, knowledge services, decision orchestration, and execution telemetry loops.",
+      "technicalInnovation": "Introduces a decision-aware memory framework that synchronizes contextual retrieval with operational evidence.",
+      "researchContributions": [
+        "Defines an enterprise cognition pattern connecting knowledge and operational systems.",
+        "Establishes evidence-linked decision traceability in architecture workflows.",
+        "Frames reusable architecture primitives for intelligent enterprise operations."
+      ],
+      "relatedPublicationTitles": [
+        "Enterprise Digital Brain An AI-Augmented System for Knowledge Organization and Cognitive Productivity",
+        "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery"
+      ],
+      "relatedDatasetTitles": [
+        "BQEB ForecastBench"
+      ],
+      "relatedRepositoryNames": [
+        "research-portfolio",
+        "RakeshKumarAgrawal.github.io"
+      ],
+      "imagePlaceholders": [
+        "System context diagram",
+        "Knowledge-to-decision architecture map"
+      ],
+      "timeline": [
+        {
+          "phase": "Conceptualization",
+          "period": "2026 Q1",
+          "milestone": "Defined enterprise cognition and intelligence operating model."
+        },
+        {
+          "phase": "Reference Architecture",
+          "period": "2026 Q2",
+          "milestone": "Published architecture blueprint and DOI-backed artifact."
+        },
+        {
+          "phase": "Operationalization",
+          "period": "2026 Q3",
+          "milestone": "Expanding implementation guidance and evidence pathways."
+        }
+      ],
+      "futureResearch": [
+        "Add quantitative evaluation benchmarks for decision quality impact.",
+        "Expand interoperability model for multi-platform enterprise deployment."
+      ]
+    },
+    {
+      "slug": "enterprise-ai-governance-framework",
+      "title": "Enterprise AI Governance Framework",
+      "researchStatus": "Active",
+      "overview": "A governance model connecting policy, controls, evidence, review workflows, and lifecycle accountability.",
+      "researchProblem": "AI programs often lack unified governance that aligns policy intent with engineering execution and evidence.",
+      "motivation": "Bridge policy-to-production gaps by standardizing control checkpoints and accountability signals.",
+      "architecture": "Control stack linking policy definitions, model lifecycle controls, review gates, and escalation paths.",
+      "technicalInnovation": "Combines lifecycle governance and evidence architecture into a single enterprise control model.",
+      "researchContributions": [
+        "Formalizes cross-functional governance checkpoints for enterprise AI delivery.",
+        "Connects control definitions to operational evidence and reviewability.",
+        "Provides a reusable pattern for policy-aligned AI lifecycle management."
+      ],
+      "relatedPublicationTitles": [
+        "Enterprise AI Governance Framework™: A governance reference model connecting policy, controls, evidence, review, escalation, and lifecycle accountability",
+        "LLMOps Maturity Model™: A maturity model for progressing from experimental LLM use to resilient, governed, observable, and scalable operations"
+      ],
+      "relatedDatasetTitles": [],
+      "relatedRepositoryNames": [
+        "research-portfolio"
+      ],
+      "imagePlaceholders": [
+        "Governance control map",
+        "Lifecycle accountability workflow"
+      ],
+      "timeline": [
+        {
+          "phase": "Control Design",
+          "period": "2026 Q2",
+          "milestone": "Defined governance and evidence architecture blueprint."
+        },
+        {
+          "phase": "Framework Publication",
+          "period": "2026 Q3",
+          "milestone": "Released DOI-backed governance framework artifact."
+        }
+      ],
+      "futureResearch": [
+        "Develop sector-specific governance overlays and control libraries.",
+        "Introduce measurable governance maturity scoring methodologies."
+      ]
+    },
+    {
+      "slug": "enterprise-ai-control-plane",
+      "title": "Enterprise AI Control Plane",
+      "researchStatus": "In Development",
+      "overview": "A control-plane architecture for orchestrating AI policies, runtime controls, and operational evidence at enterprise scale.",
+      "researchProblem": "Enterprises need a centralized mechanism to enforce AI controls consistently across heterogeneous platforms.",
+      "motivation": "Reduce governance drift and operational risk by standardizing control activation and monitoring flows.",
+      "architecture": "Policy orchestration layer integrated with model gateways, monitoring pipelines, and compliance evidence stores.",
+      "technicalInnovation": "Introduces control-plane abstractions for policy-driven, auditable AI runtime operations.",
+      "researchContributions": [
+        "Defines control-plane primitives for AI lifecycle governance.",
+        "Aligns runtime controls with review and escalation workflows.",
+        "Structures observability-first mechanisms for control verification."
+      ],
+      "relatedPublicationTitles": [
+        "Enterprise AI Governance Framework™: A governance reference model connecting policy, controls, evidence, review, escalation, and lifecycle accountability",
+        "Digital Brain for IT Operations and Observability: An AI-Augmented Cognitive Framework for Incident Intelligence"
+      ],
+      "relatedDatasetTitles": [
+        "BQEB ForecastBench"
+      ],
+      "relatedRepositoryNames": [
+        "RakeshKumarAgrawal.github.io",
+        "research-portfolio"
+      ],
+      "imagePlaceholders": [
+        "Control plane logical architecture",
+        "Runtime governance telemetry flow"
+      ],
+      "timeline": [
+        {
+          "phase": "Design",
+          "period": "2026 Q3",
+          "milestone": "Initial control-plane architecture and policy model defined."
+        },
+        {
+          "phase": "Validation",
+          "period": "2026 Q4",
+          "milestone": "Planned validation scenarios for runtime governance controls."
+        }
+      ],
+      "futureResearch": [
+        "Prototype policy enforcement patterns across multi-cloud inference endpoints.",
+        "Add standardized control efficacy benchmarks."
+      ]
+    },
+    {
+      "slug": "enterprise-intelligence-framework",
+      "title": "Enterprise Intelligence Framework",
+      "researchStatus": "Active",
+      "overview": "A strategic framework connecting executive intent, control architecture, operating models, and platform execution.",
+      "researchProblem": "Enterprises face disconnects between strategic goals, governance models, and delivery mechanics in AI transformation programs.",
+      "motivation": "Provide an integrated architecture lens that aligns strategy, governance, and implementation.",
+      "architecture": "Multi-layer framework linking strategic intent, policy systems, capability platforms, and delivery pathways.",
+      "technicalInnovation": "Creates a unified strategic-to-technical architecture model for enterprise intelligence programs.",
+      "researchContributions": [
+        "Introduces enterprise intelligence as an architectural operating construct.",
+        "Provides clear mappings between control architectures and platform delivery.",
+        "Establishes reusable templates for strategy-to-execution translation."
+      ],
+      "relatedPublicationTitles": [
+        "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery"
+      ],
+      "relatedDatasetTitles": [
+        "BQEB-Data: An Open Benchmark Dataset for Autonomous Energy Intelligence and Smart Grid Analytics"
+      ],
+      "relatedRepositoryNames": [
+        "research-portfolio"
+      ],
+      "imagePlaceholders": [
+        "Framework layers overview",
+        "Strategy-to-platform mapping diagram"
+      ],
+      "timeline": [
+        {
+          "phase": "Framework Definition",
+          "period": "2026 Q2",
+          "milestone": "Core model designed and structured for publication."
+        },
+        {
+          "phase": "Publication",
+          "period": "2026 Q3",
+          "milestone": "DOI-backed publication released."
+        }
+      ],
+      "futureResearch": [
+        "Develop diagnostic scorecards for enterprise intelligence readiness.",
+        "Expand framework adaptation for domain-specific operating models."
+      ]
+    },
+    {
+      "slug": "bqeb-data",
+      "title": "BQEB-Data",
+      "researchStatus": "Active",
+      "overview": "An open benchmark dataset for autonomous energy intelligence and smart grid analytics research.",
+      "researchProblem": "Energy intelligence research needs open, reproducible benchmark datasets covering forecasting, optimization, and resilience dimensions.",
+      "motivation": "Enable transparent evaluation and repeatable experimentation for smart-grid AI systems.",
+      "architecture": "Dataset architecture organized around energy forecasting tasks, storage optimization contexts, and resilience scenarios.",
+      "technicalInnovation": "Provides a structured, DOI-linked benchmark foundation for energy-focused AI evaluation workflows.",
+      "researchContributions": [
+        "Publishes open benchmark dataset artifacts with persistent identifiers.",
+        "Supports comparative model analysis in autonomous energy intelligence.",
+        "Promotes reproducible smart-grid experimentation pipelines."
+      ],
+      "relatedPublicationTitles": [
+        "BQEB-Data: An Open Benchmark Dataset for Autonomous Energy Intelligence and Smart Grid Analytics",
+        "BQEB-Data BIO-Quantum Energy Brain Benchmark Dataset for Smart Grid Intelligence, Renewable Forecasting, Storage Optimization, and Cyber Resilience"
+      ],
+      "relatedDatasetTitles": [
+        "BQEB-Data: An Open Benchmark Dataset for Autonomous Energy Intelligence and Smart Grid Analytics",
+        "BQEB-Data BIO-Quantum Energy Brain Benchmark Dataset for Smart Grid Intelligence, Renewable Forecasting, Storage Optimization, and Cyber Resilience",
+        "Replication Data for: BIO-Quantum Energy Brain (BQEB)"
+      ],
+      "relatedRepositoryNames": [
+        "research-portfolio"
+      ],
+      "imagePlaceholders": [
+        "Dataset schema overview",
+        "Benchmark task distribution chart"
+      ],
+      "timeline": [
+        {
+          "phase": "Dataset Creation",
+          "period": "2026 Q2",
+          "milestone": "Core benchmark dataset versions prepared and released."
+        },
+        {
+          "phase": "Replication Support",
+          "period": "2026 Q2",
+          "milestone": "Replication data package published via Dataverse."
+        }
+      ],
+      "futureResearch": [
+        "Expand benchmark coverage for cross-regional energy patterns.",
+        "Add uncertainty and robustness challenge tracks for model evaluation."
+      ]
+    },
+    {
+      "slug": "forecastbench",
+      "title": "ForecastBench",
+      "researchStatus": "Active",
+      "overview": "A benchmarking suite for evaluating AI models on smart-grid forecasting tasks using BQEB-Data.",
+      "researchProblem": "Model benchmarking in smart-grid forecasting often lacks consistent baselines and transparent comparative evaluation.",
+      "motivation": "Provide standardized benchmark conditions and measurable model comparison criteria.",
+      "architecture": "Benchmark pipeline integrating dataset inputs, model execution protocols, and comparative performance reporting.",
+      "technicalInnovation": "Establishes reproducible benchmark pathways linking datasets, model outputs, and evidence-backed reporting.",
+      "researchContributions": [
+        "Introduces a domain-specific forecasting benchmark framework.",
+        "Supports transparent comparative evaluation across AI models.",
+        "Connects benchmark tasks to open dataset and publication evidence."
+      ],
+      "relatedPublicationTitles": [
+        "BQEB ForecastBench: Benchmarking AI Models for Smart Grid Forecasting Using BQEB-Data v1"
+      ],
+      "relatedDatasetTitles": [
+        "BQEB ForecastBench",
+        "BQEB-Data: An Open Benchmark Dataset for Autonomous Energy Intelligence and Smart Grid Analytics"
+      ],
+      "relatedRepositoryNames": [
+        "research-portfolio",
+        "RakeshKumarAgrawal.github.io"
+      ],
+      "imagePlaceholders": [
+        "Benchmark pipeline diagram",
+        "Comparative results dashboard placeholder"
+      ],
+      "timeline": [
+        {
+          "phase": "Benchmark Design",
+          "period": "2026 Q2",
+          "milestone": "Defined benchmark protocols and evaluation dimensions."
+        },
+        {
+          "phase": "Public Release",
+          "period": "2026 Q2",
+          "milestone": "Published DOI-backed benchmark artifact."
+        }
+      ],
+      "futureResearch": [
+        "Expand benchmark tasks to include anomaly and resilience forecasting.",
+        "Introduce baseline packs for rapid model reproducibility testing."
+      ]
+    },
+    {
+      "slug": "llmops-maturity-model",
+      "title": "LLMOps Maturity Model",
+      "researchStatus": "Active",
+      "overview": "A maturity model for evolving from experimental LLM usage to governed, observable, and scalable operations.",
+      "researchProblem": "Enterprises often lack a structured path to operationalize LLM systems with governance and reliability.",
+      "motivation": "Define staged maturity transitions for capability growth, risk control, and production resilience.",
+      "architecture": "Maturity stages aligned to governance controls, reliability capabilities, observability depth, and operating discipline.",
+      "technicalInnovation": "Transforms LLM operationalization into a measurable maturity progression tied to governance and operations criteria.",
+      "researchContributions": [
+        "Defines maturity stages with explicit operational and governance indicators.",
+        "Links LLM lifecycle controls to reliability and observability capabilities.",
+        "Provides a practical transition roadmap for enterprise LLM adoption."
+      ],
+      "relatedPublicationTitles": [
+        "LLMOps Maturity Model™: A maturity model for progressing from experimental LLM use to resilient, governed, observable, and scalable operations",
+        "Agentic Enterprise Blueprint™: A blueprint for introducing governed agentic systems into enterprise workflows with bounded autonomy and human oversight"
+      ],
+      "relatedDatasetTitles": [
+        "BQEB ForecastBench"
+      ],
+      "relatedRepositoryNames": [
+        "research-portfolio",
+        "RakeshKumarAgrawal.github.io"
+      ],
+      "imagePlaceholders": [
+        "Maturity stage ladder",
+        "Capability progression map"
+      ],
+      "timeline": [
+        {
+          "phase": "Model Design",
+          "period": "2026 Q3",
+          "milestone": "Maturity dimensions and stage definitions completed."
+        },
+        {
+          "phase": "Publication",
+          "period": "2026 Q3",
+          "milestone": "DOI-backed maturity model released."
+        }
+      ],
+      "futureResearch": [
+        "Add quantitative maturity scoring and evidence templates.",
+        "Define domain-specific LLMOps operating profiles."
+      ]
+    },
+    {
+      "slug": "enterprise-knowledge-graph",
+      "title": "Enterprise Knowledge Graph",
+      "researchStatus": "In Development",
+      "overview": "A graph-centric architecture for enterprise knowledge representation, contextual retrieval, and decision support.",
+      "researchProblem": "Linear and siloed repositories limit the ability to retrieve context-rich enterprise knowledge for critical decisions.",
+      "motivation": "Improve decision quality through relationship-aware retrieval across systems, artifacts, and operational evidence.",
+      "architecture": "Graph model connecting entities, policies, systems, and evidence with retrieval and reasoning interfaces.",
+      "technicalInnovation": "Applies graph-native knowledge operations to align enterprise memory with governance-aware intelligence workflows.",
+      "researchContributions": [
+        "Defines relationship-aware enterprise memory patterns for decision support.",
+        "Integrates policy and evidence structures into graph-based knowledge models.",
+        "Creates a foundation for explainable enterprise retrieval pathways."
+      ],
+      "relatedPublicationTitles": [
+        "Enterprise Digital Brain An AI-Augmented System for Knowledge Organization and Cognitive Productivity",
+        "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery"
+      ],
+      "relatedDatasetTitles": [],
+      "relatedRepositoryNames": [
+        "research-portfolio",
+        "Rakesh-K-Agrawal"
+      ],
+      "imagePlaceholders": [
+        "Knowledge graph ontology view",
+        "Entity-relation evidence map"
+      ],
+      "timeline": [
+        {
+          "phase": "Ontology Design",
+          "period": "2026 Q3",
+          "milestone": "Core schema and entity relationship definitions drafted."
+        },
+        {
+          "phase": "Prototype",
+          "period": "2026 Q4",
+          "milestone": "Planned prototype for retrieval and reasoning experiments."
+        }
+      ],
+      "futureResearch": [
+        "Evaluate graph retrieval quality against enterprise decision tasks.",
+        "Develop governance-aware explainability methods for graph reasoning outputs."
+      ]
+    },
+    {
+      "slug": "decision-intelligence-architecture",
+      "title": "Decision Intelligence Architecture",
+      "researchStatus": "In Development",
+      "overview": "An architecture pattern for evidence-driven decisions combining context models, forecasting signals, and governance controls.",
+      "researchProblem": "Decision systems often separate analytics outputs from governance context, leading to brittle enterprise actions.",
+      "motivation": "Enable coherent and auditable decision pathways that integrate data, uncertainty, and control requirements.",
+      "architecture": "Decision pipeline connecting context ingestion, predictive services, policy checks, and action feedback loops.",
+      "technicalInnovation": "Combines decision-flow architecture with governance-first controls and evidence traceability.",
+      "researchContributions": [
+        "Defines an auditable architecture for intelligence-to-action workflows.",
+        "Integrates forecasting outputs with policy-aware execution gates.",
+        "Supports iterative decision improvement through feedback instrumentation."
+      ],
+      "relatedPublicationTitles": [
+        "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery",
+        "BQEB ForecastBench: Benchmarking AI Models for Smart Grid Forecasting Using BQEB-Data v1"
+      ],
+      "relatedDatasetTitles": [
+        "BQEB ForecastBench",
+        "BQEB-Data BIO-Quantum Energy Brain Benchmark Dataset for Smart Grid Intelligence, Renewable Forecasting, Storage Optimization, and Cyber Resilience"
+      ],
+      "relatedRepositoryNames": [
+        "research-portfolio",
+        "RakeshKumarAgrawal.github.io"
+      ],
+      "imagePlaceholders": [
+        "Decision pipeline architecture",
+        "Evidence-to-action control flow"
+      ],
+      "timeline": [
+        {
+          "phase": "Architecture Design",
+          "period": "2026 Q3",
+          "milestone": "Decision pipeline and governance checkpoints defined."
+        },
+        {
+          "phase": "Evaluation Planning",
+          "period": "2026 Q4",
+          "milestone": "Planned comparative evaluation framework and scenarios."
+        }
+      ],
+      "futureResearch": [
+        "Create decision-quality benchmark packs linked to operational outcomes.",
+        "Expand architecture for multi-agent decision orchestration studies."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "hero": {
+    "eyebrow": "Dashboard",
+    "title": "Research and professional metrics dashboard",
+    "description": "Executive snapshot of research output, framework delivery, open science assets, and professional service indicators."
+  },
+  "trendWindowLabel": "Last 6 checkpoints",
+  "metrics": [
+    {
+      "id": "research-domains",
+      "title": "Research Domains",
+      "description": "Active domain tracks in research hub.",
+      "source": "researchDomains",
+      "href": "/research",
+      "trend": [4, 6, 7, 8, 10, 11]
+    },
+    {
+      "id": "publications",
+      "title": "Publications",
+      "description": "Indexed publication records in library.",
+      "source": "publications",
+      "href": "/publications",
+      "trend": [5, 7, 9, 10, 12, 13]
+    },
+    {
+      "id": "frameworks",
+      "title": "Frameworks",
+      "description": "Framework definitions in the architecture library.",
+      "source": "frameworks",
+      "href": "/frameworks",
+      "trend": [2, 3, 4, 5, 7, 8]
+    },
+    {
+      "id": "datasets",
+      "title": "Datasets",
+      "description": "Public dataset assets with traceable records.",
+      "source": "datasets",
+      "href": "/open-science",
+      "trend": [1, 2, 2, 3, 4, 4]
+    },
+    {
+      "id": "repositories",
+      "title": "Repositories",
+      "description": "Public repositories linked to research outputs.",
+      "source": "repositories",
+      "href": "/open-science",
+      "trend": [1, 1, 2, 2, 3, 3]
+    },
+    {
+      "id": "technical-articles",
+      "title": "Technical Articles",
+      "description": "Professional article records in publication system.",
+      "source": "technicalArticles",
+      "href": "/publications/linkedin-professional-articles-index",
+      "trend": [0, 0, 0, 0, 1, 1]
+    },
+    {
+      "id": "newsletter-editions",
+      "title": "Newsletter Editions",
+      "description": "Newsletter authority and edition records.",
+      "source": "newsletterEditions",
+      "href": "/publications/linkedin-newsletter-authority-record",
+      "trend": [0, 0, 0, 0, 1, 1]
+    },
+    {
+      "id": "peer-reviews",
+      "title": "Peer Reviews",
+      "description": "Publicly visible review records.",
+      "source": "peerReviews",
+      "href": "/professional-service",
+      "trend": [2, 3, 4, 6, 8, 9]
+    },
+    {
+      "id": "professional-memberships",
+      "title": "Professional Memberships",
+      "description": "Tracked memberships across institutions.",
+      "source": "professionalMemberships",
+      "href": "/professional-service",
+      "trend": [2, 3, 3, 4, 5, 5]
+    },
+    {
+      "id": "professional-certifications",
+      "title": "Professional Certifications",
+      "description": "Credential categories and certification tracks.",
+      "source": "professionalCertifications",
+      "href": "/professional-certifications",
+      "trend": [2, 3, 3, 4, 5, 5]
+    }
+  ]
+}

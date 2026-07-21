@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, Search, X } from "lucide-react";
 
 import Container from "@/components/ui/Container";
 import { navigation, type NavigationGroup } from "@/data/navigation";
@@ -51,6 +51,14 @@ export default function Navbar() {
 
   const handleDesktopNavigate = () => {
     setActiveMenu(null);
+  };
+
+  const toMenuHint = (href: string) => {
+    if (href.startsWith("/#")) {
+      return href.replace("/#", "");
+    }
+
+    return href.replace("/", "");
   };
 
   const renderGroup = (item: NavigationGroup) => {
@@ -121,7 +129,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <Container className="flex items-center justify-between gap-4 py-4" onMouseLeave={() => setActiveMenu(null)}>
-        <Link href="#home" className="flex items-center gap-3">
+        <Link href="/#home" className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 text-sm font-semibold text-primary">
             RK
           </span>
@@ -134,15 +142,27 @@ export default function Navbar() {
         <nav aria-label="Primary" className="hidden md:block max-w-[calc(100vw-22rem)] overflow-x-auto">
           <ul className="flex items-center gap-1 rounded-full border border-border/70 bg-surface/60 p-1 backdrop-blur">
             {navigation.map((item) => (
-              <li key={item.href}>{renderGroup(item)}</li>
+              <li key={`${item.label}-${item.href}`}>{renderGroup(item)}</li>
             ))}
           </ul>
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href="#contact" className="hidden h-10 items-center rounded-full border border-border/80 bg-white/5 px-4 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10 md:inline-flex">
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("global-search:open"))}
+            className="hidden h-10 items-center gap-2 rounded-full border border-border/80 bg-white/5 px-3 text-xs font-semibold uppercase tracking-[0.16em] text-foreground transition hover:border-primary/40 hover:bg-white/10 lg:inline-flex"
+            aria-label="Open global search"
+          >
+            <Search className="h-3.5 w-3.5" aria-hidden="true" />
+            Search
+            <span className="rounded-md border border-border/80 bg-white/5 px-1.5 py-0.5 text-[0.58rem] tracking-[0.14em] text-muted">
+              Ctrl+K
+            </span>
+          </button>
+          <Link href="/#contact" className="hidden h-10 items-center rounded-full border border-border/80 bg-white/5 px-4 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10 md:inline-flex">
             Contact
-          </a>
+          </Link>
           <ThemeToggle />
           <button
             type="button"
@@ -183,21 +203,21 @@ export default function Navbar() {
                   {navigation.map((item) => {
                     if (!item.children?.length) {
                       return (
-                        <li key={item.href}>
+                        <li key={`${item.label}-${item.href}`}>
                           <Link
                             href={item.href}
                             onClick={closeMenu}
                             className="flex items-center justify-between rounded-2xl border border-border/70 bg-surface/60 px-4 py-4 text-base font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10"
                           >
                             <span>{item.label}</span>
-                            <span className="text-sm text-muted">{item.href.replace("#", "")}</span>
+                            <span className="text-sm text-muted">{toMenuHint(item.href)}</span>
                           </Link>
                         </li>
                       );
                     }
 
                     return (
-                      <li key={item.href}>
+                      <li key={`${item.label}-${item.href}`}>
                         <details className="rounded-2xl border border-border/70 bg-surface/60">
                           <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-medium text-foreground">
                             <span>{item.label}</span>
@@ -232,9 +252,9 @@ export default function Navbar() {
                 </ul>
               </nav>
 
-              <a href="#contact" onClick={closeMenu} className="mt-auto inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 text-sm font-medium text-white shadow-lg shadow-primary/20">
+              <Link href="/#contact" onClick={closeMenu} className="mt-auto inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 text-sm font-medium text-white shadow-lg shadow-primary/20">
                 Start a conversation
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         ) : null}

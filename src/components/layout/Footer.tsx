@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Container from "@/components/ui/Container";
 import { navigation } from "@/data/navigation";
 import { profile } from "@/data/profile";
@@ -22,10 +24,10 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-foreground">Navigation</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted">
               {navigation.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href} className="transition hover:text-foreground">
+                <li key={`${item.label}-${item.href}`}>
+                  <Link href={item.href} className="transition hover:text-foreground">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

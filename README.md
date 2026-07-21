@@ -1,81 +1,133 @@
-# Rakesh Kumar Agrawal
+# Rakesh Kumar Agrawal Portfolio
 
-Professional research and engineering profile built with Next.js App Router and prepared for GitHub Pages deployment from the repository root.
+Research and engineering profile built with Next.js App Router and exported as a static site for GitHub Pages.
 
-Expected public URL:
+Public URL:
 https://rakeshkumaragrawal.github.io
 
-## Repository Layout
+## Tech Stack
 
-The repository root is the Next.js application.
+- Next.js 16 (App Router, static export)
+- React 19 + TypeScript (strict mode)
+- Tailwind CSS v4
+- Framer Motion
+- Fuse.js (global search)
+- React Force Graph (knowledge graph)
+- Vitest (unit testing)
 
-- `.github/`
-- `public/`
-- `src/`
-- `package.json`
-- `package-lock.json`
-- `next.config.ts`
-- `tsconfig.json`
-- `next-env.d.ts`
-- `postcss.config.mjs`
-- `eslint.config.mjs`
-- `.gitignore`
-- `README.md`
-- `LICENSE`
+## Architecture
+
+```mermaid
+flowchart TB
+	A[App Routes] --> B[Reusable Components]
+	A --> C[Typed Data Resolvers]
+	C --> D[JSON Content Files]
+	B --> E[UI Primitives]
+	C --> F[Linking Utilities]
+	A --> G[SEO Utilities]
+	A --> H[Sitemap + Robots]
+	B --> I[Client Enhancements]
+```
+
+### Route Composition Model
+
+```mermaid
+flowchart LR
+	L[SectionPageLayout] --> N[Navbar]
+	L --> M[Main + Container + Breadcrumbs]
+	L --> F[Footer]
+	M --> P[Feature Page Content]
+```
+
+### Data Flow Model
+
+```mermaid
+flowchart LR
+	J[JSON data files] --> K[Typed resolver modules]
+	K --> R[Feature components]
+	R --> U[Static page output]
+```
+
+## Repository Structure
+
+- `src/app`: route handlers and page composition
+- `src/components`: UI and feature components
+- `src/data`: JSON-first content and resolver models
+- `src/lib`: reusable utilities (SEO, theme, linking)
+- `src/test`: test setup
+- `docs`: architecture, contributing, and performance notes
 
 ## Local Development
-
-Run from the repository root:
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Validation
-
-Run from the repository root:
+## Quality Commands
 
 ```bash
 npm run lint
+npm run test
 npm run build
 ```
 
-The production build exports a static site into `out/` at the repository root.
+Optional coverage report:
 
-## GitHub Pages Deployment
+```bash
+npm run test:coverage
+```
 
-The repository includes:
+## Performance and Accessibility Highlights
 
-- `.github/workflows/deploy.yml`
+- Global client enhancements are deferred until browser idle.
+- Loading skeletons are provided for root and dynamic detail routes.
+- Animations respect reduced-motion preferences.
+- Global search supports keyboard navigation and listbox semantics.
+- Theme preference is applied before hydration to avoid flash.
 
-The workflow:
+## Content Strategy
 
-- triggers on pushes to `main`
-- installs dependencies with `npm ci`
-- builds the Next.js app from the repository root
-- uploads the exported `out/` directory
-- deploys the artifact to GitHub Pages
+- Primary content is stored in JSON and mapped through typed resolver modules.
+- Additional structured documentation is stored in Markdown under `docs`.
+- Home section copy is centralized in `src/data/homeContent.json`.
 
-## Static Export Configuration
+## SEO Strategy
 
-The application is configured for GitHub Pages static export.
+- Shared metadata helper ensures consistent canonical, OG, and Twitter metadata.
+- Structured data (JSON-LD) is injected from root layout.
+- Static `sitemap.xml` and `robots.txt` are generated from App Router routes.
+
+## Deployment
+
+This repository uses GitHub Actions for Pages deployment from static export output.
+
+Key static-export settings:
 
 - `output: "export"`
-- `images.unoptimized: true`
 - `trailingSlash: true`
-- no `basePath` because this is a GitHub user pages repository
+- `images.unoptimized: true` (GitHub Pages compatibility)
 
-## Deployment Checklist
+## Contribution Guidelines
 
-1. In GitHub repository settings, set Pages to deploy from GitHub Actions.
-2. Confirm the default branch is `main`.
-3. Push changes to `main`.
-4. Wait for `.github/workflows/deploy.yml` to complete successfully.
-5. Verify the published site at `https://rakeshkumaragrawal.github.io`.
-6. Confirm `robots.txt`, `sitemap.xml`, favicon, and metadata load correctly.
+1. Create a branch from `main`.
+2. Keep PR scope focused and include validation output.
+3. Preserve visual branding and existing user-facing behavior.
+4. Prefer reusable components and typed data utilities over ad hoc code.
+5. Keep content in JSON/Markdown when practical.
 
-## Notes
+Before opening a PR, run:
 
-- This refactor keeps the existing website UI, components, styles, and routing behavior unchanged.
-- Internal navigation remains compatible with GitHub Pages static hosting.
+1. `npm run lint`
+2. `npm run test`
+3. `npm run build`
+
+## Additional Documentation
+
+- `docs/architecture.md`
+- `docs/contributing.md`
+- `docs/performance-seo.md`
+
+## License
+
+MIT (see `LICENSE`).

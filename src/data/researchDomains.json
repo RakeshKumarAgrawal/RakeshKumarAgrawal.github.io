@@ -1,0 +1,203 @@
+[
+  {
+    "slug": "enterprise-ai",
+    "title": "Enterprise AI",
+    "summary": "Designing enterprise-scale AI systems that connect decision services, operating models, and measurable business outcomes.",
+    "relatedPublicationTitles": [
+      "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery",
+      "Enterprise Digital Brain An AI-Augmented System for Knowledge Organization and Cognitive Productivity"
+    ],
+    "relatedRepositoryNames": ["research-portfolio", "RakeshKumarAgrawal.github.io"],
+    "relatedDatasetTitles": ["BQEB ForecastBench"],
+    "relatedFrameworkTitles": ["Enterprise Digital Brain", "Enterprise Intelligence Framework™"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Expand enterprise AI reference architecture patterns across additional domains.",
+      "Publish benchmark-driven rollout playbooks for production adoption."
+    ],
+    "keywords": ["enterprise", "architecture", "ai strategy"]
+  },
+  {
+    "slug": "enterprise-ai-governance",
+    "title": "Enterprise AI Governance",
+    "summary": "Building governance models that link AI policy, controls, evidence, and accountability across the lifecycle.",
+    "relatedPublicationTitles": [
+      "Enterprise AI Governance Framework™: A governance reference model connecting policy, controls, evidence, review, escalation, and lifecycle accountability",
+      "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery"
+    ],
+    "relatedRepositoryNames": ["research-portfolio"],
+    "relatedDatasetTitles": [],
+    "relatedFrameworkTitles": ["Enterprise Intelligence Framework™"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Formalize governance KPIs for model risk and policy adherence.",
+      "Extend framework mappings to sector-specific compliance requirements."
+    ],
+    "keywords": ["governance", "controls", "policy", "risk"]
+  },
+  {
+    "slug": "platform-engineering",
+    "title": "Platform Engineering",
+    "summary": "Researching platform operating models that improve delivery resilience, developer productivity, and lifecycle governance.",
+    "relatedPublicationTitles": [
+      "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery",
+      "Digital Brain for IT Operations and Observability: An AI-Augmented Cognitive Framework for Incident Intelligence"
+    ],
+    "relatedRepositoryNames": ["RakeshKumarAgrawal.github.io", "research-portfolio"],
+    "relatedDatasetTitles": ["BQEB ForecastBench"],
+    "relatedFrameworkTitles": ["Enterprise Intelligence Framework™", "Enterprise Digital Brain"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Document internal platform maturity dimensions for AI-enabled delivery systems.",
+      "Publish reusable control patterns for platform policy automation."
+    ],
+    "keywords": ["platform", "engineering", "delivery", "operations"]
+  },
+  {
+    "slug": "cloud-computing",
+    "title": "Cloud Computing",
+    "summary": "Exploring cloud-native architectures for scalable AI delivery, observability, and data-intensive workloads.",
+    "relatedPublicationTitles": [
+      "Digital Brain for IT Operations and Observability: An AI-Augmented Cognitive Framework for Incident Intelligence",
+      "BQEB ForecastBench: Benchmarking AI Models for Smart Grid Forecasting Using BQEB-Data v1"
+    ],
+    "relatedRepositoryNames": ["RakeshKumarAgrawal.github.io", "Rakesh-K-Agrawal"],
+    "relatedDatasetTitles": [
+      "BQEB-Data BIO-Quantum Energy Brain Benchmark Dataset for Smart Grid Intelligence, Renewable Forecasting, Storage Optimization, and Cyber Resilience",
+      "BQEB-Data: An Open Benchmark Dataset for Autonomous Energy Intelligence and Smart Grid Analytics"
+    ],
+    "relatedFrameworkTitles": ["BQEB-Data", "BQEB ForecastBench"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Expand reference workload patterns for secure multi-cloud AI systems.",
+      "Publish cloud observability baselines for model serving reliability."
+    ],
+    "keywords": ["cloud", "scalability", "observability", "architecture"]
+  },
+  {
+    "slug": "knowledge-systems",
+    "title": "Knowledge Systems",
+    "summary": "Developing structured knowledge architectures that improve enterprise memory, retrieval, and decision coherence.",
+    "relatedPublicationTitles": [
+      "Enterprise Digital Brain An AI-Augmented System for Knowledge Organization and Cognitive Productivity",
+      "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery"
+    ],
+    "relatedRepositoryNames": ["research-portfolio"],
+    "relatedDatasetTitles": [],
+    "relatedFrameworkTitles": ["Enterprise Digital Brain", "Enterprise Intelligence Framework™"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Evaluate graph-based enterprise knowledge models for reasoning support.",
+      "Add evidence traceability templates for knowledge curation workflows."
+    ],
+    "keywords": ["knowledge", "retrieval", "enterprise memory", "decision systems"]
+  },
+  {
+    "slug": "healthcare-ai",
+    "title": "Healthcare AI",
+    "summary": "Advancing explainable and edge-enabled healthcare AI systems for patient monitoring and disease risk prediction.",
+    "relatedPublicationTitles": [
+      "BioBrain: An Explainable Federated AI Framework for Multi-Omics Disease Risk Prediction in Life Science",
+      "Smart ICU Monitoring System Using IoT and Edge AI for Real-Time Patient Risk Prediction",
+      "Human Gastrointestinal Gas as a Non-Invasive Biomarker: A Wearable IoT and Edge AI Framework for Real-Time Health Monitoring"
+    ],
+    "relatedRepositoryNames": ["research-portfolio"],
+    "relatedDatasetTitles": [],
+    "relatedFrameworkTitles": ["BioBrain"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Extend multimodal healthcare signal fusion for interpretable risk scoring.",
+      "Document translational validation pathways for clinical adoption."
+    ],
+    "keywords": ["healthcare", "edge ai", "iot", "explainability"]
+  },
+  {
+    "slug": "decision-intelligence",
+    "title": "Decision Intelligence",
+    "summary": "Designing AI-assisted decision systems that integrate evidence, uncertainty, and operational context.",
+    "relatedPublicationTitles": [
+      "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery",
+      "BQEB ForecastBench: Benchmarking AI Models for Smart Grid Forecasting Using BQEB-Data v1"
+    ],
+    "relatedRepositoryNames": ["research-portfolio", "RakeshKumarAgrawal.github.io"],
+    "relatedDatasetTitles": ["BQEB ForecastBench"],
+    "relatedFrameworkTitles": ["Enterprise Intelligence Framework™", "BQEB ForecastBench"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Expand decision model evaluation templates for executive governance contexts.",
+      "Introduce scenario-level stress testing for model-assisted decisions."
+    ],
+    "keywords": ["decision intelligence", "forecasting", "evidence", "governance"]
+  },
+  {
+    "slug": "responsible-ai",
+    "title": "Responsible AI",
+    "summary": "Structuring responsible AI methods for transparency, governance, and reliability in enterprise deployments.",
+    "relatedPublicationTitles": [
+      "Enterprise AI Governance Framework™: A governance reference model connecting policy, controls, evidence, review, escalation, and lifecycle accountability",
+      "LLMOps Maturity Model™: A maturity model for progressing from experimental LLM use to resilient, governed, observable, and scalable operations"
+    ],
+    "relatedRepositoryNames": ["research-portfolio"],
+    "relatedDatasetTitles": [],
+    "relatedFrameworkTitles": ["Enterprise Intelligence Framework™"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Publish responsible AI control mappings for enterprise lifecycle checkpoints.",
+      "Add validation templates for transparency and review readiness."
+    ],
+    "keywords": ["responsible ai", "transparency", "trust", "governance"]
+  },
+  {
+    "slug": "agentic-ai",
+    "title": "Agentic AI",
+    "summary": "Researching governed agentic systems with bounded autonomy, human oversight, and operational safeguards.",
+    "relatedPublicationTitles": [
+      "Agentic Enterprise Blueprint™: A blueprint for introducing governed agentic systems into enterprise workflows with bounded autonomy and human oversight"
+    ],
+    "relatedRepositoryNames": ["research-portfolio", "Rakesh-K-Agrawal"],
+    "relatedDatasetTitles": [],
+    "relatedFrameworkTitles": ["Agentic Enterprise Blueprint™", "Enterprise Digital Brain"],
+    "researchStatus": "In Development",
+    "futureWork": [
+      "Define runtime guardrail patterns for multi-agent enterprise orchestration.",
+      "Publish oversight and escalation primitives for autonomous workflows."
+    ],
+    "keywords": ["agentic", "autonomy", "oversight", "workflow"]
+  },
+  {
+    "slug": "ai-observability",
+    "title": "AI Observability",
+    "summary": "Developing observability approaches for AI services across incidents, drift, and operational intelligence.",
+    "relatedPublicationTitles": [
+      "Digital Brain for IT Operations and Observability: An AI-Augmented Cognitive Framework for Incident Intelligence",
+      "LLMOps Maturity Model™: A maturity model for progressing from experimental LLM use to resilient, governed, observable, and scalable operations"
+    ],
+    "relatedRepositoryNames": ["RakeshKumarAgrawal.github.io", "research-portfolio"],
+    "relatedDatasetTitles": ["BQEB ForecastBench"],
+    "relatedFrameworkTitles": ["Enterprise Digital Brain"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Expand AI reliability signal taxonomy for cross-platform observability.",
+      "Add incident intelligence evaluation datasets and replay benchmarks."
+    ],
+    "keywords": ["observability", "incident intelligence", "monitoring", "reliability"]
+  },
+  {
+    "slug": "llmops",
+    "title": "LLMOps",
+    "summary": "Establishing operational maturity models for reliable, scalable, and governed LLM deployment pipelines.",
+    "relatedPublicationTitles": [
+      "LLMOps Maturity Model™: A maturity model for progressing from experimental LLM use to resilient, governed, observable, and scalable operations",
+      "Agentic Enterprise Blueprint™: A blueprint for introducing governed agentic systems into enterprise workflows with bounded autonomy and human oversight"
+    ],
+    "relatedRepositoryNames": ["research-portfolio", "RakeshKumarAgrawal.github.io"],
+    "relatedDatasetTitles": [],
+    "relatedFrameworkTitles": ["Agentic Enterprise Blueprint™", "Enterprise Intelligence Framework™"],
+    "researchStatus": "Active",
+    "futureWork": [
+      "Publish lifecycle controls for evaluation, release, and rollback of LLM services.",
+      "Create reference observability dashboards for prompt and model operations."
+    ],
+    "keywords": ["llmops", "maturity model", "operations", "governance"]
+  }
+]

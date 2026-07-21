@@ -1,0 +1,280 @@
+{
+  "hero": {
+    "eyebrow": "Timeline",
+    "title": "Interactive timeline of research, frameworks, datasets, and professional milestones",
+    "description": "Track the evolution of research outputs, framework releases, dataset publication, and professional service milestones in a single expandable timeline."
+  },
+  "filterOptions": ["Research", "Publications", "Datasets", "Projects", "Professional Service"],
+  "entries": [
+    {
+      "id": "research-track-2026",
+      "title": "Research Milestone Program",
+      "category": "Research",
+      "milestoneType": "Research milestones",
+      "date": "2026-07-20",
+      "status": "Active",
+      "summary": "Research program expanded into linked tracks for enterprise AI, governance, knowledge systems, and decision intelligence.",
+      "details": [
+        "Integrated research themes with framework, publication, and dataset pathways.",
+        "Established timeline structure for evidence-backed progress tracking."
+      ],
+      "relatedFrameworkSlugs": ["enterprise-digital-brain", "enterprise-intelligence-framework", "decision-intelligence-architecture"],
+      "relatedPublicationSlugs": ["enterprise-intelligence-framework-reference", "enterprise-ai-governance-framework-reference"],
+      "relatedDatasetTitles": ["BQEB ForecastBench"],
+      "relatedProjectTitles": ["Enterprise Digital Brain"],
+      "relatedRepositoryNames": ["research-portfolio"]
+    },
+    {
+      "id": "framework-release-enterprise-intelligence-framework",
+      "title": "Framework Release: Enterprise Intelligence Framework",
+      "category": "Projects",
+      "milestoneType": "Framework releases",
+      "date": "2026-07-13",
+      "status": "Released",
+      "summary": "Published the Enterprise Intelligence Framework as a reference model connecting intent, controls, operating models, and platform delivery.",
+      "details": [
+        "Framework publication released as DOI-backed artifact.",
+        "Aligned architecture and governance constructs for enterprise AI programs."
+      ],
+      "relatedFrameworkSlugs": ["enterprise-intelligence-framework"],
+      "relatedPublicationSlugs": ["enterprise-intelligence-framework-reference"],
+      "relatedDatasetTitles": ["BQEB-Data: An Open Benchmark Dataset for Autonomous Energy Intelligence and Smart Grid Analytics"],
+      "relatedProjectTitles": ["Enterprise Intelligence Framework™"],
+      "relatedRepositoryNames": ["research-portfolio"]
+    },
+    {
+      "id": "framework-release-enterprise-ai-governance",
+      "title": "Framework Release: Enterprise AI Governance Framework",
+      "category": "Projects",
+      "milestoneType": "Framework releases",
+      "date": "2026-07-13",
+      "status": "Released",
+      "summary": "Released a governance framework connecting policy, controls, evidence, review, and escalation pathways.",
+      "details": [
+        "Codified governance model for enterprise AI lifecycle accountability.",
+        "Extended traceability patterns for policy-to-production oversight."
+      ],
+      "relatedFrameworkSlugs": ["enterprise-ai-governance-framework"],
+      "relatedPublicationSlugs": ["enterprise-ai-governance-framework-reference"],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": ["Enterprise Intelligence Framework™"],
+      "relatedRepositoryNames": ["research-portfolio"]
+    },
+    {
+      "id": "framework-release-llmops-maturity-model",
+      "title": "Framework Release: LLMOps Maturity Model",
+      "category": "Projects",
+      "milestoneType": "Framework releases",
+      "date": "2026-07-13",
+      "status": "Released",
+      "summary": "Introduced a staged LLMOps maturity model for moving from experimentation to governed enterprise operations.",
+      "details": [
+        "Defined maturity indicators across governance, observability, and reliability.",
+        "Provided implementation progression blueprint for LLM lifecycle operations."
+      ],
+      "relatedFrameworkSlugs": ["llmops-maturity-model", "ai-observability-framework"],
+      "relatedPublicationSlugs": ["llmops-maturity-model-reference"],
+      "relatedDatasetTitles": ["BQEB ForecastBench"],
+      "relatedProjectTitles": ["Enterprise Intelligence Framework™"],
+      "relatedRepositoryNames": ["research-portfolio", "RakeshKumarAgrawal.github.io"]
+    },
+    {
+      "id": "membership-iete-fellow",
+      "title": "Professional Membership: IETE Fellow",
+      "category": "Professional Service",
+      "milestoneType": "Professional memberships",
+      "date": "2026-05-22",
+      "status": "Active",
+      "summary": "Fellow standing reflected in publicly traceable membership record.",
+      "details": [
+        "Professional membership milestone recorded with organization-level traceability.",
+        "Supports service and recognition trajectory within engineering communities."
+      ],
+      "relatedFrameworkSlugs": [],
+      "relatedPublicationSlugs": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "relatedRepositoryNames": []
+    },
+    {
+      "id": "publication-bqeb-forecastbench-preprint",
+      "title": "Publication Milestone: BQEB ForecastBench",
+      "category": "Publications",
+      "milestoneType": "Publication milestones",
+      "date": "2026-04-24",
+      "status": "Preprint",
+      "summary": "Preprint milestone published for benchmarking AI models in smart-grid forecasting using BQEB-Data.",
+      "details": [
+        "Formalized benchmark framing and evaluation narrative.",
+        "Connected benchmark publication with open datasets and project artifacts."
+      ],
+      "relatedFrameworkSlugs": ["decision-intelligence-architecture"],
+      "relatedPublicationSlugs": ["bqeb-forecastbench-benchmarking-ai-models"],
+      "relatedDatasetTitles": ["BQEB ForecastBench", "BQEB-Data: An Open Benchmark Dataset for Autonomous Energy Intelligence and Smart Grid Analytics"],
+      "relatedProjectTitles": ["BQEB ForecastBench"],
+      "relatedRepositoryNames": ["research-portfolio"]
+    },
+    {
+      "id": "dataset-release-forecastbench",
+      "title": "Dataset Release: BQEB ForecastBench",
+      "category": "Datasets",
+      "milestoneType": "Dataset releases",
+      "date": "2026-04-24",
+      "status": "Released",
+      "summary": "Dataset benchmark release for forecasting model comparisons in energy intelligence scenarios.",
+      "details": [
+        "Dataset release provides consistent benchmark foundation for model evaluation.",
+        "Linked to publication and framework-level decision intelligence initiatives."
+      ],
+      "relatedFrameworkSlugs": ["decision-intelligence-architecture", "ai-observability-framework"],
+      "relatedPublicationSlugs": ["bqeb-forecastbench-benchmarking-ai-models"],
+      "relatedDatasetTitles": ["BQEB ForecastBench"],
+      "relatedProjectTitles": ["BQEB ForecastBench"],
+      "relatedRepositoryNames": ["research-portfolio"]
+    },
+    {
+      "id": "dataset-release-bqeb-core",
+      "title": "Dataset Release: BQEB-Data Core Benchmarks",
+      "category": "Datasets",
+      "milestoneType": "Dataset releases",
+      "date": "2026-04-20",
+      "status": "Released",
+      "summary": "Core BQEB dataset benchmarks released for smart-grid analytics and energy intelligence research.",
+      "details": [
+        "Published DOI-backed benchmark datasets and replication-aligned data artifacts.",
+        "Established open foundation for autonomous energy intelligence experiments."
+      ],
+      "relatedFrameworkSlugs": ["decision-intelligence-architecture", "enterprise-intelligence-framework"],
+      "relatedPublicationSlugs": ["bqeb-data-open-benchmark-dataset"],
+      "relatedDatasetTitles": ["BQEB-Data: An Open Benchmark Dataset for Autonomous Energy Intelligence and Smart Grid Analytics", "BQEB-Data BIO-Quantum Energy Brain Benchmark Dataset for Smart Grid Intelligence, Renewable Forecasting, Storage Optimization, and Cyber Resilience"],
+      "relatedProjectTitles": ["BQEB-Data"],
+      "relatedRepositoryNames": ["research-portfolio"]
+    },
+    {
+      "id": "publication-digital-brain-journey",
+      "title": "Publication Milestone: Enterprise Digital Brain",
+      "category": "Publications",
+      "milestoneType": "Publication milestones",
+      "date": "2026-04-15",
+      "status": "Published",
+      "summary": "Published milestone for the Enterprise Digital Brain architecture and knowledge productivity model.",
+      "details": [
+        "Captured architecture intent and enterprise cognitive system framing.",
+        "Linked publication to frameworks and implementation pathways."
+      ],
+      "relatedFrameworkSlugs": ["enterprise-digital-brain", "enterprise-knowledge-graph"],
+      "relatedPublicationSlugs": ["enterprise-digital-brain-cognitive-productivity"],
+      "relatedDatasetTitles": ["BQEB ForecastBench"],
+      "relatedProjectTitles": ["Enterprise Digital Brain"],
+      "relatedRepositoryNames": ["RakeshKumarAgrawal.github.io"]
+    },
+    {
+      "id": "publication-journal-biobrain",
+      "title": "Journal Article Milestone: BioBrain",
+      "category": "Publications",
+      "milestoneType": "Journal article",
+      "date": "2026-04-09",
+      "status": "Published",
+      "summary": "Journal publication milestone for explainable federated AI in multi-omics disease risk prediction.",
+      "details": [
+        "Advanced healthcare AI contribution with explainability focus.",
+        "Strengthened publication track for life-science AI applications."
+      ],
+      "relatedFrameworkSlugs": [],
+      "relatedPublicationSlugs": ["biobrain-explainable-federated-ai"],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": ["BioBrain"],
+      "relatedRepositoryNames": ["research-portfolio"]
+    },
+    {
+      "id": "membership-ieee-senior",
+      "title": "Professional Membership: IEEE Senior Member",
+      "category": "Professional Service",
+      "milestoneType": "Professional memberships",
+      "date": "2025-03-01",
+      "status": "Active",
+      "summary": "Senior membership standing reflected in publicly traceable IEEE membership record.",
+      "details": [
+        "Represents professional service recognition in technical communities.",
+        "Supports continuing governance, review, and standards participation trajectory."
+      ],
+      "relatedFrameworkSlugs": [],
+      "relatedPublicationSlugs": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "relatedRepositoryNames": []
+    },
+    {
+      "id": "membership-pmi",
+      "title": "Professional Membership: PMI",
+      "category": "Professional Service",
+      "milestoneType": "Professional memberships",
+      "date": "2024-10-01",
+      "status": "Active",
+      "summary": "Professional membership milestone aligned with project and delivery leadership practices.",
+      "details": [
+        "Adds project governance and delivery discipline context to technical research programs.",
+        "Complements architecture implementation and operational planning tracks."
+      ],
+      "relatedFrameworkSlugs": [],
+      "relatedPublicationSlugs": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "relatedRepositoryNames": []
+    },
+    {
+      "id": "conference-paper-track",
+      "title": "Conference Paper Track",
+      "category": "Publications",
+      "milestoneType": "Conference papers",
+      "date": "2026-07-20",
+      "status": "Manuscript",
+      "summary": "Conference paper pipeline is represented as an active manuscript track for future verified conference milestones.",
+      "details": [
+        "No individual verified conference paper entries are currently enumerated in the public source set.",
+        "Timeline includes this track to support future conference milestone additions without code changes."
+      ],
+      "relatedFrameworkSlugs": ["decision-intelligence-architecture", "enterprise-ai-control-plane"],
+      "relatedPublicationSlugs": [],
+      "relatedDatasetTitles": ["BQEB ForecastBench"],
+      "relatedProjectTitles": [],
+      "relatedRepositoryNames": ["research-portfolio"]
+    },
+    {
+      "id": "book-chapter-track",
+      "title": "Book Chapter Track",
+      "category": "Publications",
+      "milestoneType": "Book chapters",
+      "date": "2026-07-20",
+      "status": "Under Review",
+      "summary": "Book chapter track is included for structured future expansion of verified publication formats.",
+      "details": [
+        "No individual verified book chapter entries are currently enumerated in the public source set.",
+        "Timeline structure supports adding chapter-specific milestones directly in JSON."
+      ],
+      "relatedFrameworkSlugs": ["enterprise-intelligence-framework", "enterprise-knowledge-graph"],
+      "relatedPublicationSlugs": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "relatedRepositoryNames": ["research-portfolio"]
+    },
+    {
+      "id": "professional-certification-track",
+      "title": "Professional Certification Track",
+      "category": "Professional Service",
+      "milestoneType": "Professional certifications",
+      "date": "2026-07-20",
+      "status": "Active",
+      "summary": "Certification timeline track established for cloud, AI, project management, and digital credential milestones.",
+      "details": [
+        "Current public credential section is organized as category-level records.",
+        "Timeline supports adding certification-level entries as verified records become available."
+      ],
+      "relatedFrameworkSlugs": ["llmops-maturity-model", "enterprise-ai-control-plane"],
+      "relatedPublicationSlugs": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "relatedRepositoryNames": ["RakeshKumarAgrawal.github.io"]
+    }
+  ]
+}

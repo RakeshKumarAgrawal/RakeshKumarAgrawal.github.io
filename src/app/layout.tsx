@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
-import "../styles/globals.css";
+import Script from "next/script";
 
-const siteUrl = "https://rakeshkumaragrawal.github.io";
-const siteTitle = "Rakesh Kumar Agrawal | Research and Engineering Profile";
-const siteDescription =
-  "Verified research and engineering profile for Rakesh Kumar Agrawal, with traceable publications, datasets, professional activity, and evidence records.";
+import GlobalEnhancements from "@/components/layout/GlobalEnhancements";
+import { siteConfig } from "@/lib/seo";
+import { THEME_STORAGE_KEY } from "@/lib/theme";
+import "../styles/globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-display",
@@ -23,21 +23,32 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
   title: {
-    default: siteTitle,
-    template: "%s | Rakesh Kumar Agrawal",
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: siteDescription,
+  description: siteConfig.description,
+  keywords: [
+    "enterprise ai",
+    "research",
+    "publications",
+    "datasets",
+    "knowledge graph",
+    "open science",
+    "professional service",
+  ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
-    url: siteUrl,
-    title: siteTitle,
-    description: siteDescription,
-    siteName: "Rakesh Kumar Agrawal",
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
     images: [
       {
         url: "/globe.svg",
@@ -47,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: ["/globe.svg"],
   },
   icons: {
@@ -62,8 +73,40 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  sameAs: [
+    "https://orcid.org/0009-0009-7113-5539",
+    "https://github.com/RakeshKumarAgrawal",
+    "https://scholar.google.com/citations?hl=en&user=dhXBvxQAAAAJ",
+  ],
+};
+
+const themeBootScript = `
+(() => {
+  try {
+    const saved = localStorage.getItem('${THEME_STORAGE_KEY}');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved === 'light' || saved === 'dark' ? saved : (prefersDark ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch {
+    document.documentElement.dataset.theme = 'dark';
+  }
+})();
+`;
 
 export default function RootLayout({
   children,
@@ -78,6 +121,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background text-foreground">
+        <Script id="theme-boot" strategy="beforeInteractive">
+          {themeBootScript}
+        </Script>
+        <Script id="person-structured-data" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(organizationSchema)}
+        </Script>
         <a
           href="#content"
           className="sr-only rounded-full bg-primary px-4 py-2 font-medium text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100]"
@@ -85,6 +134,7 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
+        <GlobalEnhancements />
       </body>
     </html>
   );

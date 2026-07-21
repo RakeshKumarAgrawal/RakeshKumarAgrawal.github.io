@@ -4,7 +4,9 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
+import ProfessionalPortrait from "@/components/profile/ProfessionalPortrait";
 import Reveal from "@/components/ui/Reveal";
+import { homeContent } from "@/data/homeContent";
 import { profile } from "@/data/profile";
 
 export default function Hero() {
@@ -12,10 +14,18 @@ export default function Hero() {
     <section id="home" className="relative overflow-hidden pt-14 sm:pt-18 lg:pt-22">
       <Container className="space-y-10 lg:space-y-12">
         <Reveal className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-16">
-          <div className="space-y-8">
+          <div className="order-2 space-y-8 lg:order-1">
+            <div className="flex justify-center lg:hidden">
+              <ProfessionalPortrait
+                size="section"
+                loading="lazy"
+                ariaLabel="Professional profile image for hero introduction"
+              />
+            </div>
+
             <div className="space-y-6">
               <Badge className="bg-white/6 text-[0.66rem] tracking-[0.32em] text-accent">
-                Enterprise portfolio
+                {homeContent.hero.badge}
               </Badge>
 
               <div className="space-y-4">
@@ -44,7 +54,7 @@ export default function Hero() {
               </p>
 
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted">
-                Source: <a href={profile.sourceURL} className="text-primary transition hover:text-primary/80">{profile.sourceName}</a>
+                {homeContent.hero.sourceLabel}: <a href={profile.sourceURL} className="text-primary transition hover:text-primary/80">{profile.sourceName}</a>
               </p>
             </div>
 
@@ -84,7 +94,15 @@ export default function Hero() {
             </div>
           </div>
 
-          <Reveal delay={0.12} className="relative">
+          <Reveal delay={0.12} className="order-1 relative space-y-6 lg:order-2">
+            <div className="hidden justify-center lg:flex">
+              <ProfessionalPortrait
+                size="hero"
+                loading="lazy"
+                ariaLabel="Professional profile image displayed beside introduction"
+              />
+            </div>
+
             <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/25 via-transparent to-accent/15 blur-3xl" />
             <Card className="relative overflow-hidden p-7 sm:p-8">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
@@ -100,11 +118,11 @@ export default function Hero() {
                 </div>
 
                 <div className="space-y-4 rounded-3xl border border-border/70 bg-surface-strong/80 p-5">
-                  <p className="text-sm font-semibold text-foreground">Verified record summary</p>
+                  <p className="text-sm font-semibold text-foreground">{homeContent.hero.summaryTitle}</p>
                   <ul className="space-y-3 text-sm leading-6 text-muted">
-                    <li>Large-scale IT operations across banking and healthcare domains.</li>
-                    <li>Practical applications of AI, including intelligent healthcare and predictive analytics.</li>
-                    <li>Reliability, ethics, and human-in-the-loop decision support.</li>
+                    {homeContent.hero.summaryPoints.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
                   </ul>
                 </div>
               </div>

@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "badge": "Enterprise portfolio",
+    "sourceLabel": "Source",
+    "summaryTitle": "Verified record summary",
+    "summaryPoints": [
+      "Large-scale IT operations across banking and healthcare domains.",
+      "Practical applications of AI, including intelligent healthcare and predictive analytics.",
+      "Reliability, ethics, and human-in-the-loop decision support."
+    ]
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Verified public profile",
+    "actionLabel": "See experience"
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Verified contact channels",
+    "description": "Public email addresses and profile links surfaced in the verified source set.",
+    "primaryAction": "Review verified work",
+    "secondaryAction": "View profile links"
+  }
+}

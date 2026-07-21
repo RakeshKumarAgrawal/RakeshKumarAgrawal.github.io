@@ -4,10 +4,7 @@ import { useSyncExternalStore } from "react";
 import { MoonStar, SunMedium } from "lucide-react";
 
 import { cn } from "@/lib/cn";
-
-type Theme = "dark" | "light";
-
-const storageKey = "rka-portfolio-theme";
+import { getPreferredTheme, THEME_STORAGE_KEY, type Theme } from "@/lib/theme";
 
 function getThemeSnapshot(): Theme {
   if (typeof document !== "undefined") {
@@ -19,13 +16,10 @@ function getThemeSnapshot(): Theme {
   }
 
   if (typeof window !== "undefined") {
-    const savedTheme = window.localStorage.getItem(storageKey);
-
-    if (savedTheme === "dark" || savedTheme === "light") {
-      return savedTheme;
-    }
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return getPreferredTheme(
+      window.localStorage.getItem(THEME_STORAGE_KEY),
+      window.matchMedia("(prefers-color-scheme: dark)").matches,
+    );
   }
 
   return "dark";
@@ -52,7 +46,7 @@ export default function ThemeToggle() {
     const nextTheme: Theme = theme === "dark" ? "light" : "dark";
 
     document.documentElement.dataset.theme = nextTheme;
-    window.localStorage.setItem(storageKey, nextTheme);
+    window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
     window.dispatchEvent(new Event("themechange"));
   }
 
