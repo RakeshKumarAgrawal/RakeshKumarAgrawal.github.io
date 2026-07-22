@@ -1,4 +1,4 @@
-import DashboardMetricGridClient from "@/components/dashboard/DashboardMetricGridClient";
+import DashboardGrid from "@/components/dashboard/DashboardGrid";
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
@@ -6,7 +6,6 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import {
   dashboardHomeSection,
   dashboardMetrics,
-  dashboardTrendWindowLabel,
 } from "@/data/dashboardMetrics";
 
 export default function ResearchImpactSection() {
@@ -24,11 +23,7 @@ export default function ResearchImpactSection() {
         </Reveal>
 
         <Reveal delay={0.04}>
-          <DashboardMetricGridClient
-            metrics={dashboardMetrics}
-            trendWindowLabel={dashboardTrendWindowLabel}
-            enableFilters={false}
-          />
+          <DashboardGrid metrics={dashboardMetrics} ariaLabel="Research and professional impact metrics" />
         </Reveal>
       </Container>
     </section>

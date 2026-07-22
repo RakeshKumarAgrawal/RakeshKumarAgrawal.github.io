@@ -1,9 +1,10 @@
 import { certifications } from "./certifications";
 import rawDashboardMetrics from "./dashboardMetrics.json";
 import { datasets } from "./datasets";
-import { executiveProfile } from "./executiveProfile";
 import { frameworksLibrary } from "./frameworksLibrary";
 import { memberships } from "./memberships";
+import { openScienceProfiles } from "./openScienceProfiles";
+import { originalContributions } from "./originalContributions";
 import { peerReviews } from "./peerReviews";
 import { professionalServiceTimelineEntries } from "./professionalServiceLibrary";
 import { projects } from "./projects";
@@ -13,17 +14,24 @@ import { software } from "./software";
 
 export type DashboardMetricSource =
   | "researchPublications"
+  | "researchProjects"
+  | "originalContributions"
   | "frameworks"
   | "researchDatasets"
-  | "openSourceProjects"
   | "githubRepositories"
   | "professionalMemberships"
   | "peerReviewActivities"
-  | "editorialActivities"
   | "technicalArticles"
   | "newsletterEditions"
   | "professionalCertifications"
-  | "yearsOfExperience";
+  | "openScienceProfiles";
+
+export type DashboardMetricCategory =
+  | "Research Output"
+  | "Engineering Execution"
+  | "Research Architecture"
+  | "Professional Leadership"
+  | "Open Science";
 
 export type DashboardFilterGroup =
   | "Research"
@@ -35,12 +43,14 @@ export type DashboardFilterGroup =
 type DashboardMetricRecord = {
   id: string;
   title: string;
+  value: number;
   description: string;
-  source: DashboardMetricSource;
-  href: string;
   icon: string;
-  filterGroup: DashboardFilterGroup;
-  trend: number[];
+  route: string;
+  category: DashboardMetricCategory;
+  lastUpdated: string;
+  source: DashboardMetricSource;
+  breakdown?: string[];
 };
 
 type DashboardMetricsRecord = {
@@ -58,14 +68,24 @@ type DashboardMetricsRecord = {
   metrics: DashboardMetricRecord[];
 };
 
+export type DashboardMetricBreakdown = {
+  label: string;
+  value: number;
+};
+
 export type DashboardMetric = {
   id: string;
   title: string;
   description: string;
   value: number;
-  href: string;
   icon: string;
+  route: string;
+  href: string;
+  category: DashboardMetricCategory;
   filterGroup: DashboardFilterGroup;
+  lastUpdated: string;
+  source: DashboardMetricSource;
+  breakdown: DashboardMetricBreakdown[];
   trend: number[];
 };
 
@@ -87,9 +107,164 @@ const toDistribution = (values: string[]): DashboardDistributionItem[] => {
     .sort((a, b) => b.value - a.value);
 };
 
+const publicationCountByCategory = (category: string) =>
+  publicationsLibrary.filter((item) => item.category === category).length;
+
+const matchAny = (value: string, patterns: readonly RegExp[]) =>
+  patterns.some((pattern) => pattern.test(value));
+
+const projectClassifiers = {
+  "Enterprise AI": [/enterprise ai/i, /enterprise intelligence/i, /agentic/i],
+  "Platform Engineering": [/platform/i, /framework/i, /architecture/i, /llmops/i],
+  "Healthcare AI": [/healthcare/i, /bio/i, /life science/i],
+  "Cloud Engineering": [/cloud/i, /aws/i, /azure/i],
+} as const;
+
+const projectBreakdownCounts = projects.items.reduce(
+  (accumulator, project) => {
+    const text = `${project.title} ${project.description} ${(project.meta ?? []).join(" ")}`;
+
+    (Object.keys(projectClassifiers) as Array<keyof typeof projectClassifiers>).forEach((label) => {
+      if (matchAny(text, projectClassifiers[label])) {
+        accumulator.set(label, (accumulator.get(label) ?? 0) + 1);
+      }
+    });
+
+    return accumulator;
+  },
+  new Map<string, number>(),
+);
+
+const certificationLabels = {
+  Cloud: ["Cloud"],
+  AI: ["AI"],
+  "Project Management": ["Project Management"],
+  Professional: ["Professional Certifications"],
+} as const;
+
+const certificationBreakdownCounts = new Map<string, number>(
+  Object.entries(certificationLabels).map(([label, matchTitles]) => [
+    label,
+    certifications.items.filter((item) => (matchTitles as readonly string[]).includes(item.title)).length,
+  ]),
+);
+
+const openScienceProfileCountByTitle = new Map<string, number>(
+  openScienceProfiles.map((profile) => [profile.title, 1]),
+);
+
+const featuredRepositoryCount = software.items.filter((item) =>
+  (item.meta ?? []).some((meta) => ["Portfolio", "Research", "Benchmark", "Framework"].includes(meta)),
+).length;
+
+const dashboardCategoryToFilterGroup: Record<DashboardMetricCategory, DashboardFilterGroup> = {
+  "Research Output": "Research",
+  "Engineering Execution": "Projects",
+  "Research Architecture": "Frameworks",
+  "Professional Leadership": "Professional Service",
+  "Open Science": "Datasets",
+};
+
+const buildBreakdown = (metric: DashboardMetricRecord): DashboardMetricBreakdown[] => {
+  if (!metric.breakdown?.length) {
+    return [];
+  }
+
+  if (metric.source === "researchPublications") {
+    const map = new Map<string, number>([
+      ["Journal Articles", publicationCountByCategory("Journal Articles")],
+      ["Conference Papers", publicationCountByCategory("Conference Papers")],
+      ["Book Chapters", publicationCountByCategory("Book Chapters")],
+      ["White Papers", publicationCountByCategory("White Papers")],
+      ["Technical Reports", publicationCountByCategory("Technical Reports")],
+    ]);
+
+    return metric.breakdown.map((label) => ({ label, value: map.get(label) ?? 0 }));
+  }
+
+  if (metric.source === "researchProjects") {
+    return metric.breakdown.map((label) => ({ label, value: projectBreakdownCounts.get(label) ?? 0 }));
+  }
+
+  if (metric.source === "githubRepositories") {
+    const map = new Map<string, number>([
+      ["Public repositories", software.items.length],
+      ["Featured repositories", featuredRepositoryCount],
+    ]);
+
+    return metric.breakdown.map((label) => ({ label, value: map.get(label) ?? 0 }));
+  }
+
+  if (metric.source === "professionalMemberships") {
+    const map = new Map<string, number>([
+      [
+        "IEEE Senior Member",
+        memberships.items.filter(
+          (item) => item.organization.includes("IEEE") && item.role.toLowerCase().includes("senior"),
+        ).length,
+      ],
+      [
+        "IETE Fellow",
+        memberships.items.filter(
+          (item) =>
+            item.organization.includes("Institution of Electronics and Telecommunication Engineers") &&
+            item.role.toLowerCase().includes("fellow"),
+        ).length,
+      ],
+      ["Other Professional Organizations", memberships.items.length],
+    ]);
+
+    return metric.breakdown.map((label) => ({ label, value: map.get(label) ?? 0 }));
+  }
+
+  if (metric.source === "peerReviewActivities") {
+    const map = new Map<string, number>([
+      ["Journals", 0],
+      ["Conferences", 0],
+      [
+        "Editorial Activities",
+        professionalServiceTimelineEntries.filter((entry) => entry.category === "Editorial Activities").length,
+      ],
+    ]);
+
+    return metric.breakdown.map((label) => ({ label, value: map.get(label) ?? 0 }));
+  }
+
+  if (metric.source === "technicalArticles") {
+    return metric.breakdown.map((label) => ({ label, value: publicationCountByCategory(label) }));
+  }
+
+  if (metric.source === "newsletterEditions") {
+    return metric.breakdown.map((label) => ({ label, value: publicationCountByCategory(label) }));
+  }
+
+  if (metric.source === "professionalCertifications") {
+    return metric.breakdown.map((label) => ({ label, value: certificationBreakdownCounts.get(label) ?? 0 }));
+  }
+
+  if (metric.source === "openScienceProfiles") {
+    return metric.breakdown.map((label) => ({ label, value: openScienceProfileCountByTitle.get(label) ?? 0 }));
+  }
+
+  if (metric.source === "originalContributions") {
+    const map = new Map<string, number>(originalContributions.map((item) => [item.title, 1]));
+    return metric.breakdown.map((label) => ({ label, value: map.get(label) ?? 0 }));
+  }
+
+  return metric.breakdown.map((label) => ({ label, value: 0 }));
+};
+
 const computeMetricValue = (source: DashboardMetricSource) => {
   if (source === "researchPublications") {
     return publicationsLibrary.length;
+  }
+
+  if (source === "researchProjects") {
+    return projects.items.length;
+  }
+
+  if (source === "originalContributions") {
+    return originalContributions.length;
   }
 
   if (source === "frameworks") {
@@ -98,10 +273,6 @@ const computeMetricValue = (source: DashboardMetricSource) => {
 
   if (source === "researchDatasets") {
     return datasets.items.length;
-  }
-
-  if (source === "openSourceProjects") {
-    return projects.items.length;
   }
 
   if (source === "githubRepositories") {
@@ -116,28 +287,55 @@ const computeMetricValue = (source: DashboardMetricSource) => {
     return peerReviews.stats.totalReviews;
   }
 
-  if (source === "editorialActivities") {
-    return professionalServiceTimelineEntries.filter((entry) => entry.category === "Editorial Activities").length;
-  }
-
   if (source === "technicalArticles") {
-    return publicationsLibrary.filter((item) => item.category === "Professional Articles").length;
+    return publicationCountByCategory("Professional Articles");
   }
 
   if (source === "newsletterEditions") {
-    return publicationsLibrary.filter((item) => item.category === "Newsletter Editions").length;
+    return publicationCountByCategory("Newsletter Editions");
   }
 
   if (source === "professionalCertifications") {
     return certifications.items.length;
   }
 
-  return Number.parseInt(executiveProfile.experienceLabel, 10) || 0;
+  return openScienceProfiles.length;
 };
 
 export const dashboardHomeSection = data.homeSection;
 export const dashboardHero = data.hero;
 export const dashboardTrendWindowLabel = data.trendWindowLabel;
+
+export const dashboardMetrics: DashboardMetric[] = data.metrics.map((metric) => {
+  const value = computeMetricValue(metric.source);
+  const breakdown = buildBreakdown(metric);
+
+  return {
+    id: metric.id,
+    title: metric.title,
+    description: metric.description,
+    value,
+    icon: metric.icon,
+    route: metric.route,
+    href: metric.route,
+    category: metric.category,
+    filterGroup: dashboardCategoryToFilterGroup[metric.category],
+    lastUpdated: metric.lastUpdated,
+    source: metric.source,
+    breakdown,
+    trend: breakdown.map((item) => item.value),
+  };
+});
+
+export const dashboardMetricsByCategory = dashboardMetrics.reduce(
+  (accumulator, metric) => {
+    const bucket = accumulator.get(metric.category) ?? [];
+    bucket.push(metric);
+    accumulator.set(metric.category, bucket);
+    return accumulator;
+  },
+  new Map<DashboardMetricCategory, DashboardMetric[]>(),
+);
 
 export const dashboardFilterGroups: DashboardFilterGroup[] = [
   "Research",
@@ -146,17 +344,6 @@ export const dashboardFilterGroups: DashboardFilterGroup[] = [
   "Projects",
   "Professional Service",
 ];
-
-export const dashboardMetrics: DashboardMetric[] = data.metrics.map((metric) => ({
-  id: metric.id,
-  title: metric.title,
-  description: metric.description,
-  value: computeMetricValue(metric.source),
-  href: metric.href,
-  icon: metric.icon,
-  filterGroup: metric.filterGroup,
-  trend: metric.trend,
-}));
 
 export const researchAreaDistribution: DashboardDistributionItem[] = researchDomains.map((domain) => ({
   label: domain.title,
@@ -176,7 +363,7 @@ export const frameworkDistribution: DashboardDistributionItem[] = toDistribution
 );
 
 export const projectCategoryDistribution: DashboardDistributionItem[] = toDistribution(
-  projects.items.map((project) => project.meta?.[0] ?? "Unspecified"),
+  projects.items.flatMap((project) => project.meta?.[0] ?? "Unspecified"),
 );
 
 export const technologyStackDistribution: DashboardDistributionItem[] = toDistribution(

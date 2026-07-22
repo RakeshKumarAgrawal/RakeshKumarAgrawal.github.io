@@ -1,135 +1,207 @@
 {
   "homeSection": {
-    "eyebrow": "Research Impact",
-    "title": "Research Impact",
-    "description": "A snapshot of my research, engineering, professional service, and open science contributions."
+    "eyebrow": "Research & Professional Impact",
+    "title": "Research & Professional Impact",
+    "description": "A consolidated view of my research, engineering, professional leadership, open science contributions, and technical accomplishments."
   },
   "hero": {
-    "eyebrow": "Research Impact Dashboard",
-    "title": "Executive dashboard for research and engineering impact",
-    "description": "Detailed impact view across research, frameworks, datasets, open-source engineering, professional service, and technical leadership indicators."
+    "eyebrow": "Executive KPI Dashboard",
+    "title": "Research & Professional Impact",
+    "description": "A consolidated view of my research, engineering, professional leadership, open science contributions, and technical accomplishments."
   },
-  "trendWindowLabel": "Last 6 checkpoints",
+  "trendWindowLabel": "Contribution distribution",
   "metrics": [
     {
-      "id": "research-publications",
-      "title": "Research Publications",
-      "description": "Indexed publication records in the research library.",
-      "source": "researchPublications",
-      "href": "/research",
+      "id": "total-publications",
+      "title": "Total Publications",
+      "value": 0,
+      "description": "Journal articles, conference papers, book chapters, white papers, and technical reports.",
       "icon": "book",
-      "filterGroup": "Research",
-      "trend": [4, 6, 7, 8, 10, 11]
+      "route": "/publications",
+      "category": "Research Output",
+      "lastUpdated": "2026-07-22",
+      "source": "researchPublications",
+      "breakdown": [
+        "Journal Articles",
+        "Conference Papers",
+        "Book Chapters",
+        "White Papers",
+        "Technical Reports"
+      ]
     },
     {
-      "id": "frameworks",
-      "title": "Frameworks",
-      "description": "Architecture frameworks tracked in the framework library.",
-      "source": "frameworks",
-      "href": "/frameworks",
-      "icon": "network",
-      "filterGroup": "Frameworks",
-      "trend": [5, 7, 9, 10, 12, 13]
-    },
-    {
-      "id": "research-datasets",
-      "title": "Research Datasets",
-      "description": "Public dataset assets supporting open and applied research.",
-      "source": "researchDatasets",
-      "href": "/open-science",
-      "icon": "database",
-      "filterGroup": "Datasets",
-      "trend": [2, 3, 4, 5, 7, 8]
-    },
-    {
-      "id": "open-source-projects",
-      "title": "Open Source Projects",
-      "description": "Project-sized public artifacts and open implementation pathways.",
-      "source": "openSourceProjects",
-      "href": "/original-contributions",
+      "id": "total-research-projects",
+      "title": "Total Research Projects",
+      "value": 0,
+      "description": "Enterprise AI, platform engineering, healthcare AI, and cloud engineering project initiatives.",
       "icon": "rocket",
-      "filterGroup": "Projects",
-      "trend": [1, 2, 2, 3, 4, 4]
+      "route": "/projects",
+      "category": "Engineering Execution",
+      "lastUpdated": "2026-07-22",
+      "source": "researchProjects",
+      "breakdown": [
+        "Enterprise AI",
+        "Platform Engineering",
+        "Healthcare AI",
+        "Cloud Engineering"
+      ]
     },
     {
-      "id": "github-repositories",
-      "title": "GitHub Repositories",
-      "description": "Public repositories linked to research and engineering outputs.",
+      "id": "total-original-contributions",
+      "title": "Total Original Contributions",
+      "value": 0,
+      "description": "Flagship research systems, frameworks, and benchmark initiatives across enterprise AI programs.",
+      "icon": "layers",
+      "route": "/original-contributions",
+      "category": "Engineering Execution",
+      "lastUpdated": "2026-07-22",
+      "source": "originalContributions",
+      "breakdown": [
+        "Enterprise Digital Brain",
+        "Enterprise AI Governance Framework",
+        "Enterprise AI Control Plane",
+        "Enterprise Intelligence Framework",
+        "BQEB-Data",
+        "ForecastBench",
+        "LLMOps Maturity Model",
+        "Enterprise Knowledge Graph",
+        "Decision Intelligence Architecture"
+      ]
+    },
+    {
+      "id": "total-frameworks",
+      "title": "Total Frameworks",
+      "value": 0,
+      "description": "Research and engineering frameworks available for enterprise implementation pathways.",
+      "icon": "network",
+      "route": "/frameworks",
+      "category": "Research Architecture",
+      "lastUpdated": "2026-07-22",
+      "source": "frameworks"
+    },
+    {
+      "id": "total-datasets",
+      "title": "Total Datasets",
+      "value": 0,
+      "description": "Research datasets and benchmark data assets supporting open science and reproducibility.",
+      "icon": "database",
+      "route": "/datasets",
+      "category": "Open Science",
+      "lastUpdated": "2026-07-22",
+      "source": "researchDatasets"
+    },
+    {
+      "id": "total-github-repositories",
+      "title": "Total GitHub Repositories",
+      "value": 0,
+      "description": "Public repositories and featured implementation artifacts in the open engineering footprint.",
       "source": "githubRepositories",
-      "href": "/open-science",
       "icon": "github",
-      "filterGroup": "Projects",
-      "trend": [1, 1, 2, 2, 3, 3]
+      "route": "/github",
+      "category": "Engineering Execution",
+      "lastUpdated": "2026-07-22",
+      "breakdown": [
+        "Public repositories",
+        "Featured repositories"
+      ]
     },
     {
-      "id": "professional-memberships",
-      "title": "Professional Memberships",
-      "description": "Tracked memberships across engineering and standards institutions.",
-      "source": "professionalMemberships",
-      "href": "/professional-service",
+      "id": "total-professional-memberships",
+      "title": "Total Memberships",
+      "value": 0,
+      "description": "Professional memberships and standards community participation across recognized organizations.",
       "icon": "users",
-      "filterGroup": "Professional Service",
-      "trend": [0, 0, 0, 0, 1, 1]
+      "route": "/professional-service",
+      "category": "Professional Leadership",
+      "lastUpdated": "2026-07-22",
+      "source": "professionalMemberships",
+      "breakdown": [
+        "IEEE Senior Member",
+        "IETE Fellow",
+        "Other Professional Organizations"
+      ]
     },
     {
-      "id": "peer-review-activities",
-      "title": "Peer Review Activities",
-      "description": "Publicly visible aggregate peer-review records.",
-      "source": "peerReviewActivities",
-      "href": "/professional-service",
+      "id": "total-peer-review-activities",
+      "title": "Total Peer Reviews",
+      "value": 0,
+      "description": "Peer review and editorial service activity from verified public professional records.",
       "icon": "check-circle",
-      "filterGroup": "Professional Service",
-      "trend": [0, 0, 0, 0, 1, 1]
-    },
-    {
-      "id": "editorial-activities",
-      "title": "Editorial Activities",
-      "description": "Editorial milestones currently recorded in professional service timeline.",
-      "source": "editorialActivities",
-      "href": "/professional-service",
-      "icon": "pen-square",
-      "filterGroup": "Professional Service",
-      "trend": [2, 3, 4, 6, 8, 9]
+      "route": "/professional-service",
+      "category": "Professional Leadership",
+      "lastUpdated": "2026-07-22",
+      "source": "peerReviewActivities",
+      "breakdown": [
+        "Journals",
+        "Conferences",
+        "Editorial Activities"
+      ]
     },
     {
       "id": "technical-articles",
       "title": "Technical Articles",
-      "description": "Technical/professional article records in publication system.",
-      "source": "technicalArticles",
-      "href": "/publications/linkedin-professional-articles-index",
+      "value": 0,
+      "description": "Technical thought leadership articles and professional engineering writeups.",
       "icon": "file-text",
-      "filterGroup": "Research",
-      "trend": [2, 3, 3, 4, 5, 5]
+      "route": "/publications",
+      "category": "Research Output",
+      "lastUpdated": "2026-07-22",
+      "source": "technicalArticles",
+      "breakdown": [
+        "Professional Articles"
+      ]
     },
     {
       "id": "newsletter-editions",
       "title": "Newsletter Editions",
-      "description": "Newsletter authority and edition records.",
-      "source": "newsletterEditions",
-      "href": "/publications/linkedin-newsletter-authority-record",
+      "value": 0,
+      "description": "Research newsletter editions and recurring long-form research communication outputs.",
       "icon": "newspaper",
-      "filterGroup": "Research",
-      "trend": [2, 3, 3, 4, 5, 5]
+      "route": "/publications",
+      "category": "Research Output",
+      "lastUpdated": "2026-07-22",
+      "source": "newsletterEditions",
+      "breakdown": [
+        "Newsletter Editions"
+      ]
     },
     {
       "id": "professional-certifications",
       "title": "Professional Certifications",
-      "description": "Credential categories and certification tracks.",
-      "source": "professionalCertifications",
-      "href": "/professional-certifications",
+      "value": 0,
+      "description": "Certification portfolio across cloud, AI, project management, and professional credential pathways.",
       "icon": "award",
-      "filterGroup": "Professional Service",
-      "trend": [2, 3, 3, 4, 5, 5]
+      "route": "/about",
+      "category": "Professional Leadership",
+      "lastUpdated": "2026-07-22",
+      "source": "professionalCertifications",
+      "breakdown": [
+        "Cloud",
+        "AI",
+        "Project Management",
+        "Professional"
+      ]
     },
     {
-      "id": "years-of-experience",
-      "title": "Years of Experience",
-      "description": "Derived from configured executive profile experience label.",
-      "source": "yearsOfExperience",
-      "href": "/about",
-      "icon": "calendar",
-      "filterGroup": "Professional Service",
-      "trend": [2, 3, 3, 4, 5, 5]
+      "id": "open-science-profiles",
+      "title": "Connected Profiles",
+      "value": 0,
+      "description": "Open science and research identity profiles connected to a single verified professional research graph.",
+      "icon": "globe",
+      "route": "/open-science",
+      "category": "Open Science",
+      "lastUpdated": "2026-07-22",
+      "source": "openScienceProfiles",
+      "breakdown": [
+        "GitHub",
+        "Google Scholar",
+        "ResearchGate",
+        "ORCID",
+        "Zenodo",
+        "Harvard Dataverse",
+        "IEEE DataPort",
+        "Enterprise Intelligence Lab"
+      ]
     }
   ]
 }
