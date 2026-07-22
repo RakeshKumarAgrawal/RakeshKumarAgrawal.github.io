@@ -75,10 +75,10 @@ export default function ContactCTA() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Button href="#projects" rightIcon={<ArrowRight className="h-4 w-4" />}>
+                  <Button href="/research" rightIcon={<ArrowRight className="h-4 w-4" />}>
                     {homeContent.contact.primaryAction}
                   </Button>
-                  <Button href="#external-profiles" variant="secondary">
+                  <Button href="/open-science" variant="secondary">
                     {homeContent.contact.secondaryAction}
                   </Button>
                 </div>

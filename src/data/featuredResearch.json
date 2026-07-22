@@ -1,0 +1,70 @@
+{
+  "eyebrow": "Featured Research",
+  "title": "Featured Research",
+  "description": "Explore my flagship research initiatives focused on Enterprise Artificial Intelligence, AI Governance, Platform Engineering, and Open Science.",
+  "items": [
+    {
+      "slug": "enterprise-digital-brain",
+      "title": "Enterprise Digital Brain",
+      "category": "Enterprise AI",
+      "summary": "An AI-augmented framework for enterprise knowledge organization, governance, reasoning, and decision intelligence.",
+      "bannerLabel": "Enterprise intelligence architecture",
+      "highlights": [
+        "Overview",
+        "Architecture",
+        "Publications",
+        "GitHub Repository",
+        "Related Frameworks",
+        "Future Research"
+      ],
+      "technologies": ["Enterprise AI", "Knowledge Systems", "Decision Intelligence", "Architecture"],
+      "actions": {
+        "details": "/original-contributions",
+        "publications": "/publications/enterprise-digital-brain-cognitive-productivity",
+        "github": "https://github.com/RakeshKumarAgrawal/research-portfolio"
+      }
+    },
+    {
+      "slug": "enterprise-ai-governance-framework",
+      "title": "Enterprise AI Governance Framework",
+      "category": "Responsible AI",
+      "summary": "A governance framework for managing enterprise AI systems through policy, risk management, observability, compliance, and human oversight.",
+      "bannerLabel": "Governance and controls model",
+      "highlights": [
+        "Overview",
+        "Governance Model",
+        "Research",
+        "Framework",
+        "GitHub",
+        "Publications"
+      ],
+      "technologies": ["Responsible AI", "Policy Controls", "AI Governance", "Risk Management"],
+      "actions": {
+        "details": "/frameworks/enterprise-ai-governance-framework",
+        "publications": "/publications/enterprise-ai-governance-framework-reference",
+        "github": "https://github.com/RakeshKumarAgrawal/RakeshKumarAgrawal.github.io"
+      }
+    },
+    {
+      "slug": "bqeb-data-forecastbench",
+      "title": "BQEB-Data & ForecastBench",
+      "category": "Open Science",
+      "summary": "Open research datasets and benchmarking resources supporting intelligent energy forecasting, AI evaluation, and enterprise analytics.",
+      "bannerLabel": "Dataset and benchmark ecosystem",
+      "highlights": [
+        "Dataset",
+        "Publications",
+        "GitHub",
+        "Downloads",
+        "Documentation",
+        "Future Work"
+      ],
+      "technologies": ["Open Science", "Datasets", "Benchmarking", "Energy Forecasting"],
+      "actions": {
+        "details": "/open-science",
+        "publications": "/publications/bqeb-forecastbench-benchmarking-ai-models",
+        "github": "https://github.com/RakeshKumarAgrawal/research-portfolio"
+      }
+    }
+  ]
+}

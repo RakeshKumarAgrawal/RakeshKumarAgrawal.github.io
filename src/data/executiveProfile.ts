@@ -26,10 +26,13 @@ export type ExecutiveProfileConfig = {
   title: string;
   memberships: string[];
   experienceLabel: string;
+  careerJourney: string;
   researchAreas: string[];
   professionalSummary: string;
   researchPhilosophy: string;
+  professionalValues: string[];
   technicalExpertise: string[];
+  leadership: string[];
   actions: ExecutiveProfileAction[];
   links: ExecutiveProfileLink[];
   careerTimeline: Array<{
@@ -44,6 +47,8 @@ export const executiveProfile: ExecutiveProfileConfig = {
   title: "Senior Consultant | Applied AI Researcher",
   memberships: ["IEEE Senior Member", "IETE Fellow"],
   experienceLabel: "20+ Years of Experience",
+  careerJourney:
+    "Career progression across IBM, Cognizant, and Atos with focus on enterprise technology operations, platform engineering, and applied AI delivery in large-scale environments.",
   researchAreas: [
     "Enterprise Artificial Intelligence",
     "AI Governance",
@@ -60,11 +65,22 @@ export const executiveProfile: ExecutiveProfileConfig = {
     "Applied AI researcher and enterprise technology leader focused on designing scalable, secure, and responsible AI systems. My work bridges research and industry by developing enterprise AI architectures, governance frameworks, open research datasets, and cloud-native engineering solutions that enable trustworthy intelligent systems.",
   researchPhilosophy:
     "Build enterprise AI systems that are measurable, governed, and useful in real-world operations by connecting rigorous research with practical engineering delivery.",
+  professionalValues: [
+    "Evidence-driven engineering and transparent decision-making",
+    "Security, reliability, and governance by design",
+    "Responsible AI practices with human oversight",
+    "Open science and reproducible technical communication",
+  ],
   technicalExpertise: [
     "Enterprise AI architecture and governance",
     "Cloud-native platform engineering and reliability",
     "Open research dataset and benchmark design",
     "Responsible AI and observability for production systems",
+  ],
+  leadership: [
+    "Leading cross-functional architecture initiatives from strategy to execution",
+    "Mentoring engineering teams on modern AI platform practices",
+    "Driving standards-aligned governance across enterprise AI programs",
   ],
   actions: [
     { label: "View Research", href: "/research" },

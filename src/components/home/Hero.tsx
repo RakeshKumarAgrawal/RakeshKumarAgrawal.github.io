@@ -6,6 +6,7 @@ import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
 import ProfessionalPortrait from "@/components/profile/ProfessionalPortrait";
 import Reveal from "@/components/ui/Reveal";
+import { executiveProfile } from "@/data/executiveProfile";
 import { homeContent } from "@/data/homeContent";
 import { profile } from "@/data/profile";
 
@@ -33,16 +34,9 @@ export default function Hero() {
                   {profile.name}
                 </p>
 
-                <div className="space-y-2 border-l border-border/70 pl-5 sm:pl-6">
-                  {profile.roles.map((role) => (
-                    <p
-                      key={role}
-                      className="font-display text-xl font-medium tracking-tight text-foreground/90 sm:text-2xl lg:text-[2rem]"
-                    >
-                      {role}
-                    </p>
-                  ))}
-                </div>
+                <p className="font-display text-2xl font-medium tracking-tight text-foreground/90 sm:text-3xl lg:text-[2.1rem]">
+                  {executiveProfile.title}
+                </p>
               </div>
 
               <p className="max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -53,42 +47,45 @@ export default function Hero() {
                 {profile.summary}
               </p>
 
+              <div className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">Research interests</p>
+                <div className="flex flex-wrap gap-2">
+                  {executiveProfile.researchAreas.slice(0, 8).map((interest) => (
+                    <span key={interest} className="rounded-full border border-border/70 bg-white/5 px-3 py-1 text-xs font-medium text-muted">
+                      {interest}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted">
                 {homeContent.hero.sourceLabel}: <a href={profile.sourceURL} className="text-primary transition hover:text-primary/80">{profile.sourceName}</a>
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button href="#research" rightIcon={<ArrowRight className="h-4 w-4" />}>
+              <Button href="/research" rightIcon={<ArrowRight className="h-4 w-4" />}>
                 Research
               </Button>
-              <Button href="#projects" variant="secondary">
+              <Button href="/publications" variant="secondary">
+                Publications
+              </Button>
+              <Button href="/#original-contributions-preview" variant="secondary">
                 Projects
               </Button>
-              <Button href="#contact" variant="ghost" leftIcon={<FileText className="h-4 w-4" />}>
-                Verified contact
+              <Button href="https://github.com/RakeshKumarAgrawal" target="_blank" rel="noreferrer" variant="secondary">
+                GitHub
+              </Button>
+              <Button href="/contact" variant="ghost" leftIcon={<FileText className="h-4 w-4" />}>
+                Contact
               </Button>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-              {profile.roles.map((item, index) => (
-                <Card key={item} className="flex h-full flex-col justify-between space-y-6 p-5">
-                  <div className="space-y-3">
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
-                      Profile {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">
-                      {item}
-                    </h3>
-                  </div>
-
-                  <div className="flex items-center gap-1 text-accent" aria-label="Rated five out of five stars">
-                    {Array.from({ length: 5 }).map((_, starIndex) => (
-                      <span key={`${item}-${starIndex}`} className="text-lg leading-none">
-                        ★
-                      </span>
-                    ))}
-                  </div>
+              {executiveProfile.technicalExpertise.slice(0, 3).map((item) => (
+                <Card key={item} className="h-full space-y-3 p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">Technical focus</p>
+                  <h3 className="font-display text-lg font-semibold tracking-tight text-foreground">{item}</h3>
                 </Card>
               ))}
             </div>

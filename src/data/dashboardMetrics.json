@@ -1,58 +1,105 @@
 {
+  "homeSection": {
+    "eyebrow": "Research Impact",
+    "title": "Research Impact",
+    "description": "A snapshot of my research, engineering, professional service, and open science contributions."
+  },
   "hero": {
-    "eyebrow": "Dashboard",
-    "title": "Research and professional metrics dashboard",
-    "description": "Executive snapshot of research output, framework delivery, open science assets, and professional service indicators."
+    "eyebrow": "Research Impact Dashboard",
+    "title": "Executive dashboard for research and engineering impact",
+    "description": "Detailed impact view across research, frameworks, datasets, open-source engineering, professional service, and technical leadership indicators."
   },
   "trendWindowLabel": "Last 6 checkpoints",
   "metrics": [
     {
-      "id": "research-domains",
-      "title": "Research Domains",
-      "description": "Active domain tracks in research hub.",
-      "source": "researchDomains",
+      "id": "research-publications",
+      "title": "Research Publications",
+      "description": "Indexed publication records in the research library.",
+      "source": "researchPublications",
       "href": "/research",
+      "icon": "book",
+      "filterGroup": "Research",
       "trend": [4, 6, 7, 8, 10, 11]
-    },
-    {
-      "id": "publications",
-      "title": "Publications",
-      "description": "Indexed publication records in library.",
-      "source": "publications",
-      "href": "/publications",
-      "trend": [5, 7, 9, 10, 12, 13]
     },
     {
       "id": "frameworks",
       "title": "Frameworks",
-      "description": "Framework definitions in the architecture library.",
+      "description": "Architecture frameworks tracked in the framework library.",
       "source": "frameworks",
       "href": "/frameworks",
+      "icon": "network",
+      "filterGroup": "Frameworks",
+      "trend": [5, 7, 9, 10, 12, 13]
+    },
+    {
+      "id": "research-datasets",
+      "title": "Research Datasets",
+      "description": "Public dataset assets supporting open and applied research.",
+      "source": "researchDatasets",
+      "href": "/open-science",
+      "icon": "database",
+      "filterGroup": "Datasets",
       "trend": [2, 3, 4, 5, 7, 8]
     },
     {
-      "id": "datasets",
-      "title": "Datasets",
-      "description": "Public dataset assets with traceable records.",
-      "source": "datasets",
-      "href": "/open-science",
+      "id": "open-source-projects",
+      "title": "Open Source Projects",
+      "description": "Project-sized public artifacts and open implementation pathways.",
+      "source": "openSourceProjects",
+      "href": "/original-contributions",
+      "icon": "rocket",
+      "filterGroup": "Projects",
       "trend": [1, 2, 2, 3, 4, 4]
     },
     {
-      "id": "repositories",
-      "title": "Repositories",
-      "description": "Public repositories linked to research outputs.",
-      "source": "repositories",
+      "id": "github-repositories",
+      "title": "GitHub Repositories",
+      "description": "Public repositories linked to research and engineering outputs.",
+      "source": "githubRepositories",
       "href": "/open-science",
+      "icon": "github",
+      "filterGroup": "Projects",
       "trend": [1, 1, 2, 2, 3, 3]
+    },
+    {
+      "id": "professional-memberships",
+      "title": "Professional Memberships",
+      "description": "Tracked memberships across engineering and standards institutions.",
+      "source": "professionalMemberships",
+      "href": "/professional-service",
+      "icon": "users",
+      "filterGroup": "Professional Service",
+      "trend": [0, 0, 0, 0, 1, 1]
+    },
+    {
+      "id": "peer-review-activities",
+      "title": "Peer Review Activities",
+      "description": "Publicly visible aggregate peer-review records.",
+      "source": "peerReviewActivities",
+      "href": "/professional-service",
+      "icon": "check-circle",
+      "filterGroup": "Professional Service",
+      "trend": [0, 0, 0, 0, 1, 1]
+    },
+    {
+      "id": "editorial-activities",
+      "title": "Editorial Activities",
+      "description": "Editorial milestones currently recorded in professional service timeline.",
+      "source": "editorialActivities",
+      "href": "/professional-service",
+      "icon": "pen-square",
+      "filterGroup": "Professional Service",
+      "trend": [2, 3, 4, 6, 8, 9]
     },
     {
       "id": "technical-articles",
       "title": "Technical Articles",
-      "description": "Professional article records in publication system.",
+      "description": "Technical/professional article records in publication system.",
       "source": "technicalArticles",
       "href": "/publications/linkedin-professional-articles-index",
-      "trend": [0, 0, 0, 0, 1, 1]
+      "icon": "file-text",
+      "filterGroup": "Research",
+      "trend": [2, 3, 3, 4, 5, 5]
     },
     {
       "id": "newsletter-editions",
@@ -60,22 +107,8 @@
       "description": "Newsletter authority and edition records.",
       "source": "newsletterEditions",
       "href": "/publications/linkedin-newsletter-authority-record",
-      "trend": [0, 0, 0, 0, 1, 1]
-    },
-    {
-      "id": "peer-reviews",
-      "title": "Peer Reviews",
-      "description": "Publicly visible review records.",
-      "source": "peerReviews",
-      "href": "/professional-service",
-      "trend": [2, 3, 4, 6, 8, 9]
-    },
-    {
-      "id": "professional-memberships",
-      "title": "Professional Memberships",
-      "description": "Tracked memberships across institutions.",
-      "source": "professionalMemberships",
-      "href": "/professional-service",
+      "icon": "newspaper",
+      "filterGroup": "Research",
       "trend": [2, 3, 3, 4, 5, 5]
     },
     {
@@ -84,6 +117,18 @@
       "description": "Credential categories and certification tracks.",
       "source": "professionalCertifications",
       "href": "/professional-certifications",
+      "icon": "award",
+      "filterGroup": "Professional Service",
+      "trend": [2, 3, 3, 4, 5, 5]
+    },
+    {
+      "id": "years-of-experience",
+      "title": "Years of Experience",
+      "description": "Derived from configured executive profile experience label.",
+      "source": "yearsOfExperience",
+      "href": "/about",
+      "icon": "calendar",
+      "filterGroup": "Professional Service",
       "trend": [2, 3, 3, 4, 5, 5]
     }
   ]

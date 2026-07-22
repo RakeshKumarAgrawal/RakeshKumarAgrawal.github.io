@@ -35,14 +35,43 @@ export default function AboutPage() {
           </div>
 
           <div className="space-y-2">
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">Career Journey</h2>
+            <p className="text-sm leading-7 text-muted">{executiveProfile.careerJourney}</p>
+          </div>
+
+          <div className="space-y-2">
             <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">Research Philosophy</h2>
             <p className="text-sm leading-7 text-muted">{executiveProfile.researchPhilosophy}</p>
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">Professional Values</h2>
+            <ul className="space-y-1.5">
+              {executiveProfile.professionalValues.map((item) => (
+                <li key={item} className="text-sm leading-7 text-muted">
+                  <span className="mr-1.5 text-primary" aria-hidden="true">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="space-y-2">
             <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">Technical Expertise</h2>
             <ul className="space-y-1.5">
               {executiveProfile.technicalExpertise.map((item) => (
+                <li key={item} className="text-sm leading-7 text-muted">
+                  <span className="mr-1.5 text-primary" aria-hidden="true">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">Leadership</h2>
+            <ul className="space-y-1.5">
+              {executiveProfile.leadership.map((item) => (
                 <li key={item} className="text-sm leading-7 text-muted">
                   <span className="mr-1.5 text-primary" aria-hidden="true">•</span>
                   {item}
