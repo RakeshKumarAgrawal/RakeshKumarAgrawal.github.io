@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import ResearchCollaborationCTA from "@/components/research/ResearchCollaborationCTA";
 import SectionPageLayout from "@/components/layout/SectionPageLayout";
 import PublicationsLibraryClient from "@/components/publications/PublicationsLibraryClient";
 import Card from "@/components/ui/Card";
@@ -43,6 +44,7 @@ export default function PublicationsPage() {
         statuses={publicationStatusOptions}
         sortOptions={publicationSortOptions}
       />
+      <ResearchCollaborationCTA />
     </SectionPageLayout>
   );
 }

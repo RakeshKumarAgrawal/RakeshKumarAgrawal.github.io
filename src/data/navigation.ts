@@ -1,11 +1,17 @@
+import { topmateProfile } from "@/data/profileLinks";
+
 export type NavigationChild = {
   label: string;
   href: string;
+  external?: boolean;
+  ariaLabel?: string;
 };
 
 export type NavigationGroup = {
   label: string;
   href: string;
+  external?: boolean;
+  ariaLabel?: string;
   children?: readonly NavigationChild[];
 };
 
@@ -62,6 +68,12 @@ export const navigation: readonly NavigationGroup[] = [
       { label: "ForecastBench", href: "/publications/bqeb-forecastbench-benchmarking-ai-models" },
       { label: "LLMOps Maturity Model", href: "/frameworks/llmops-maturity-model" },
     ],
+  },
+  {
+    label: "Book a Meeting",
+    href: topmateProfile.href,
+    external: true,
+    ariaLabel: topmateProfile.ariaLabel,
   },
   { label: "Contact", href: "/contact" },
 ] as const;

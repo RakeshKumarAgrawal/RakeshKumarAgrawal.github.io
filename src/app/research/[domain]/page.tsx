@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import ResearchBreadcrumbs from "@/components/research/ResearchBreadcrumbs";
+import ResearchCollaborationCTA from "@/components/research/ResearchCollaborationCTA";
 import ResearchReferenceList from "@/components/research/ResearchReferenceList";
 import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
@@ -125,6 +126,8 @@ export default async function ResearchDomainPage({ params }: DomainPageProps) {
                 emptyLabel="No frameworks linked for this domain yet."
               />
             </div>
+
+            <ResearchCollaborationCTA />
           </Container>
         </section>
       </main>

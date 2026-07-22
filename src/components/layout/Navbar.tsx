@@ -7,6 +7,7 @@ import { ChevronDown, Menu, Search, X } from "lucide-react";
 
 import Container from "@/components/ui/Container";
 import { navigation, type NavigationGroup } from "@/data/navigation";
+import { topmateProfile } from "@/data/profileLinks";
 import { cn } from "@/lib/cn";
 
 import ThemeToggle from "./ThemeToggle";
@@ -65,6 +66,21 @@ export default function Navbar() {
     const isOpen = activeMenu === item.label;
 
     if (!item.children?.length) {
+      if (item.external) {
+        return (
+          <a
+            href={item.href}
+            target={topmateProfile.target}
+            rel={topmateProfile.rel}
+            aria-label={item.ariaLabel ?? item.label}
+            className="inline-flex h-10 items-center rounded-full px-4 text-sm font-medium text-muted transition hover:bg-white/5 hover:text-foreground"
+            onClick={handleDesktopNavigate}
+          >
+            {item.label}
+          </a>
+        );
+      }
+
       return (
         <Link
           href={item.href}
@@ -160,9 +176,15 @@ export default function Navbar() {
               Ctrl+K
             </span>
           </button>
-          <Link href="/#contact" className="hidden h-10 items-center rounded-full border border-border/80 bg-white/5 px-4 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10 md:inline-flex">
-            Contact
-          </Link>
+          <a
+            href={topmateProfile.href}
+            target={topmateProfile.target}
+            rel={topmateProfile.rel}
+            aria-label={topmateProfile.ariaLabel}
+            className="hidden h-10 items-center rounded-full border border-border/80 bg-white/5 px-4 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10 md:inline-flex"
+          >
+            Book a Meeting
+          </a>
           <ThemeToggle />
           <button
             type="button"
@@ -204,14 +226,28 @@ export default function Navbar() {
                     if (!item.children?.length) {
                       return (
                         <li key={`${item.label}-${item.href}`}>
-                          <Link
-                            href={item.href}
-                            onClick={closeMenu}
-                            className="flex items-center justify-between rounded-2xl border border-border/70 bg-surface/60 px-4 py-4 text-base font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10"
-                          >
-                            <span>{item.label}</span>
-                            <span className="text-sm text-muted">{toMenuHint(item.href)}</span>
-                          </Link>
+                          {item.external ? (
+                            <a
+                              href={item.href}
+                              target={topmateProfile.target}
+                              rel={topmateProfile.rel}
+                              aria-label={item.ariaLabel ?? item.label}
+                              onClick={closeMenu}
+                              className="flex items-center justify-between rounded-2xl border border-border/70 bg-surface/60 px-4 py-4 text-base font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10"
+                            >
+                              <span>{item.label}</span>
+                              <span className="text-sm text-muted">open</span>
+                            </a>
+                          ) : (
+                            <Link
+                              href={item.href}
+                              onClick={closeMenu}
+                              className="flex items-center justify-between rounded-2xl border border-border/70 bg-surface/60 px-4 py-4 text-base font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10"
+                            >
+                              <span>{item.label}</span>
+                              <span className="text-sm text-muted">{toMenuHint(item.href)}</span>
+                            </Link>
+                          )}
                         </li>
                       );
                     }
@@ -252,9 +288,16 @@ export default function Navbar() {
                 </ul>
               </nav>
 
-              <Link href="/#contact" onClick={closeMenu} className="mt-auto inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 text-sm font-medium text-white shadow-lg shadow-primary/20">
-                Start a conversation
-              </Link>
+              <a
+                href={topmateProfile.href}
+                target={topmateProfile.target}
+                rel={topmateProfile.rel}
+                aria-label={topmateProfile.ariaLabel}
+                onClick={closeMenu}
+                className="mt-auto inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 text-sm font-medium text-white shadow-lg shadow-primary/20"
+              >
+                Book a Meeting
+              </a>
             </motion.div>
           </motion.div>
         ) : null}

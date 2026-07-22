@@ -4,6 +4,7 @@ import Container from "@/components/ui/Container";
 import { navigation } from "@/data/navigation";
 import { profile } from "@/data/profile";
 import { externalProfiles } from "@/data/externalProfiles";
+import { topmateProfile } from "@/data/profileLinks";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -25,16 +26,28 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-muted">
               {navigation.map((item) => (
                 <li key={`${item.label}-${item.href}`}>
-                  <Link href={item.href} className="transition hover:text-foreground">
-                    {item.label}
-                  </Link>
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target={topmateProfile.target}
+                      rel={topmateProfile.rel}
+                      aria-label={item.ariaLabel ?? item.label}
+                      className="transition hover:text-foreground"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link href={item.href} className="transition hover:text-foreground">
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-foreground">External profiles</h3>
+            <h3 className="text-sm font-semibold text-foreground">Professional Links</h3>
             <ul className="mt-4 space-y-4 text-sm text-muted">
               {externalProfiles.items.slice(0, 4).map((item) => (
                 <li key={item.title}>
@@ -43,6 +56,15 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+            <a
+              href={topmateProfile.href}
+              target={topmateProfile.target}
+              rel={topmateProfile.rel}
+              aria-label={topmateProfile.ariaLabel}
+              className="mt-4 inline-flex text-sm font-medium text-primary transition hover:text-primary/80"
+            >
+              Book a Meeting
+            </a>
           </div>
         </div>
       </Container>

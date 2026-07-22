@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import FrameworkCard from "@/components/frameworks/FrameworkCard";
 import SectionPageLayout from "@/components/layout/SectionPageLayout";
+import ResearchCollaborationCTA from "@/components/research/ResearchCollaborationCTA";
 import Card from "@/components/ui/Card";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { frameworksLibrary, frameworksLibraryHero } from "@/data/frameworksLibrary";
@@ -30,6 +31,8 @@ export default function FrameworksPage() {
           <FrameworkCard key={framework.slug} framework={framework} />
         ))}
       </div>
+
+      <ResearchCollaborationCTA />
     </SectionPageLayout>
   );
 }

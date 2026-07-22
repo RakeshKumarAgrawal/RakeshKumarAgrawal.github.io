@@ -7,6 +7,7 @@ import FrameworkListSection from "@/components/frameworks/FrameworkListSection";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import ResearchBreadcrumbs from "@/components/research/ResearchBreadcrumbs";
+import ResearchCollaborationCTA from "@/components/research/ResearchCollaborationCTA";
 import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
@@ -129,6 +130,8 @@ export default async function FrameworkDetailPage({ params }: FrameworkPageProps
               <FrameworkListSection title="Implementation" items={framework.implementation} />
               <FrameworkListSection title="Future Enhancements" items={framework.futureEnhancements} />
             </div>
+
+            <ResearchCollaborationCTA />
           </Container>
         </section>
       </main>

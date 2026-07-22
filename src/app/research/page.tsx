@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import ResearchCollaborationCTA from "@/components/research/ResearchCollaborationCTA";
 import SectionPageLayout from "@/components/layout/SectionPageLayout";
 import ResearchHubClient from "@/components/research/ResearchHubClient";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -23,6 +24,7 @@ export default function ResearchHubPage() {
         description={researchHubMetadata.description}
       />
       <ResearchHubClient domains={researchDomains} />
+      <ResearchCollaborationCTA />
     </SectionPageLayout>
   );
 }

@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import PublicationArtifactList from "@/components/publications/PublicationArtifactList";
 import PublicationDetailSection from "@/components/publications/PublicationDetailSection";
 import ResearchBreadcrumbs from "@/components/research/ResearchBreadcrumbs";
+import ResearchCollaborationCTA from "@/components/research/ResearchCollaborationCTA";
 import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
@@ -160,6 +161,8 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
                 emptyLabel="No linked projects for this publication."
               />
             </div>
+
+            <ResearchCollaborationCTA />
           </Container>
         </section>
       </main>

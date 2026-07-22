@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 
 import SectionPageLayout from "@/components/layout/SectionPageLayout";
 import ExecutiveProfileCard from "@/components/profile/ExecutiveProfileCard";
+import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { topmateProfile } from "@/data/profileLinks";
 import { profile } from "@/data/profile";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -23,6 +25,21 @@ export default function ContactPage() {
           title="Professional Contact"
           description="Reach out through verified professional channels with clear context for collaboration, speaking, and research work."
         />
+      </Card>
+
+      <Card className="space-y-4 p-6 sm:p-7">
+        <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">Schedule a Meeting</h2>
+        <p className="max-w-3xl text-sm leading-7 text-muted sm:text-base">
+          If you&apos;d like to discuss research collaborations, enterprise AI, speaking engagements, mentoring, consulting, or technical partnerships, you can book a convenient time directly through Topmate.
+        </p>
+        <Button
+          href={topmateProfile.href}
+          target={topmateProfile.target}
+          rel={topmateProfile.rel}
+          ariaLabel={topmateProfile.ariaLabel}
+        >
+          Book on Topmate
+        </Button>
       </Card>
 
       <div className="grid gap-4 lg:grid-cols-[1.08fr_0.92fr]">

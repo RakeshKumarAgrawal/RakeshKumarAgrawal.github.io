@@ -8,6 +8,7 @@ import ProfessionalPortrait from "@/components/profile/ProfessionalPortrait";
 import Reveal from "@/components/ui/Reveal";
 import { executiveProfile } from "@/data/executiveProfile";
 import { homeContent } from "@/data/homeContent";
+import { topmateProfile } from "@/data/profileLinks";
 import { profile } from "@/data/profile";
 
 export default function Hero() {
@@ -80,6 +81,22 @@ export default function Hero() {
                 Contact
               </Button>
             </div>
+
+            <Card className="space-y-3 border-primary/25 bg-primary/5 p-5 sm:p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Schedule</p>
+              <p className="font-display text-xl font-semibold tracking-tight text-foreground">Book a Meeting</p>
+              <p className="text-sm leading-7 text-muted">
+                Schedule a one-on-one conversation for research collaboration, AI consulting, technical mentorship, or professional discussions.
+              </p>
+              <Button
+                href={topmateProfile.href}
+                target={topmateProfile.target}
+                rel={topmateProfile.rel}
+                ariaLabel={topmateProfile.ariaLabel}
+              >
+                Book a Meeting
+              </Button>
+            </Card>
 
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {executiveProfile.technicalExpertise.slice(0, 3).map((item) => (

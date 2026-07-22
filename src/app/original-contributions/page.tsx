@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import SectionPageLayout from "@/components/layout/SectionPageLayout";
 import OriginalContributionCard from "@/components/original-contributions/OriginalContributionCard";
 import OriginalContributionsHero from "@/components/original-contributions/OriginalContributionsHero";
+import ResearchCollaborationCTA from "@/components/research/ResearchCollaborationCTA";
 import {
   originalContributions,
   originalContributionsHero,
@@ -37,6 +38,8 @@ export default function OriginalContributionsPage() {
           <OriginalContributionCard key={contribution.slug} contribution={contribution} />
         ))}
       </div>
+
+      <ResearchCollaborationCTA />
     </SectionPageLayout>
   );
 }

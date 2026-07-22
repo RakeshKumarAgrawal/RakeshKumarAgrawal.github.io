@@ -62,7 +62,7 @@ export const executiveProfile: ExecutiveProfileConfig = {
     "Responsible AI",
   ],
   professionalSummary:
-    "Applied AI researcher and enterprise technology leader focused on designing scalable, secure, and responsible AI systems. My work bridges research and industry by developing enterprise AI architectures, governance frameworks, open research datasets, and cloud-native engineering solutions that enable trustworthy intelligent systems.",
+    "Research Mission: I am committed to advancing Enterprise Artificial Intelligence through practical research, open science, and engineering excellence. My work focuses on creating reusable AI frameworks, governance models, enterprise knowledge systems, and benchmark datasets that help organizations deploy reliable, secure, and responsible AI solutions at scale.",
   researchPhilosophy:
     "Build enterprise AI systems that are measurable, governed, and useful in real-world operations by connecting rigorous research with practical engineering delivery.",
   professionalValues: [

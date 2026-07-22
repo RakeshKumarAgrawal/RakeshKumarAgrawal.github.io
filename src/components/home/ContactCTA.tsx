@@ -8,6 +8,7 @@ import ProfessionalPortrait from "@/components/profile/ProfessionalPortrait";
 import Reveal from "@/components/ui/Reveal";
 import { externalProfiles } from "@/data/externalProfiles";
 import { homeContent } from "@/data/homeContent";
+import { topmateProfile } from "@/data/profileLinks";
 import { profile } from "@/data/profile";
 
 export default function ContactCTA() {
@@ -80,6 +81,14 @@ export default function ContactCTA() {
                   </Button>
                   <Button href="/open-science" variant="secondary">
                     {homeContent.contact.secondaryAction}
+                  </Button>
+                  <Button
+                    href={topmateProfile.href}
+                    target={topmateProfile.target}
+                    rel={topmateProfile.rel}
+                    ariaLabel={topmateProfile.ariaLabel}
+                  >
+                    Book via Topmate
                   </Button>
                 </div>
               </div>

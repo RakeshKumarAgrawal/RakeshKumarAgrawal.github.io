@@ -4,7 +4,7 @@ export const profile = {
   ...orcidSource,
   ...withTraceability({ source: orcidSource, identifierType: "ORCID", identifier: "0009-0009-7113-5539" }),
   name: "Rakesh Kumar Agrawal",
-  title: "Applied researcher and technology leader",
+  title: "Applied AI Researcher | Enterprise AI Architect | Platform Engineering Leader",
   organization: "Enterprise Intelligence Lab",
   roles: [
     "Applied researcher",
@@ -16,7 +16,7 @@ export const profile = {
   biography:
     "Applied researcher and technology leader with 20+ years of experience in large-scale IT operations across banking and healthcare domains. My work focuses on practical applications of AI, including intelligent healthcare, predictive analytics, and enterprise digital transformation, with emphasis on reliability, ethics, and human-in-the-loop decision support. I publish practitioner-oriented research bridging theory and real-world systems to improve performance, resilience, and value delivery.",
   summary:
-    "Applied researcher and technology leader with 20+ years of experience in large-scale IT operations across banking and healthcare domains. My work focuses on practical applications of AI, including intelligent healthcare, predictive analytics, and enterprise digital transformation, with emphasis on reliability, ethics, and human-in-the-loop decision support. I publish practitioner-oriented research bridging theory and real-world systems to improve performance, resilience, and value delivery.",
+    "Designing trustworthy Enterprise AI systems through applied research, scalable cloud platforms, and AI governance. My work bridges academic innovation with real-world enterprise implementation across banking, healthcare, and cloud-native technologies.",
   verifiedEmails: ["rkagrawal@ieee.org", "rakesh1608@gmail.com"],
   verifiedDomains: ["ieee.org"],
   keywords: ["Artificial Intelligence", "Healthcare Intelligence", "Smart Healthcare"],

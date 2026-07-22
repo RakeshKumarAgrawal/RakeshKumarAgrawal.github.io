@@ -13,6 +13,7 @@ import ProfessionalPortrait from "@/components/profile/ProfessionalPortrait";
 import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
 import { cn } from "@/lib/cn";
+import { topmateProfile } from "@/data/profileLinks";
 import {
   executiveProfile,
   type ExecutiveProfileConfig,
@@ -149,6 +150,17 @@ export default function ExecutiveProfileCard({
                 </Button>
               );
             })}
+            <Button
+              href={topmateProfile.href}
+              target={topmateProfile.target}
+              rel={topmateProfile.rel}
+              variant="secondary"
+              size="sm"
+              rightIcon={<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />}
+              ariaLabel={topmateProfile.ariaLabel}
+            >
+              Book Time
+            </Button>
           </div>
 
           <div className="space-y-2">
