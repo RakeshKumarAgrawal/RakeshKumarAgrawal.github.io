@@ -1,0 +1,20 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" rx="28" fill="url(#paint0_linear)"/>
+  <rect x="70" y="70" width="1060" height="535" rx="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.24)" stroke-width="2"/>
+  <circle cx="210" cy="220" r="70" fill="rgba(255,255,255,0.18)"/>
+  <path d="M210 175L225.885 207.179L261 212.279L235.5 237.121L241.77 272.221L210 255.521L178.23 272.221L184.5 237.121L159 212.279L194.115 207.179L210 175Z" fill="rgba(255,255,255,0.92)"/>
+  <rect x="330" y="176" width="520" height="22" rx="11" fill="rgba(255,255,255,0.72)"/>
+  <rect x="330" y="218" width="420" height="18" rx="9" fill="rgba(255,255,255,0.52)"/>
+  <rect x="140" y="360" width="920" height="14" rx="7" fill="rgba(255,255,255,0.36)"/>
+  <rect x="140" y="390" width="840" height="14" rx="7" fill="rgba(255,255,255,0.26)"/>
+  <rect x="140" y="420" width="880" height="14" rx="7" fill="rgba(255,255,255,0.22)"/>
+  <rect x="140" y="500" width="300" height="52" rx="26" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.32)"/>
+  <rect x="470" y="500" width="300" height="52" rx="26" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.26)"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="36" y1="38" x2="1134" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C2238"/>
+      <stop offset="0.45" stop-color="#1D4E68"/>
+      <stop offset="1" stop-color="#0C3A43"/>
+    </linearGradient>
+  </defs>
+</svg>
