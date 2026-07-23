@@ -23,18 +23,16 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 const categoryDescriptions: Record<DashboardMetricCategory, string> = {
-  "Research Output": "Publication, article, and newsletter indicators reflecting research communication and scholarly output.",
-  "Engineering Execution": "Project, original contribution, and repository indicators reflecting implementation scale and technical execution.",
-  "Research Architecture": "Framework-level indicators that track enterprise architecture and reusable model design pathways.",
-  "Professional Leadership": "Memberships, peer review, and certifications reflecting professional standing and leadership footprint.",
-  "Open Science": "Dataset and profile connectivity indicators that strengthen reproducibility and open collaboration.",
+  "Research Metrics": "DataCite Commons profile indicators including works, citations, views, and downloads.",
+  "Professional Metrics": "Professional memberships, peer review activity, editorial milestones, and certification footprint.",
+  "Research Outputs": "Publications, frameworks, projects, datasets, newsletters, and technical articles reflecting delivery scale.",
+  "Open Science": "Open profile connectivity and repository footprint for transparent, reusable research artifacts.",
 };
 
 const categoryOrder: DashboardMetricCategory[] = [
-  "Research Output",
-  "Engineering Execution",
-  "Research Architecture",
-  "Professional Leadership",
+  "Research Metrics",
+  "Professional Metrics",
+  "Research Outputs",
   "Open Science",
 ];
 

@@ -7,17 +7,17 @@ type ImpactSummaryProps = {
 
 export default function ImpactSummary({ metrics }: ImpactSummaryProps) {
   const totalIndicators = metrics.length;
-  const aggregateValue = metrics.reduce((accumulator, metric) => accumulator + metric.value, 0);
+  const aggregateValue = metrics.reduce((accumulator, metric) => accumulator + (metric.value ?? 0), 0);
   const topCategory = metrics.reduce(
     (accumulator, metric) => {
       const current = accumulator.get(metric.category) ?? 0;
-      accumulator.set(metric.category, current + metric.value);
+      accumulator.set(metric.category, current + (metric.value ?? 0));
       return accumulator;
     },
     new Map<string, number>(),
   );
 
-  const leadingCategory = [...topCategory.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? "Research Output";
+  const leadingCategory = [...topCategory.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? "Research Metrics";
 
   return (
     <Card className="space-y-5 rounded-3xl border-border/70 bg-gradient-to-b from-surface/80 to-surface/50 p-6 sm:p-7">

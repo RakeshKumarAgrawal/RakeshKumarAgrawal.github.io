@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 type MetricCounterProps = {
-  value: number;
+  value: number | null;
   durationMs?: number;
 };
 
@@ -34,7 +34,7 @@ export default function MetricCounter({ value, durationMs = 900 }: MetricCounter
   }, []);
 
   useEffect(() => {
-    if (!started) {
+    if (!started || value === null) {
       return;
     }
 
@@ -57,7 +57,7 @@ export default function MetricCounter({ value, durationMs = 900 }: MetricCounter
 
   return (
     <span ref={anchorRef} aria-live="polite">
-      {displayValue}
+      {value === null ? "Not Available" : displayValue}
     </span>
   );
 }

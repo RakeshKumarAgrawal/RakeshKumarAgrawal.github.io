@@ -11,8 +11,13 @@ import { projects } from "./projects";
 import { publicationsLibrary } from "./publicationsLibrary";
 import { researchDomains } from "./researchDomains";
 import { software } from "./software";
+import { dataciteProfile } from "@/lib/dataciteProfile";
 
 export type DashboardMetricSource =
+  | "dataciteWorks"
+  | "dataciteCitations"
+  | "dataciteViews"
+  | "dataciteDownloads"
   | "researchPublications"
   | "researchProjects"
   | "originalContributions"
@@ -21,16 +26,16 @@ export type DashboardMetricSource =
   | "githubRepositories"
   | "professionalMemberships"
   | "peerReviewActivities"
+  | "editorialActivities"
   | "technicalArticles"
   | "newsletterEditions"
   | "professionalCertifications"
   | "openScienceProfiles";
 
 export type DashboardMetricCategory =
-  | "Research Output"
-  | "Engineering Execution"
-  | "Research Architecture"
-  | "Professional Leadership"
+  | "Research Metrics"
+  | "Professional Metrics"
+  | "Research Outputs"
   | "Open Science";
 
 export type DashboardFilterGroup =
@@ -64,6 +69,12 @@ type DashboardMetricsRecord = {
     title: string;
     description: string;
   };
+  researchMetrics: {
+    works: number | null;
+    citations: number | null;
+    views: number | null;
+    downloads: number | null;
+  };
   trendWindowLabel: string;
   metrics: DashboardMetricRecord[];
 };
@@ -77,7 +88,7 @@ export type DashboardMetric = {
   id: string;
   title: string;
   description: string;
-  value: number;
+  value: number | null;
   icon: string;
   route: string;
   href: string;
@@ -158,10 +169,9 @@ const featuredRepositoryCount = software.items.filter((item) =>
 ).length;
 
 const dashboardCategoryToFilterGroup: Record<DashboardMetricCategory, DashboardFilterGroup> = {
-  "Research Output": "Research",
-  "Engineering Execution": "Projects",
-  "Research Architecture": "Frameworks",
-  "Professional Leadership": "Professional Service",
+  "Research Metrics": "Research",
+  "Professional Metrics": "Professional Service",
+  "Research Outputs": "Projects",
   "Open Science": "Datasets",
 };
 
@@ -254,7 +264,23 @@ const buildBreakdown = (metric: DashboardMetricRecord): DashboardMetricBreakdown
   return metric.breakdown.map((label) => ({ label, value: 0 }));
 };
 
-const computeMetricValue = (source: DashboardMetricSource) => {
+const computeMetricValue = (source: DashboardMetricSource): number | null => {
+  if (source === "dataciteWorks") {
+    return dataciteProfile.researchMetrics.works;
+  }
+
+  if (source === "dataciteCitations") {
+    return dataciteProfile.researchMetrics.citations;
+  }
+
+  if (source === "dataciteViews") {
+    return dataciteProfile.researchMetrics.views;
+  }
+
+  if (source === "dataciteDownloads") {
+    return dataciteProfile.researchMetrics.downloads;
+  }
+
   if (source === "researchPublications") {
     return publicationsLibrary.length;
   }
@@ -287,6 +313,10 @@ const computeMetricValue = (source: DashboardMetricSource) => {
     return peerReviews.stats.totalReviews;
   }
 
+  if (source === "editorialActivities") {
+    return professionalServiceTimelineEntries.filter((entry) => entry.category === "Editorial Activities").length;
+  }
+
   if (source === "technicalArticles") {
     return publicationCountByCategory("Professional Articles");
   }
@@ -305,6 +335,7 @@ const computeMetricValue = (source: DashboardMetricSource) => {
 export const dashboardHomeSection = data.homeSection;
 export const dashboardHero = data.hero;
 export const dashboardTrendWindowLabel = data.trendWindowLabel;
+export const dashboardResearchMetrics = data.researchMetrics;
 
 export const dashboardMetrics: DashboardMetric[] = data.metrics.map((metric) => {
   const value = computeMetricValue(metric.source);

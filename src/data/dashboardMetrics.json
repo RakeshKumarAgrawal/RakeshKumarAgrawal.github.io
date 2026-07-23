@@ -9,8 +9,58 @@
     "title": "Research & Professional Impact",
     "description": "A consolidated view of my research, engineering, professional leadership, open science contributions, and technical accomplishments."
   },
+  "researchMetrics": {
+    "works": 37,
+    "citations": 65,
+    "views": 36,
+    "downloads": 2
+  },
   "trendWindowLabel": "Contribution distribution",
   "metrics": [
+    {
+      "id": "datacite-works",
+      "title": "Research Works",
+      "value": 0,
+      "description": "Public works indexed in the DataCite Commons profile.",
+      "icon": "book",
+      "route": "/open-science",
+      "category": "Research Metrics",
+      "lastUpdated": "2026-07-22",
+      "source": "dataciteWorks"
+    },
+    {
+      "id": "datacite-citations",
+      "title": "Citations",
+      "value": 0,
+      "description": "Citation count reported by the public DataCite Commons profile.",
+      "icon": "quote",
+      "route": "/open-science",
+      "category": "Research Metrics",
+      "lastUpdated": "2026-07-22",
+      "source": "dataciteCitations"
+    },
+    {
+      "id": "datacite-views",
+      "title": "Views",
+      "value": 0,
+      "description": "Total profile-related view count reported by DataCite Commons.",
+      "icon": "eye",
+      "route": "/open-science",
+      "category": "Research Metrics",
+      "lastUpdated": "2026-07-22",
+      "source": "dataciteViews"
+    },
+    {
+      "id": "datacite-downloads",
+      "title": "Downloads",
+      "value": 0,
+      "description": "Download count reported by the public DataCite Commons profile.",
+      "icon": "download",
+      "route": "/open-science",
+      "category": "Research Metrics",
+      "lastUpdated": "2026-07-22",
+      "source": "dataciteDownloads"
+    },
     {
       "id": "total-publications",
       "title": "Total Publications",
@@ -18,7 +68,7 @@
       "description": "Journal articles, conference papers, book chapters, white papers, and technical reports.",
       "icon": "book",
       "route": "/publications",
-      "category": "Research Output",
+      "category": "Research Outputs",
       "lastUpdated": "2026-07-22",
       "source": "researchPublications",
       "breakdown": [
@@ -36,7 +86,7 @@
       "description": "Enterprise AI, platform engineering, healthcare AI, and cloud engineering project initiatives.",
       "icon": "rocket",
       "route": "/projects",
-      "category": "Engineering Execution",
+      "category": "Research Outputs",
       "lastUpdated": "2026-07-22",
       "source": "researchProjects",
       "breakdown": [
@@ -53,7 +103,7 @@
       "description": "Flagship research systems, frameworks, and benchmark initiatives across enterprise AI programs.",
       "icon": "layers",
       "route": "/original-contributions",
-      "category": "Engineering Execution",
+      "category": "Research Outputs",
       "lastUpdated": "2026-07-22",
       "source": "originalContributions",
       "breakdown": [
@@ -75,7 +125,7 @@
       "description": "Research and engineering frameworks available for enterprise implementation pathways.",
       "icon": "network",
       "route": "/frameworks",
-      "category": "Research Architecture",
+      "category": "Research Outputs",
       "lastUpdated": "2026-07-22",
       "source": "frameworks"
     },
@@ -86,7 +136,7 @@
       "description": "Research datasets and benchmark data assets supporting open science and reproducibility.",
       "icon": "database",
       "route": "/datasets",
-      "category": "Open Science",
+      "category": "Research Outputs",
       "lastUpdated": "2026-07-22",
       "source": "researchDatasets"
     },
@@ -98,7 +148,7 @@
       "source": "githubRepositories",
       "icon": "github",
       "route": "/github",
-      "category": "Engineering Execution",
+      "category": "Open Science",
       "lastUpdated": "2026-07-22",
       "breakdown": [
         "Public repositories",
@@ -112,7 +162,7 @@
       "description": "Professional memberships and standards community participation across recognized organizations.",
       "icon": "users",
       "route": "/professional-service",
-      "category": "Professional Leadership",
+      "category": "Professional Metrics",
       "lastUpdated": "2026-07-22",
       "source": "professionalMemberships",
       "breakdown": [
@@ -128,7 +178,7 @@
       "description": "Peer review and editorial service activity from verified public professional records.",
       "icon": "check-circle",
       "route": "/professional-service",
-      "category": "Professional Leadership",
+      "category": "Professional Metrics",
       "lastUpdated": "2026-07-22",
       "source": "peerReviewActivities",
       "breakdown": [
@@ -138,13 +188,24 @@
       ]
     },
     {
+      "id": "editorial-activities",
+      "title": "Editorial Activities",
+      "value": 0,
+      "description": "Editorial activity milestones recorded in professional service history.",
+      "icon": "pen-square",
+      "route": "/professional-service",
+      "category": "Professional Metrics",
+      "lastUpdated": "2026-07-22",
+      "source": "editorialActivities"
+    },
+    {
       "id": "technical-articles",
       "title": "Technical Articles",
       "value": 0,
       "description": "Technical thought leadership articles and professional engineering writeups.",
       "icon": "file-text",
       "route": "/publications",
-      "category": "Research Output",
+      "category": "Research Outputs",
       "lastUpdated": "2026-07-22",
       "source": "technicalArticles",
       "breakdown": [
@@ -158,7 +219,7 @@
       "description": "Research newsletter editions and recurring long-form research communication outputs.",
       "icon": "newspaper",
       "route": "/publications",
-      "category": "Research Output",
+      "category": "Research Outputs",
       "lastUpdated": "2026-07-22",
       "source": "newsletterEditions",
       "breakdown": [
@@ -172,7 +233,7 @@
       "description": "Certification portfolio across cloud, AI, project management, and professional credential pathways.",
       "icon": "award",
       "route": "/about",
-      "category": "Professional Leadership",
+      "category": "Professional Metrics",
       "lastUpdated": "2026-07-22",
       "source": "professionalCertifications",
       "breakdown": [

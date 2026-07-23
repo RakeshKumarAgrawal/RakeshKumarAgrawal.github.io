@@ -43,10 +43,14 @@ const iconMap = {
   calendar: CalendarDays,
 } as const;
 
-function CountUpValue({ value }: { value: number }) {
+function CountUpValue({ value }: { value: number | null }) {
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
+    if (value === null) {
+      return;
+    }
+
     const duration = 900;
     const start = performance.now();
     let frame = 0;
@@ -64,6 +68,10 @@ function CountUpValue({ value }: { value: number }) {
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [value]);
+
+  if (value === null) {
+    return <>Not Available</>;
+  }
 
   return <>{displayValue}</>;
 }

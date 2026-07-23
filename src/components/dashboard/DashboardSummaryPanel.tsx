@@ -6,7 +6,7 @@ type DashboardSummaryPanelProps = {
 };
 
 export default function DashboardSummaryPanel({ metrics }: DashboardSummaryPanelProps) {
-  const total = metrics.reduce((accumulator, metric) => accumulator + metric.value, 0);
+  const total = metrics.reduce((accumulator, metric) => accumulator + (metric.value ?? 0), 0);
   const highVelocity = metrics.filter((metric) => {
     if (metric.trend.length < 2) {
       return false;
