@@ -17,10 +17,11 @@ export type NavigationGroup = {
 
 export const navigation: readonly NavigationGroup[] = [
   { label: "Home", href: "/#home" },
+  { label: "Executive Dashboard", href: "/executive-dashboard" },
   { label: "About", href: "/about" },
   {
     label: "Research",
-    href: "/research",
+    href: "/research/",
     children: [
       { label: "Research Hub", href: "/research" },
       { label: "Publications Library", href: "/publications" },
@@ -48,7 +49,7 @@ export const navigation: readonly NavigationGroup[] = [
   { label: "Achievements", href: "/professional-certifications" },
   {
     label: "Ecosystem",
-    href: "/knowledge-graph",
+    href: "/ecosystem/",
     children: [
       { label: "Knowledge Graph", href: "/knowledge-graph" },
       { label: "Dashboard", href: "/dashboard" },
@@ -58,7 +59,7 @@ export const navigation: readonly NavigationGroup[] = [
   },
   {
     label: "Projects",
-    href: "/original-contributions",
+    href: "/projects/",
     children: [
       { label: "Enterprise Digital Brain", href: "/original-contributions" },
       { label: "Enterprise AI Governance Framework", href: "/frameworks/enterprise-ai-governance-framework" },
