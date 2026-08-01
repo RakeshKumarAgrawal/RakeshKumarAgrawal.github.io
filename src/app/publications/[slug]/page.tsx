@@ -5,8 +5,10 @@ import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import PublicationArtifactList from "@/components/publications/PublicationArtifactList";
 import PublicationDetailSection from "@/components/publications/PublicationDetailSection";
+import NewsletterPortal from "@/components/publications/NewsletterPortal";
 import ResearchBreadcrumbs from "@/components/research/ResearchBreadcrumbs";
 import ResearchCollaborationCTA from "@/components/research/ResearchCollaborationCTA";
+import SectionPageLayout from "@/components/layout/SectionPageLayout";
 import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
@@ -14,6 +16,12 @@ import {
   getPublicationBySlug,
   publicationsLibrary,
 } from "@/data/publicationsLibrary";
+import { newsletterEditions, newsletterPortal } from "@/data/newsletterPortal";
+import { createPageMetadata, siteConfig } from "@/lib/seo";
+
+const newsletterAuthoritySlug = "linkedin-newsletter-authority-record";
+const newsletterDescription =
+  "Enterprise Intelligence Lab Newsletter: an ongoing LinkedIn publication series connecting Enterprise AI, AI governance, assurance, architecture, platform engineering, responsible AI, and applied research.";
 
 type PublicationPageProps = {
   params: Promise<{
@@ -31,6 +39,24 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PublicationPageProps): Promise<Metadata> {
   const { slug } = await params;
+
+  if (slug === newsletterAuthoritySlug) {
+    return createPageMetadata({
+      title: "Enterprise Intelligence Lab Newsletter",
+      description: newsletterDescription,
+      canonical: `/publications/${newsletterAuthoritySlug}`,
+      keywords: [
+        "Enterprise Intelligence Lab Newsletter",
+        "Enterprise AI",
+        "AI governance",
+        "AI assurance",
+        "platform engineering",
+        "responsible AI",
+        "LinkedIn newsletter",
+      ],
+    });
+  }
+
   const publication = getPublicationBySlug(slug);
 
   if (!publication) {
@@ -54,6 +80,56 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
 
   if (!publication) {
     notFound();
+  }
+
+  if (slug === newsletterAuthoritySlug) {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Periodical",
+      name: newsletterPortal.title,
+      alternateName: newsletterPortal.subtitle,
+      description: newsletterDescription,
+      url: `${siteConfig.url}/publications/${newsletterAuthoritySlug}/`,
+      sameAs: newsletterPortal.archiveUrl,
+      isAccessibleForFree: true,
+      publisher: {
+        "@type": "Organization",
+        name: "Enterprise Intelligence Lab",
+        url: "https://www.enterpriseintelligencelab.com/",
+      },
+      author: {
+        "@type": "Person",
+        name: "Rakesh Kumar Agrawal",
+        url: siteConfig.url,
+        sameAs: [
+          "https://www.linkedin.com/in/rakeshkumaragrawal/",
+          "https://orcid.org/0009-0009-7113-5539",
+          "https://github.com/RakeshKumarAgrawal",
+        ],
+      },
+      hasPart: newsletterEditions.map((edition) => ({
+        "@type": "Article",
+        headline: edition.title,
+        datePublished: edition.publicationDate,
+        url: edition.linkedinUrl,
+      })),
+    };
+
+    return (
+      <SectionPageLayout
+        breadcrumbs={[
+          { label: "Home", href: "/#home" },
+          { label: "Publications", href: "/publications" },
+          { label: newsletterPortal.title },
+        ]}
+      >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <NewsletterPortal />
+      </SectionPageLayout>
+    );
   }
 
   const doiUrl = publication.doi ? `https://doi.org/${publication.doi}` : null;
