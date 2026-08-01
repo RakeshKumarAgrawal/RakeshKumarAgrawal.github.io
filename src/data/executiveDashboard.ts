@@ -117,6 +117,7 @@ const honorsDataset = honorsAwardsData as {
 const currentEmployment = employment.items.find((item) => /present/i.test(item.period)) ?? employment.items[0];
 
 const publicationCount = publicationsLibrary.length;
+const bookCount = 1;
 const originalContributionCount = originalContributions.length;
 const projectCount = projects.items.length;
 const frameworkCount = frameworksLibrary.length;
@@ -153,6 +154,15 @@ const rawMetrics: Omit<ExecutiveMetric, "progress">[] = [
     value: publicationCount,
     description: "Journal papers, conference papers, chapters, reports, and articles.",
     href: "/publications",
+    icon: "book",
+    filter: "Research",
+  },
+  {
+    id: "books",
+    title: "Books",
+    value: bookCount,
+    description: "Published books connecting enterprise AI research with practical implementation.",
+    href: "/books",
     icon: "book",
     filter: "Research",
   },

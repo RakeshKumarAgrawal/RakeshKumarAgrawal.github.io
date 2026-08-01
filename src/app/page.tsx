@@ -4,6 +4,7 @@ import Hero from "@/components/home/Hero";
 import ContactCTA from "@/components/home/ContactCTA";
 import ExecutiveProfileCard from "@/components/profile/ExecutiveProfileCard";
 import FeaturedResearchCarousel from "@/components/home/FeaturedResearchCarousel";
+import FeaturedBook from "@/components/home/FeaturedBook";
 import PremiumHomeSections from "@/components/home/PremiumHomeSections";
 import ResearchImpactSection from "@/components/home/ResearchImpactSection";
 import Container from "@/components/ui/Container";
@@ -22,6 +23,7 @@ export default function Home() {
             </Reveal>
           </Container>
         </section>
+        <FeaturedBook />
         <FeaturedResearchCarousel />
         <ResearchImpactSection />
         <PremiumHomeSections />

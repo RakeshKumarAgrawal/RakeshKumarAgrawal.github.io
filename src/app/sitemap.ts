@@ -33,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: "https://rakeshkumaragrawal.github.io/books/",
+      lastModified: "2026-07-31",
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+    {
       url: "https://rakeshkumaragrawal.github.io/frameworks/",
       lastModified: "2026-07-20",
       changeFrequency: "weekly",

@@ -42,6 +42,7 @@ export const navigation: readonly NavigationGroup[] = [
     ],
   },
   { label: "Publications", href: "/publications" },
+  { label: "Books", href: "/books" },
   { label: "Frameworks", href: "/frameworks" },
   { label: "Original Contributions", href: "/original-contributions" },
   { label: "Professional Service", href: "/professional-service" },
