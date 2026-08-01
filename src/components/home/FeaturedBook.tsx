@@ -18,8 +18,8 @@ export default function FeaturedBook() {
             <div className="grid gap-6 sm:grid-cols-[9rem_1fr] sm:items-center">
               <div className="relative mx-auto aspect-[2/3] w-36 overflow-hidden rounded-2xl border border-border/70 bg-surface sm:mx-0">
                 <Image
-                  src="/images/books/book-cover.jpg"
-                  alt="Cover of Constitutional Agentic AI"
+                  src="/images/books/from-zero-to-ai.jpg"
+                  alt="Cover of From Zero to AI"
                   fill
                   sizes="144px"
                   className="object-cover"
