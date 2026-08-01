@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Menu, Search, X } from "lucide-react";
+import { CalendarDays, ChevronDown, Menu, MoreHorizontal, Search, X } from "lucide-react";
 
 import Container from "@/components/ui/Container";
 import { navigation, type NavigationGroup } from "@/data/navigation";
@@ -12,7 +13,25 @@ import { cn } from "@/lib/cn";
 
 import ThemeToggle from "./ThemeToggle";
 
+const primaryNavigationLabels = new Set([
+  "Home",
+  "Executive Dashboard",
+  "About",
+  "Research",
+  "Publications",
+  "Books",
+  "Frameworks",
+  "Original Contributions",
+  "Professional Service",
+]);
+
+const desktopNavigation = navigation.filter((item) => primaryNavigationLabels.has(item.label));
+const secondaryNavigation = navigation.filter(
+  (item) => !primaryNavigationLabels.has(item.label) && item.label !== "Book a Meeting",
+);
+
 export default function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
@@ -54,6 +73,18 @@ export default function Navbar() {
     setActiveMenu(null);
   };
 
+  const isRouteActive = (href: string) => {
+    if (href === "/#home") {
+      return pathname === "/";
+    }
+
+    const normalizedHref = href.replace(/\/$/, "");
+    return pathname === normalizedHref || pathname.startsWith(`${normalizedHref}/`);
+  };
+
+  const isItemActive = (item: NavigationGroup) =>
+    !item.external && (isRouteActive(item.href) || item.children?.some((child) => isRouteActive(child.href)) === true);
+
   const toMenuHint = (href: string) => {
     if (href.startsWith("/#")) {
       return href.replace("/#", "");
@@ -64,6 +95,7 @@ export default function Navbar() {
 
   const renderGroup = (item: NavigationGroup) => {
     const isOpen = activeMenu === item.label;
+    const isActive = isItemActive(item);
 
     if (!item.children?.length) {
       if (item.external) {
@@ -73,7 +105,7 @@ export default function Navbar() {
             target={topmateProfile.target}
             rel={topmateProfile.rel}
             aria-label={item.ariaLabel ?? item.label}
-            className="inline-flex h-10 items-center rounded-full px-4 text-sm font-medium text-muted transition hover:bg-white/5 hover:text-foreground"
+            className="relative inline-flex h-9 items-center rounded-full px-2.5 text-xs font-medium text-muted transition duration-200 hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-3 2xl:text-sm"
             onClick={handleDesktopNavigate}
           >
             {item.label}
@@ -84,10 +116,15 @@ export default function Navbar() {
       return (
         <Link
           href={item.href}
-          className="inline-flex h-10 items-center rounded-full px-4 text-sm font-medium text-muted transition hover:bg-white/5 hover:text-foreground"
+          aria-current={isActive ? "page" : undefined}
+          className={cn(
+            "relative inline-flex h-9 items-center rounded-full px-2.5 text-xs font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-3 2xl:text-sm",
+            isActive ? "text-foreground" : "text-muted hover:bg-white/5 hover:text-foreground",
+          )}
           onClick={handleDesktopNavigate}
         >
           {item.label}
+          {isActive ? <span className="absolute inset-x-2.5 bottom-0 h-0.5 rounded-full bg-primary" aria-hidden="true" /> : null}
         </Link>
       );
     }
@@ -101,15 +138,17 @@ export default function Navbar() {
         <button
           type="button"
           className={cn(
-            "inline-flex h-10 items-center gap-1 rounded-full px-4 text-sm font-medium transition",
-            isOpen ? "bg-white/10 text-foreground" : "text-muted hover:bg-white/5 hover:text-foreground",
+            "relative inline-flex h-9 items-center gap-1 rounded-full px-2.5 text-xs font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-3 2xl:text-sm",
+            isOpen || isActive ? "bg-white/10 text-foreground" : "text-muted hover:bg-white/5 hover:text-foreground",
           )}
+          aria-current={isActive ? "page" : undefined}
           aria-expanded={isOpen}
           aria-haspopup="menu"
           onClick={() => toggleGroup(item.label)}
         >
           {item.label}
           <ChevronDown className={cn("h-4 w-4 transition duration-200", isOpen && "rotate-180")} aria-hidden="true" />
+          {isActive ? <span className="absolute inset-x-2.5 bottom-0 h-0.5 rounded-full bg-primary" aria-hidden="true" /> : null}
         </button>
 
         <AnimatePresence>
@@ -128,7 +167,8 @@ export default function Navbar() {
                     key={child.label}
                     href={child.href}
                     onClick={handleDesktopNavigate}
-                    className="group flex items-center justify-between rounded-2xl border border-border/60 bg-surface/60 px-4 py-3 text-left transition hover:border-primary/40 hover:bg-white/10"
+                    role="menuitem"
+                    className="group flex items-center justify-between rounded-2xl border border-border/60 bg-surface/60 px-4 py-3 text-left transition hover:border-primary/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70"
                   >
                     <span className="text-sm font-medium text-foreground">{child.label}</span>
                     <span className="text-xs text-muted transition group-hover:text-foreground">Open</span>
@@ -143,36 +183,99 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-      <Container className="flex items-center justify-between gap-4 py-4" onMouseLeave={() => setActiveMenu(null)}>
-        <Link href="/#home" className="flex items-center gap-3">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
+      <Container className="flex h-[73px] max-w-[96rem] items-center justify-between gap-2 py-3 xl:gap-3" onMouseLeave={() => setActiveMenu(null)}>
+        <Link href="/#home" className="flex shrink-0 items-center gap-3 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70">
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 text-sm font-semibold text-primary">
             RK
           </span>
-          <span className="hidden flex-col sm:flex">
+          <span className="hidden flex-col 2xl:flex">
             <span className="text-sm font-semibold text-foreground">Rakesh Kumar Agrawal</span>
             <span className="text-xs text-muted">Enterprise AI · Platform · Cloud</span>
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden md:block max-w-[calc(100vw-22rem)] overflow-x-auto">
-          <ul className="flex items-center gap-1 rounded-full border border-border/70 bg-surface/60 p-1 backdrop-blur">
-            {navigation.map((item) => (
+        <nav aria-label="Primary" className="hidden min-w-0 flex-1 justify-center xl:flex">
+          <ul className="flex min-w-0 items-center justify-center gap-0 rounded-full border border-border/70 bg-surface/60 p-1 backdrop-blur 2xl:gap-0.5">
+            {desktopNavigation.map((item) => (
               <li key={`${item.label}-${item.href}`}>{renderGroup(item)}</li>
             ))}
+            <li
+              className="relative"
+              onMouseEnter={() => setActiveMenu("More")}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <button
+                type="button"
+                className={cn(
+                  "inline-flex h-9 items-center gap-1 rounded-full px-2.5 text-xs font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-3 2xl:text-sm",
+                  activeMenu === "More" ? "bg-white/10 text-foreground" : "text-muted hover:bg-white/5 hover:text-foreground",
+                )}
+                aria-expanded={activeMenu === "More"}
+                aria-haspopup="menu"
+                onClick={() => toggleGroup("More")}
+              >
+                <MoreHorizontal className="h-4 w-4" aria-hidden="true" />
+                <span>More</span>
+              </button>
+
+              <AnimatePresence>
+                {activeMenu === "More" ? (
+                  <motion.div
+                    className="absolute right-0 top-full mt-3 w-72 overflow-hidden rounded-3xl border border-border/80 bg-background/95 p-3 shadow-[0_24px_80px_rgba(2,6,23,0.45)] backdrop-blur-xl"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.18 }}
+                    role="menu"
+                  >
+                    <div className="grid gap-2">
+                      {secondaryNavigation.map((item) => (
+                        <Link
+                          key={`${item.label}-${item.href}`}
+                          href={item.href}
+                          role="menuitem"
+                          aria-current={isItemActive(item) ? "page" : undefined}
+                          onClick={handleDesktopNavigate}
+                          className={cn(
+                            "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70",
+                            isItemActive(item)
+                              ? "border-primary/40 bg-primary/10 text-foreground"
+                              : "border-border/60 bg-surface/60 text-muted hover:border-primary/40 hover:bg-white/10 hover:text-foreground",
+                          )}
+                        >
+                          <span>{item.label}</span>
+                          <span className="text-xs text-muted">Open</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+            </li>
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 2xl:gap-2">
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-white/5 text-foreground transition hover:border-primary/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 xl:hidden"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? <X className="h-4 w-4" aria-hidden="true" /> : <Menu className="h-4 w-4" aria-hidden="true" />}
+          </button>
           <button
             type="button"
             onClick={() => window.dispatchEvent(new Event("global-search:open"))}
-            className="hidden h-10 items-center gap-2 rounded-full border border-border/80 bg-white/5 px-3 text-xs font-semibold uppercase tracking-[0.16em] text-foreground transition hover:border-primary/40 hover:bg-white/10 lg:inline-flex"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-white/5 text-foreground transition hover:border-primary/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:w-auto 2xl:gap-2 2xl:px-3"
             aria-label="Open global search"
           >
-            <Search className="h-3.5 w-3.5" aria-hidden="true" />
-            Search
-            <span className="rounded-md border border-border/80 bg-white/5 px-1.5 py-0.5 text-[0.58rem] tracking-[0.14em] text-muted">
+            <Search className="h-4 w-4" aria-hidden="true" />
+            <span className="hidden text-xs font-semibold uppercase tracking-[0.16em] 2xl:inline">Search</span>
+            <span className="hidden rounded-md border border-border/80 bg-white/5 px-1.5 py-0.5 text-[0.58rem] tracking-[0.14em] text-muted 2xl:inline">
               Ctrl+K
             </span>
           </button>
@@ -181,36 +284,28 @@ export default function Navbar() {
             target={topmateProfile.target}
             rel={topmateProfile.rel}
             aria-label={topmateProfile.ariaLabel}
-            className="hidden h-10 items-center rounded-full border border-border/80 bg-white/5 px-4 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10 md:inline-flex"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-white/5 text-foreground transition hover:border-primary/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 xl:w-auto xl:px-3 xl:text-xs 2xl:px-4 2xl:text-sm"
           >
-            Book a Meeting
+            <CalendarDays className="h-4 w-4 xl:hidden" aria-hidden="true" />
+            <span className="hidden xl:inline 2xl:hidden">Meeting</span>
+            <span className="hidden 2xl:inline">Book a Meeting</span>
           </a>
           <ThemeToggle />
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-white/5 text-foreground transition hover:border-primary/40 hover:bg-white/10 md:hidden"
-            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={open}
-            aria-controls="mobile-navigation"
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? <X className="h-4 w-4" aria-hidden="true" /> : <Menu className="h-4 w-4" aria-hidden="true" />}
-          </button>
         </div>
       </Container>
 
       <AnimatePresence>
         {open ? (
-          <motion.div className="fixed inset-0 z-50 md:hidden" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <motion.div className="fixed inset-0 z-50 xl:hidden" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <button type="button" className="absolute inset-0 bg-background/80 backdrop-blur-sm" aria-label="Close navigation overlay" onClick={closeMenu} />
             <motion.div
               id="mobile-navigation"
               role="dialog"
               aria-modal="true"
-              className="absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-background p-6 shadow-[0_20px_80px_rgba(2,6,23,0.6)]"
-              initial={{ x: "100%" }}
+              className="absolute left-0 top-0 flex h-[100dvh] w-full flex-col border-r border-border bg-background p-5 shadow-[0_20px_80px_rgba(2,6,23,0.6)] sm:max-w-md sm:p-6"
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 260, damping: 30 }}
             >
               <div className="flex items-center justify-between">
@@ -233,7 +328,7 @@ export default function Navbar() {
                               rel={topmateProfile.rel}
                               aria-label={item.ariaLabel ?? item.label}
                               onClick={closeMenu}
-                              className="flex items-center justify-between rounded-2xl border border-border/70 bg-surface/60 px-4 py-4 text-base font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10"
+                              className="flex items-center justify-between rounded-2xl border border-border/70 bg-surface/60 px-4 py-4 text-base font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70"
                             >
                               <span>{item.label}</span>
                               <span className="text-sm text-muted">open</span>
@@ -242,7 +337,13 @@ export default function Navbar() {
                             <Link
                               href={item.href}
                               onClick={closeMenu}
-                              className="flex items-center justify-between rounded-2xl border border-border/70 bg-surface/60 px-4 py-4 text-base font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10"
+                              aria-current={isItemActive(item) ? "page" : undefined}
+                              className={cn(
+                                "flex items-center justify-between rounded-2xl border px-4 py-4 text-base font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70",
+                                isItemActive(item)
+                                  ? "border-primary/40 bg-primary/10 text-foreground"
+                                  : "border-border/70 bg-surface/60 text-foreground hover:border-primary/40 hover:bg-white/10",
+                              )}
                             >
                               <span>{item.label}</span>
                               <span className="text-sm text-muted">{toMenuHint(item.href)}</span>
