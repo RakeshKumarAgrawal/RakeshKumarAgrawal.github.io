@@ -1,4 +1,7 @@
-import { newsletter } from "@/data/newsletter";
+export const NEWSLETTER_HOME =
+  "https://www.linkedin.com/newsletters/enterprise-intelligence-lab-7462839222043828224/";
+export const LATEST_EDITION =
+  "https://www.linkedin.com/pulse/enterprise-ai-assurance-building-trustworthy-systems-scale-agrawal-mhdlc/?trackingId=iVIBR8XOSECQ22HsR2oUFQ%3D%3D";
 
 export type NewsletterEdition = {
   title: string;
@@ -6,7 +9,7 @@ export type NewsletterEdition = {
   publicationDate: string;
   summary: string;
   topics: string[];
-  readingTime: number;
+  readingTime: number | null;
   linkedinUrl: string;
   featured: boolean;
   category: string;
@@ -39,15 +42,128 @@ export const newsletterTopics = [
   "Research Engineering",
 ] as const;
 
-// Add only publicly verified LinkedIn editions. The authority record currently exposes no edition-level URLs.
-export const newsletterEditions: NewsletterEdition[] = [];
+export const newsletterEditions: NewsletterEdition[] = [
+  {
+    title: "Enterprise AI Assurance: Building Trustworthy AI Systems at Scale",
+    edition: 7,
+    publicationDate: "2026-07-27",
+    summary:
+      "Explores Enterprise AI Assurance as a practical framework for building reliable, trustworthy, secure, governed, and production-ready AI systems. The edition connects governance, observability, evaluation, risk management, and operational excellence into a unified enterprise assurance strategy.",
+    topics: ["Enterprise AI Assurance™", "AI Governance", "Responsible AI"],
+    readingTime: null,
+    linkedinUrl: LATEST_EDITION,
+    featured: true,
+    category: "Enterprise AI Assurance",
+    relatedFrameworks: [{ label: "Enterprise AI Governance Framework", href: "/frameworks/enterprise-ai-governance-framework" }],
+    relatedPublications: [],
+    relatedBooks: [{ label: "From Zero to AI", href: "/books" }],
+    relatedRepositories: [],
+    relatedDatasets: [],
+  },
+  {
+    title: "The Enterprise AI Control Plane",
+    edition: 6,
+    publicationDate: "2026-07-20",
+    summary: "",
+    topics: ["AI Control Plane", "Enterprise AI Agents", "AI Governance"],
+    readingTime: null,
+    linkedinUrl: "https://www.linkedin.com/pulse/enterprise-ai-control-plane-why-agent-governance-must-rakesh-agrawal-vajcc",
+    featured: false,
+    category: "AI Control Plane",
+    relatedFrameworks: [{ label: "Enterprise AI Control Plane", href: "/frameworks/enterprise-ai-control-plane" }],
+    relatedPublications: [],
+    relatedBooks: [],
+    relatedRepositories: [],
+    relatedDatasets: [],
+  },
+  {
+    title: "AI Observability: Measuring What Matters in Enterprise AI",
+    edition: 5,
+    publicationDate: "2026-07-13",
+    summary: "",
+    topics: ["AI Observability", "Enterprise AI"],
+    readingTime: null,
+    linkedinUrl: "https://www.linkedin.com/pulse/ai-observability-measuring-what-matters-enterprise-rakesh-agrawal-p1u4c",
+    featured: false,
+    category: "AI Observability",
+    relatedFrameworks: [],
+    relatedPublications: [],
+    relatedBooks: [],
+    relatedRepositories: [],
+    relatedDatasets: [],
+  },
+  {
+    title: "LLMOps: The Missing Layer Between AI Innovation and Enterprise Production",
+    edition: 4,
+    publicationDate: "2026-07-06",
+    summary: "",
+    topics: ["LLMOps", "Platform Engineering"],
+    readingTime: null,
+    linkedinUrl: "https://www.linkedin.com/pulse/llmops-missing-layer-between-ai-innovation-enterprise-rakesh-agrawal-p3fac",
+    featured: false,
+    category: "LLMOps",
+    relatedFrameworks: [],
+    relatedPublications: [],
+    relatedBooks: [],
+    relatedRepositories: [],
+    relatedDatasets: [],
+  },
+  {
+    title: "The Enterprise AI Operating Model",
+    edition: 3,
+    publicationDate: "2026-06-29",
+    summary: "",
+    topics: ["Enterprise AI Operating Model", "Enterprise Architecture"],
+    readingTime: null,
+    linkedinUrl: "https://www.linkedin.com/pulse/enterprise-ai-operating-model-why-most-projects-fail-how-agrawal-3kulc",
+    featured: false,
+    category: "Enterprise AI Operating Model",
+    relatedFrameworks: [],
+    relatedPublications: [],
+    relatedBooks: [],
+    relatedRepositories: [],
+    relatedDatasets: [],
+  },
+  {
+    title: "The Rise of Enterprise AI Agents: From Chatbots to Autonomous Digital Workers",
+    edition: 2,
+    publicationDate: "2026-06-22",
+    summary: "",
+    topics: ["Enterprise AI Agents", "Agentic AI"],
+    readingTime: null,
+    linkedinUrl: "https://www.linkedin.com/pulse/rise-enterprise-ai-agents-from-chatbots-autonomous-digital-agrawal-hlywc",
+    featured: false,
+    category: "Enterprise AI Agents",
+    relatedFrameworks: [],
+    relatedPublications: [],
+    relatedBooks: [],
+    relatedRepositories: [],
+    relatedDatasets: [],
+  },
+  {
+    title: "Beyond the Hype: Building the Blueprint for True Enterprise Intelligence",
+    edition: 1,
+    publicationDate: "2026-06-15",
+    summary: "",
+    topics: ["Enterprise AI", "Enterprise Architecture"],
+    readingTime: null,
+    linkedinUrl: "https://www.linkedin.com/pulse/beyond-hype-building-blueprint-true-enterprise-rakesh-agrawal-idqdc",
+    featured: false,
+    category: "Enterprise Intelligence",
+    relatedFrameworks: [],
+    relatedPublications: [],
+    relatedBooks: [],
+    relatedRepositories: [],
+    relatedDatasets: [],
+  },
+];
 
 export const newsletterPortal = {
   title: "Enterprise Intelligence Lab Newsletter",
   subtitle: "Enterprise AI Thought Leadership & Applied Research Series",
   description:
     "The Enterprise Intelligence Lab Newsletter is my official publication series exploring Enterprise Artificial Intelligence, AI Governance, Platform Engineering, Enterprise Architecture, AI Assurance, Responsible AI, and Digital Transformation. Each edition translates applied research into practical guidance for technology leaders, architects, researchers, and engineering professionals.",
-  archiveUrl: newsletter.archiveURL,
+  archiveUrl: NEWSLETTER_HOME,
   frequency: "Weekly",
   establishedYear: 2026,
   badges: ["LinkedIn Newsletter", "Enterprise Intelligence Lab", "Original Content", "Weekly Publication"],
@@ -94,8 +210,11 @@ export const latestNewsletterEdition =
   null;
 
 const distinctEditionTopics = new Set(newsletterEditions.flatMap((edition) => edition.topics));
-const averageReadingTime = newsletterEditions.length
-  ? Math.round(newsletterEditions.reduce((total, edition) => total + edition.readingTime, 0) / newsletterEditions.length)
+const verifiedReadingTimes = newsletterEditions.flatMap((edition) =>
+  edition.readingTime === null ? [] : [edition.readingTime],
+);
+const averageReadingTime = verifiedReadingTimes.length
+  ? Math.round(verifiedReadingTimes.reduce((total, readingTime) => total + readingTime, 0) / verifiedReadingTimes.length)
   : null;
 const frameworkReferenceCount = newsletterEditions.reduce((total, edition) => total + edition.relatedFrameworks.length, 0);
 const publicationReferenceCount = newsletterEditions.reduce((total, edition) => total + edition.relatedPublications.length, 0);
@@ -104,18 +223,18 @@ const datasetReferenceCount = newsletterEditions.reduce((total, edition) => tota
 const repositoryReferenceCount = newsletterEditions.reduce((total, edition) => total + edition.relatedRepositories.length, 0);
 
 export const authorityMetrics = [
-  { label: "Published Editions", value: newsletterEditions.length, suffix: " verified" },
+  { label: "Published Editions", value: newsletterEditions.length },
   { label: "Publication Frequency", value: newsletterPortal.frequency },
   { label: "Enterprise AI Topics", value: newsletterTopics.length, suffix: "+" },
   { label: "Years Active", value: Math.max(new Date().getFullYear() - newsletterPortal.establishedYear + 1, 1), suffix: "+" },
   { label: "Research Series", value: 1 },
-  { label: "Original Articles", value: newsletterEditions.length, suffix: " verified" },
+  { label: "Original Articles", value: newsletterEditions.length },
   { label: "LinkedIn Publication", value: "Authority source" },
   { label: "Open Access", value: "LinkedIn" },
 ] as const;
 
 export const newsletterMetrics = [
-  { label: "Total Editions", value: newsletterEditions.length, suffix: " verified" },
+  { label: "Total Editions", value: newsletterEditions.length },
   { label: "Enterprise Topics Covered", value: distinctEditionTopics.size },
   { label: "Average Reading Time", value: averageReadingTime ?? "Not available", suffix: averageReadingTime ? " min" : undefined },
   { label: "Publication Frequency", value: newsletterPortal.frequency },
@@ -126,4 +245,12 @@ export const newsletterMetrics = [
   { label: "Datasets Referenced", value: datasetReferenceCount },
   { label: "GitHub Repositories Linked", value: repositoryReferenceCount },
   { label: "Open Science Resources", value: publicationReferenceCount + datasetReferenceCount + repositoryReferenceCount },
+] as const;
+
+export const archiveStatistics = [
+  { label: "Total Published Editions", value: newsletterEditions.length },
+  { label: "Latest Edition", value: `#${latestNewsletterEdition?.edition ?? newsletterEditions.length}` },
+  { label: "Publication Frequency", value: newsletterPortal.frequency },
+  { label: "Series", value: "Enterprise Intelligence Lab" },
+  { label: "Research Focus", value: "Enterprise AI" },
 ] as const;

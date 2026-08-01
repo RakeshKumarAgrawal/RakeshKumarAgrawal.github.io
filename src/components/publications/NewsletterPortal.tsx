@@ -29,9 +29,12 @@ import Reveal from "@/components/ui/Reveal";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { executiveProfile } from "@/data/executiveProfile";
 import {
+  archiveStatistics,
   authorityMetrics,
   ecosystemConnections,
+  LATEST_EDITION,
   latestNewsletterEdition,
+  NEWSLETTER_HOME,
   newsletterEditions,
   newsletterMetrics,
   newsletterPortal,
@@ -57,23 +60,6 @@ function MetricGrid({ metrics, label }: { metrics: readonly { label: string; val
   );
 }
 
-function EmptyArchiveState({ title, description }: { title: string; description: string }) {
-  return (
-    <Card className="space-y-5 p-6 sm:p-7">
-      <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary" aria-hidden="true">
-        <Newspaper className="h-5 w-5" />
-      </span>
-      <div className="space-y-2">
-        <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground">{title}</h3>
-        <p className="max-w-3xl text-sm leading-7 text-muted">{description}</p>
-      </div>
-      <Button href={newsletterPortal.archiveUrl} target="_blank" rel="noopener noreferrer" rightIcon={<ExternalLink className="h-4 w-4" />}>
-        View LinkedIn Newsletter
-      </Button>
-    </Card>
-  );
-}
-
 export default function NewsletterPortal() {
   return (
     <div className="space-y-10 lg:space-y-12">
@@ -95,10 +81,10 @@ export default function NewsletterPortal() {
                 <p className="max-w-4xl text-sm leading-7 text-muted sm:text-base">{newsletterPortal.description}</p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button href={latestNewsletterEdition?.linkedinUrl ?? newsletterPortal.archiveUrl} target="_blank" rel="noopener noreferrer" rightIcon={<ExternalLink className="h-4 w-4" />} ariaLabel="Open the latest available Enterprise Intelligence Lab newsletter source on LinkedIn">
+                <Button href={LATEST_EDITION} target="_blank" rel="noopener noreferrer" rightIcon={<ExternalLink className="h-4 w-4" />} ariaLabel="Open Edition 7 of the Enterprise Intelligence Lab newsletter on LinkedIn">
                   Read Latest Edition
                 </Button>
-                <Button href={newsletterPortal.archiveUrl} target="_blank" rel="noopener noreferrer" variant="secondary" leftIcon={<FaLinkedin className="h-4 w-4" />}>
+                <Button href={NEWSLETTER_HOME} target="_blank" rel="noopener noreferrer" variant="secondary" leftIcon={<FaLinkedin className="h-4 w-4" />}>
                   View LinkedIn Newsletter
                 </Button>
                 <Button href="/publications" variant="ghost">Back to Publications</Button>
@@ -136,7 +122,8 @@ export default function NewsletterPortal() {
                 <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
                   <div className="flex min-h-64 items-end rounded-3xl border border-border/70 bg-gradient-to-br from-primary/15 via-surface to-accent/10 p-6">
                     <div className="space-y-2">
-                      <Badge>Edition #{latestNewsletterEdition.edition}</Badge>
+                      <Badge>Enterprise Intelligence Lab</Badge>
+                      <p className="font-display text-xl font-semibold text-foreground">Edition #{latestNewsletterEdition.edition}</p>
                       <p className="text-sm text-muted">{latestNewsletterEdition.publicationDate}</p>
                     </div>
                   </div>
@@ -144,12 +131,13 @@ export default function NewsletterPortal() {
                     <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground">{latestNewsletterEdition.title}</h2>
                     <p className="text-sm leading-7 text-muted">{latestNewsletterEdition.summary}</p>
                     <div className="flex flex-wrap gap-2">
-                      <Badge>{latestNewsletterEdition.readingTime} min read</Badge>
+                      <Badge>Latest Published Edition</Badge>
                       {latestNewsletterEdition.topics.map((topic) => <Badge key={topic}>{topic}</Badge>)}
                     </div>
                     <div className="flex flex-wrap gap-3">
-                      <Button href={latestNewsletterEdition.linkedinUrl} target="_blank" rel="noopener noreferrer">Read on LinkedIn</Button>
-                      <Button href={shareUrl} target="_blank" rel="noopener noreferrer" variant="secondary" leftIcon={<Share2 className="h-4 w-4" />}>Share</Button>
+                      <Button href={LATEST_EDITION} target="_blank" rel="noopener noreferrer">Read Latest Edition</Button>
+                      <Button href={NEWSLETTER_HOME} target="_blank" rel="noopener noreferrer" variant="secondary" leftIcon={<FaLinkedin className="h-4 w-4" />}>View Newsletter Home</Button>
+                      <Button href={shareUrl} target="_blank" rel="noopener noreferrer" variant="ghost" leftIcon={<Share2 className="h-4 w-4" />}>Share</Button>
                     </div>
                     <div className="grid gap-3 sm:grid-cols-2">
                       {[...latestNewsletterEdition.relatedPublications, ...latestNewsletterEdition.relatedFrameworks, ...latestNewsletterEdition.relatedBooks, ...latestNewsletterEdition.relatedRepositories].map((item) => (
@@ -160,32 +148,27 @@ export default function NewsletterPortal() {
                 </div>
               </Card>
             </Reveal>
-          ) : (
-            <EmptyArchiveState title="Latest edition awaiting verified indexing" description="LinkedIn remains the authoritative publication source. No edition-level URL is currently enumerated in the verified portfolio dataset, so this portal does not invent a latest title, date, or summary." />
-          )}
+          ) : null}
         </div>
       </section>
 
       <section className="space-y-5" aria-labelledby="newsletter-archive-title">
         <SectionTitle eyebrow="Complete Newsletter Archive" title="Enterprise Intelligence Lab Editions" description="A structured publication archive populated exclusively from verified edition-level LinkedIn records." />
-        <div id="newsletter-archive-title">
-          {newsletterEditions.length ? (
+        <div id="newsletter-archive-title" className="space-y-5">
+          <MetricGrid metrics={archiveStatistics} label="Newsletter archive statistics" />
             <div className="grid gap-4 lg:grid-cols-2">
               {newsletterEditions.map((edition, index) => (
                 <Reveal key={edition.linkedinUrl} delay={index * 0.04}>
                   <Card className="h-full space-y-5 p-6 transition duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-white/[0.07]">
                     <div className="flex flex-wrap items-center justify-between gap-2"><Badge>Edition #{edition.edition}</Badge><span className="text-xs text-muted">{edition.publicationDate}</span></div>
                     <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground">{edition.title}</h3>
-                    <p className="text-sm leading-7 text-muted">{edition.summary}</p>
-                    <div className="flex flex-wrap gap-2"><Badge>{edition.category}</Badge><Badge>{edition.readingTime} min read</Badge>{edition.topics.map((topic) => <Badge key={topic}>{topic}</Badge>)}</div>
-                    <div className="flex flex-wrap gap-3"><Button href={edition.linkedinUrl} target="_blank" rel="noopener noreferrer" size="sm">Read on LinkedIn</Button><Button href={edition.relatedPublications[0]?.href ?? "/research"} variant="secondary" size="sm">Related Research</Button></div>
+                    {edition.summary ? <p className="text-sm leading-7 text-muted">{edition.summary}</p> : null}
+                    <div className="flex flex-wrap gap-2"><Badge>{edition.category}</Badge>{edition.topics.map((topic) => <Badge key={topic}>{topic}</Badge>)}</div>
+                    <div className="flex flex-wrap gap-3"><Button href={edition.linkedinUrl} target="_blank" rel="noopener noreferrer" size="sm">Read Edition</Button><Button href={edition.relatedPublications[0]?.href ?? "/research"} variant="secondary" size="sm">Related Research</Button></div>
                   </Card>
                 </Reveal>
               ))}
             </div>
-          ) : (
-            <EmptyArchiveState title="Verified archive ready for edition records" description="The archive schema is active, but the current authority source does not expose verified individual edition URLs in this repository. Existing LinkedIn authority URLs remain unchanged." />
-          )}
         </div>
       </section>
 
@@ -240,17 +223,13 @@ export default function NewsletterPortal() {
       <section className="space-y-5" aria-labelledby="publication-timeline-title">
         <SectionTitle eyebrow="Publication Timeline" title="Edition History" description="Newest-first chronology generated directly from verified newsletter edition records." />
         <div id="publication-timeline-title">
-          {newsletterEditions.length ? (
             <ol className="space-y-4">
-              {[...newsletterEditions].sort((first, second) => second.publicationDate.localeCompare(first.publicationDate)).map((edition, index) => (
+              {[...newsletterEditions].sort((first, second) => second.edition - first.edition).map((edition, index) => (
                 <Reveal key={`timeline-${edition.linkedinUrl}`} delay={index * 0.04}>
-                  <li className="relative pl-8 sm:pl-10"><span className="absolute left-0 top-6 h-3 w-3 rounded-full border border-primary/50 bg-primary" aria-hidden="true" /><span className="absolute left-[5px] top-9 h-[calc(100%+1rem)] w-px bg-border/80" aria-hidden="true" /><Card className="flex flex-wrap items-start justify-between gap-4 p-5 sm:p-6"><div className="space-y-2"><div className="flex flex-wrap gap-2"><Badge>Edition #{edition.edition}</Badge><Badge>{edition.publicationDate}</Badge></div><h3 className="font-display text-xl font-semibold tracking-tight text-foreground">{edition.title}</h3><p className="text-sm leading-7 text-muted">{edition.summary}</p></div><Button href={edition.linkedinUrl} target="_blank" rel="noopener noreferrer" size="sm" leftIcon={<FaLinkedin className="h-4 w-4" />}>Read</Button></Card></li>
+                  <li className="relative pl-8 sm:pl-10"><span className="absolute left-0 top-6 h-3 w-3 rounded-full border border-primary/50 bg-primary" aria-hidden="true" /><span className="absolute left-[5px] top-9 h-[calc(100%+1rem)] w-px bg-border/80" aria-hidden="true" /><Card className="flex flex-wrap items-start justify-between gap-4 p-5 sm:p-6"><div className="space-y-2"><div className="flex flex-wrap gap-2"><Badge>Edition #{edition.edition}</Badge><Badge>{edition.publicationDate}</Badge></div><h3 className="font-display text-xl font-semibold tracking-tight text-foreground">{edition.title}</h3><p className="text-sm leading-7 text-muted">{edition.topics.join(" · ")}</p></div><Button href={edition.linkedinUrl} target="_blank" rel="noopener noreferrer" size="sm" leftIcon={<FaLinkedin className="h-4 w-4" />}>Read Edition</Button></Card></li>
                 </Reveal>
               ))}
             </ol>
-          ) : (
-            <EmptyArchiveState title="Timeline awaiting verified editions" description="Edition chronology will appear here automatically when verified LinkedIn edition URLs and publication dates are added to the structured collection." />
-          )}
         </div>
       </section>
 
@@ -290,7 +269,7 @@ export default function NewsletterPortal() {
                   {executiveProfile.links.map((link) => (
                     <a key={link.key} href={link.href} target="_blank" rel="noopener noreferrer" className="rounded-full border border-border/80 bg-white/5 px-4 py-2 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10">{link.label}</a>
                   ))}
-                  <a href="https://www.linkedin.com/in/rakeshkumaragrawal/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border/80 bg-white/5 px-4 py-2 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10">LinkedIn</a>
+                  <a href={NEWSLETTER_HOME} target="_blank" rel="noopener noreferrer" className="rounded-full border border-border/80 bg-white/5 px-4 py-2 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10">Newsletter Home</a>
                 </div>
                 <Button href={topmateProfile.href} target={topmateProfile.target} rel={topmateProfile.rel} ariaLabel={topmateProfile.ariaLabel}>Book a Meeting</Button>
               </div>
