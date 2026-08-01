@@ -1,3 +1,5 @@
+import { scholarlyProfiles } from "@/data/scholarlyProfiles";
+
 export type DataCiteResearchMetricValue = number | null;
 
 export type DataCiteResearchMetrics = {
@@ -30,21 +32,7 @@ export const dataciteProfile: DataCiteProfile = {
     "ORCID: 0009-0009-7113-5539",
     "DataCite Commons Profile: commons.datacite.org/orcid.org/0009-0009-7113-5539",
   ],
-  externalProfiles: [
-    { label: "ORCID", href: "https://orcid.org/0009-0009-7113-5539" },
-    { label: "Google Scholar", href: "https://scholar.google.com/citations?hl=en&user=dhXBvxQAAAAJ" },
-    { label: "ResearchGate", href: "https://www.researchgate.net/profile/Rakesh-Agrawal-6?ev=hdr_xprf" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/rakeshkumaragrawal/" },
-    { label: "ResearcherID", href: "https://www.researchid.co/rid147706" },
-    { label: "Web of Science ResearcherID", href: "https://www.webofscience.com/wos/author/record/PSK-7083-2026" },
-    { label: "Lens.org", href: "https://www.lens.org/lens/profile/700800239/scholar" },
-    { label: "Academia.edu", href: "https://ieee.academia.edu/RakeshAgrawal" },
-    { label: "Zenodo", href: "https://zenodo.org/" },
-    { label: "Harvard Dataverse", href: "https://dataverse.harvard.edu/dataverse/harvard" },
-    { label: "Europe PMC", href: "https://europepmc.org/search?query=Rakesh%20Kumar%20Agrawal" },
-    { label: "ImpactStory", href: "https://profiles.impactstory.org/u/0000-0000-0000-0000" },
-    { label: "SciProfiles", href: "https://sciprofiles.com/profile/5234141" },
-  ],
+  externalProfiles: scholarlyProfiles.map((profile) => ({ label: profile.name, href: profile.url })),
   professionalLinks: [
     { label: "Enterprise Intelligence Lab", href: "https://www.enterpriseintelligencelab.com/" },
     { label: "GitHub", href: "https://github.com/RakeshKumarAgrawal" },

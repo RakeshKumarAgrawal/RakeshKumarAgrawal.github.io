@@ -12,7 +12,6 @@
   "researchMetrics": {
     "works": 37,
     "citations": 65,
-    "views": 36,
     "downloads": 2
   },
   "trendWindowLabel": "Contribution distribution",
@@ -40,15 +39,17 @@
       "source": "dataciteCitations"
     },
     {
-      "id": "datacite-views",
-      "title": "Views",
-      "value": 0,
-      "description": "Total profile-related view count reported by DataCite Commons.",
-      "icon": "eye",
+      "id": "scholarly-profiles",
+      "title": "Scholarly Profiles",
+      "description": "Verified research identities synchronized from authoritative scholarly platforms.",
+      "icon": "check-circle",
       "route": "/open-science",
       "category": "Research Metrics",
-      "lastUpdated": "2026-07-22",
-      "source": "dataciteViews"
+      "lastUpdated": "2026-08-01",
+      "source": "scholarlyProfiles",
+      "display": "verified-platform-list",
+      "footer": "Updated automatically from verified scholarly sources.",
+      "actionLabel": "Explore Research Profiles"
     },
     {
       "id": "datacite-downloads",

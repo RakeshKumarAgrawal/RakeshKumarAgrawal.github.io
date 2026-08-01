@@ -23,7 +23,7 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 const categoryDescriptions: Record<DashboardMetricCategory, string> = {
-  "Research Metrics": "DataCite Commons profile indicators including works, citations, views, and downloads.",
+  "Research Metrics": "Verified scholarly records including works, citations, connected research identities, and downloads.",
   "Professional Metrics": "Professional memberships, peer review activity, editorial milestones, and certification footprint.",
   "Research Outputs": "Publications, frameworks, projects, datasets, newsletters, and technical articles reflecting delivery scale.",
   "Open Science": "Open profile connectivity and repository footprint for transparent, reusable research artifacts.",

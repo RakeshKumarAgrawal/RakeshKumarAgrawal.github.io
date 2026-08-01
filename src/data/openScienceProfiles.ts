@@ -1,22 +1,10 @@
 import { datasets } from "./datasets";
 import rawOpenScienceProfiles from "./openScienceProfiles.json";
 import { publicationsLibrary } from "./publicationsLibrary";
+import { scholarlyProfiles } from "./scholarlyProfiles";
 import { createKeyedIndex, createTitleIndex, resolveLinkedByKey, resolveLinkedByTitle } from "@/lib/data/linking";
 
 type LogoTone = "scholar" | "orcid" | "researchgate" | "zenodo" | "dataverse" | "ieee" | "github" | "lab";
-
-type OpenScienceProfileRecord = {
-  slug: string;
-  title: string;
-  logoText: string;
-  logoTone: LogoTone;
-  description: string;
-  profileUrl: string;
-  researchFocus: string;
-  latestActivityPlaceholder: string;
-  relatedPublicationSlugs: string[];
-  relatedDatasetTitles: string[];
-};
 
 type OpenScienceLibraryRecord = {
   hero: {
@@ -29,7 +17,6 @@ type OpenScienceLibraryRecord = {
     description: string;
     principles: string[];
   };
-  profiles: OpenScienceProfileRecord[];
 };
 
 export type OpenScienceLinkedItem = {
@@ -68,13 +55,13 @@ const datasetsIndex = createTitleIndex(datasets.items);
 export const openScienceHero = data.hero;
 export const openScienceCommitment = data.commitment;
 
-export const openScienceProfiles: OpenScienceProfile[] = data.profiles.map((profile) => ({
-  slug: profile.slug,
-  title: profile.title,
+export const openScienceProfiles: OpenScienceProfile[] = scholarlyProfiles.map((profile) => ({
+  slug: profile.id,
+  title: profile.name,
   logoText: profile.logoText,
   logoTone: profile.logoTone,
   description: profile.description,
-  profileUrl: profile.profileUrl,
+  profileUrl: profile.url,
   researchFocus: profile.researchFocus,
   latestActivityPlaceholder: profile.latestActivityPlaceholder,
   relatedPublications: resolveLinkedByKey(profile.relatedPublicationSlugs, publicationsIndex),

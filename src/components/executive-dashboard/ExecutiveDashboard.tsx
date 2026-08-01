@@ -129,7 +129,7 @@ export default function ExecutiveDashboard() {
           metrics={{
             works: executiveSignals.works,
             citations: executiveSignals.citations,
-            views: executiveSignals.views,
+            scholarlyProfiles: executiveSignals.scholarlyProfiles,
             downloads: executiveSignals.downloads,
           }}
         />

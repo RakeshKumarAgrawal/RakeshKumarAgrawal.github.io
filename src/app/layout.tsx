@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 
 import GlobalEnhancements from "@/components/layout/GlobalEnhancements";
+import { scholarlyProfiles } from "@/data/scholarlyProfiles";
 import { siteConfig } from "@/lib/seo";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
 import "../styles/globals.css";
@@ -89,9 +90,8 @@ const organizationSchema = {
   name: siteConfig.name,
   url: siteConfig.url,
   sameAs: [
-    "https://orcid.org/0009-0009-7113-5539",
+    ...scholarlyProfiles.map((profile) => profile.url),
     "https://github.com/RakeshKumarAgrawal",
-    "https://scholar.google.com/citations?hl=en&user=dhXBvxQAAAAJ",
   ],
 };
 

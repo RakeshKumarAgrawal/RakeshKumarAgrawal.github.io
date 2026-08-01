@@ -7,7 +7,7 @@ type ResearchImpactProps = {
   metrics: {
     works: number;
     citations: number;
-    views: number;
+    scholarlyProfiles: number;
     downloads: number;
   };
 };
@@ -16,7 +16,7 @@ export default function ResearchImpact({ cards, metrics }: ResearchImpactProps) 
   const metricRows = [
     { label: "Works", value: metrics.works },
     { label: "Citations", value: metrics.citations },
-    { label: "Views", value: metrics.views },
+    { label: "Scholarly Profiles", value: metrics.scholarlyProfiles },
     { label: "Downloads", value: metrics.downloads },
   ];
 

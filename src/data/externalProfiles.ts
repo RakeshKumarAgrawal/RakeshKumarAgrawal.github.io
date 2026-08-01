@@ -1,13 +1,37 @@
 import {
   createAuditMetadata,
   githubSource,
-  googleScholarSource,
-  lensSource,
   orcidSource,
-  researchGateSource,
-  semanticScholarSource,
   withTraceability,
 } from "./sources";
+import { scholarlyProfiles } from "./scholarlyProfiles";
+
+const scholarlyExternalProfiles = scholarlyProfiles.map((profile) => {
+  const identifierType = profile.id === "orcid" ? "ORCID" : "URL";
+  const identifier = profile.id === "orcid" ? "0009-0009-7113-5539" : profile.url;
+
+  return {
+    title: profile.name,
+    description: profile.description,
+    href: profile.url,
+    linkLabel: "Open Profile",
+    openInNewTab: true,
+    meta: ["Scholarly profile"],
+    ...withTraceability({ source: orcidSource, identifierType, identifier }),
+    ...(profile.id === "orcid"
+      ? {
+          audit: createAuditMetadata({
+            id: "external-profile-orcid",
+            title: "ORCID",
+            sourceName: orcidSource.sourceName,
+            sourceURL: orcidSource.sourceURL,
+            identifierType: "ORCID",
+            identifier,
+          }),
+        }
+      : {}),
+  };
+});
 
 export const externalProfiles = {
   ...orcidSource,
@@ -15,24 +39,7 @@ export const externalProfiles = {
   title: "Verified external profiles",
   description: "Public profiles and repositories linked from ORCID and verified through public APIs.",
   items: [
-    {
-      title: "ORCID",
-      description: "Research identity and source record.",
-      href: "https://orcid.org/0009-0009-7113-5539",
-      linkLabel: "Open Profile",
-      openInNewTab: true,
-      meta: ["ORCID"],
-      ...withTraceability({ source: orcidSource, identifierType: "ORCID", identifier: "0009-0009-7113-5539" }),
-      audit: createAuditMetadata({
-        id: "external-profile-orcid",
-        title: "ORCID",
-        sourceName: orcidSource.sourceName,
-        sourceURL: orcidSource.sourceURL,
-        identifierType: "ORCID",
-        identifier: "0009-0009-7113-5539",
-      }),
-      ...orcidSource,
-    },
+    ...scholarlyExternalProfiles,
     {
       title: "LinkedIn",
       description: "Public professional profile linked from ORCID.",
@@ -42,46 +49,6 @@ export const externalProfiles = {
       meta: ["Professional network"],
       ...withTraceability({ source: orcidSource, identifierType: "URL", identifier: "https://www.linkedin.com/in/rakeshkumaragrawal/" }),
       ...orcidSource,
-    },
-    {
-      title: "ResearchGate",
-      description: "Public research profile linked from ORCID.",
-      href: "https://www.researchgate.net/profile/Rakesh-Agrawal-6?ev=hdr_xprf",
-      linkLabel: "Open Profile",
-      openInNewTab: true,
-      meta: ["Research profile"],
-      ...withTraceability({ source: researchGateSource("https://www.researchgate.net/profile/Rakesh-Agrawal-6?ev=hdr_xprf"), identifierType: "URL", identifier: "https://www.researchgate.net/profile/Rakesh-Agrawal-6?ev=hdr_xprf" }),
-      ...researchGateSource("https://www.researchgate.net/profile/Rakesh-Agrawal-6?ev=hdr_xprf"),
-    },
-    {
-      title: "Google Scholar",
-      description: "Public scholar profile linked from ORCID.",
-      href: "https://scholar.google.com/citations?hl=en&user=dhXBvxQAAAAJ",
-      linkLabel: "Open Profile",
-      openInNewTab: true,
-      meta: ["Scholar"],
-      ...withTraceability({ source: googleScholarSource("https://scholar.google.com/citations?hl=en&user=dhXBvxQAAAAJ"), identifierType: "URL", identifier: "https://scholar.google.com/citations?hl=en&user=dhXBvxQAAAAJ" }),
-      ...googleScholarSource("https://scholar.google.com/citations?hl=en&user=dhXBvxQAAAAJ"),
-    },
-    {
-      title: "Semantic Scholar",
-      description: "Public author profile used only as an external scholarly profile and for public publication metadata enrichment.",
-      href: "https://www.semanticscholar.org/author/Rakesh-Kumar-Agrawal/2257269095",
-      linkLabel: "Open Profile",
-      openInNewTab: true,
-      meta: ["Scholar profile"],
-      ...withTraceability({ source: semanticScholarSource("https://www.semanticscholar.org/author/Rakesh-Kumar-Agrawal/2257269095"), identifierType: "URL", identifier: "https://www.semanticscholar.org/author/Rakesh-Kumar-Agrawal/2257269095" }),
-      ...semanticScholarSource("https://www.semanticscholar.org/author/Rakesh-Kumar-Agrawal/2257269095"),
-    },
-    {
-      title: "Lens Scholar",
-      description: "Public Lens profile linked from ORCID.",
-      href: "https://www.lens.org/lens/profile/700800239/scholar",
-      linkLabel: "Open Profile",
-      openInNewTab: true,
-      meta: ["Scholarly search"],
-      ...withTraceability({ source: lensSource("https://www.lens.org/lens/profile/700800239/scholar"), identifierType: "URL", identifier: "https://www.lens.org/lens/profile/700800239/scholar" }),
-      ...lensSource("https://www.lens.org/lens/profile/700800239/scholar"),
     },
     {
       title: "ResearchID",
@@ -94,16 +61,6 @@ export const externalProfiles = {
       ...orcidSource,
     },
     {
-      title: "Web of Science ResearcherID",
-      description: "Public ResearcherID linked from ORCID.",
-      href: "https://www.webofscience.com/wos/author/record/PSK-7083-2026",
-      linkLabel: "Open Profile",
-      openInNewTab: true,
-      meta: ["ResearcherID"],
-      ...withTraceability({ source: orcidSource, identifierType: "URL", identifier: "https://www.webofscience.com/wos/author/record/PSK-7083-2026" }),
-      ...orcidSource,
-    },
-    {
       title: "Academia.edu",
       description: "Public academia profile linked from ORCID.",
       href: "https://ieee.academia.edu/RakeshAgrawal",
@@ -111,16 +68,6 @@ export const externalProfiles = {
       openInNewTab: true,
       meta: ["Academic profile"],
       ...withTraceability({ source: orcidSource, identifierType: "URL", identifier: "https://ieee.academia.edu/RakeshAgrawal" }),
-      ...orcidSource,
-    },
-    {
-      title: "Zenodo",
-      description: "Public repository and DOI landing pages for authored works.",
-      href: "https://zenodo.org/me/uploads?q=&f=shared_with_me%3Afalse&l=list&p=1&s=10&sort=newest",
-      linkLabel: "Open Profile",
-      openInNewTab: true,
-      meta: ["Repository"],
-      ...withTraceability({ source: orcidSource, identifierType: "URL", identifier: "https://zenodo.org/me/uploads?q=&f=shared_with_me%3Afalse&l=list&p=1&s=10&sort=newest" }),
       ...orcidSource,
     },
     {

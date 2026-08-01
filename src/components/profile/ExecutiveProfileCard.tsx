@@ -3,6 +3,7 @@ import {
   Building2,
   ExternalLink,
   Fingerprint,
+  Globe2,
   Microscope,
   ShieldCheck,
 } from "lucide-react";
@@ -41,7 +42,7 @@ const iconMap: Record<ExecutiveProfileLinkKey, React.ComponentType<{ className?:
 const isInternalHref = (href: string) => href.startsWith("/");
 
 function ProfileLinkIcon({ link }: { link: ExecutiveProfileLink }) {
-  const Icon = iconMap[link.key];
+  const Icon = iconMap[link.key] ?? Globe2;
 
   return (
     <a

@@ -5,7 +5,6 @@ import {
   CheckCircle2,
   Database,
   Download,
-  Eye,
   FileText,
   FolderGit2,
   Globe2,
@@ -20,6 +19,7 @@ import {
 
 import Card from "@/components/ui/Card";
 import type { DashboardMetric } from "@/data/dashboardMetrics";
+import { scholarlyProfiles } from "@/data/scholarlyProfiles";
 
 import MetricCounter from "./MetricCounter";
 
@@ -33,7 +33,6 @@ const iconMap = {
   "check-circle": CheckCircle2,
   database: Database,
   download: Download,
-  eye: Eye,
   "file-text": FileText,
   github: FolderGit2,
   globe: Globe2,
@@ -58,7 +57,11 @@ export default function DashboardCard({ metric }: DashboardCardProps) {
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">{metric.title}</p>
           <p className="font-display text-4xl font-semibold tracking-tight text-foreground">
-            <MetricCounter value={metric.value} />
+            {metric.display === "verified-platform-list" ? (
+              <>{scholarlyProfiles.length} Verified Research Profiles</>
+            ) : (
+              <MetricCounter value={metric.value} />
+            )}
           </p>
         </div>
         <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary" aria-hidden="true">
@@ -68,7 +71,18 @@ export default function DashboardCard({ metric }: DashboardCardProps) {
 
       <p className="text-sm leading-7 text-muted">{metric.description}</p>
 
-      {progressItems.length ? (
+      {metric.display === "verified-platform-list" ? (
+        <div className="space-y-2 rounded-2xl border border-border/70 bg-surface/55 p-3" aria-label={`Verified platforms for ${metric.title}`}>
+          <ul className="grid gap-2 text-xs text-muted sm:grid-cols-2">
+            {scholarlyProfiles.map((profile) => (
+              <li key={profile.id} className="flex items-center gap-2">
+                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
+                <span>{profile.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : progressItems.length ? (
         <div className="space-y-2 rounded-2xl border border-border/70 bg-surface/55 p-3" aria-label={`Breakdown for ${metric.title}`}>
           {progressItems.map((item) => (
             <div key={`${metric.id}-${item.label}`} className="space-y-1">
@@ -87,14 +101,18 @@ export default function DashboardCard({ metric }: DashboardCardProps) {
         </div>
       ) : null}
 
-      <div className="flex items-center justify-between">
-        <p className="text-xs uppercase tracking-[0.18em] text-muted">Updated {metric.lastUpdated}</p>
+      <div className={metric.display === "verified-platform-list" ? "flex flex-col items-start gap-3" : "flex items-center justify-between"}>
+        <p className="text-xs uppercase tracking-[0.18em] text-muted">
+          {metric.footer ?? `Updated ${metric.lastUpdated}`}
+        </p>
         <Link
           href={metric.route}
-          className="inline-flex rounded-full border border-border/80 bg-white/5 px-4 py-2 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10"
+          className={`inline-flex rounded-full border border-border/80 bg-white/5 px-4 py-2 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10 ${
+            metric.display === "verified-platform-list" ? "w-full justify-center sm:w-auto" : ""
+          }`}
           aria-label={`View details for ${metric.title}`}
         >
-          View Details
+          {metric.actionLabel ?? "View Details"}
         </Link>
       </div>
     </Card>

@@ -10,13 +10,14 @@ import { professionalServiceTimelineEntries } from "./professionalServiceLibrary
 import { projects } from "./projects";
 import { publicationsLibrary } from "./publicationsLibrary";
 import { researchDomains } from "./researchDomains";
+import { scholarlyProfiles } from "./scholarlyProfiles";
 import { software } from "./software";
 import { dataciteProfile } from "@/lib/dataciteProfile";
 
 export type DashboardMetricSource =
   | "dataciteWorks"
   | "dataciteCitations"
-  | "dataciteViews"
+  | "scholarlyProfiles"
   | "dataciteDownloads"
   | "researchPublications"
   | "researchProjects"
@@ -31,6 +32,20 @@ export type DashboardMetricSource =
   | "newsletterEditions"
   | "professionalCertifications"
   | "openScienceProfiles";
+
+export type DashboardSynchronizationSource =
+  | (typeof scholarlyProfiles)[number]["synchronizationName"]
+  | "GitHub"
+  | "LinkedIn Newsletter (edition metadata only)"
+  | "Amazon KDP (book metadata only)";
+
+export type ExcludedDashboardMetricType =
+  | "Views"
+  | "Impressions"
+  | "Page Visits"
+  | "Social Analytics"
+  | "Website Analytics"
+  | "Platform-specific popularity metrics";
 
 export type DashboardMetricCategory =
   | "Research Metrics"
@@ -48,7 +63,7 @@ export type DashboardFilterGroup =
 type DashboardMetricRecord = {
   id: string;
   title: string;
-  value: number;
+  value?: number;
   description: string;
   icon: string;
   route: string;
@@ -56,6 +71,9 @@ type DashboardMetricRecord = {
   lastUpdated: string;
   source: DashboardMetricSource;
   breakdown?: string[];
+  display?: "verified-platform-list";
+  footer?: string;
+  actionLabel?: string;
 };
 
 type DashboardMetricsRecord = {
@@ -72,7 +90,6 @@ type DashboardMetricsRecord = {
   researchMetrics: {
     works: number | null;
     citations: number | null;
-    views: number | null;
     downloads: number | null;
   };
   trendWindowLabel: string;
@@ -98,6 +115,9 @@ export type DashboardMetric = {
   source: DashboardMetricSource;
   breakdown: DashboardMetricBreakdown[];
   trend: number[];
+  display?: "verified-platform-list";
+  footer?: string;
+  actionLabel?: string;
 };
 
 export type DashboardDistributionItem = {
@@ -176,6 +196,10 @@ const dashboardCategoryToFilterGroup: Record<DashboardMetricCategory, DashboardF
 };
 
 const buildBreakdown = (metric: DashboardMetricRecord): DashboardMetricBreakdown[] => {
+  if (metric.source === "scholarlyProfiles") {
+    return scholarlyProfiles.map((profile) => ({ label: profile.name, value: 1 }));
+  }
+
   if (!metric.breakdown?.length) {
     return [];
   }
@@ -273,8 +297,8 @@ const computeMetricValue = (source: DashboardMetricSource): number | null => {
     return dataciteProfile.researchMetrics.citations;
   }
 
-  if (source === "dataciteViews") {
-    return dataciteProfile.researchMetrics.views;
+  if (source === "scholarlyProfiles") {
+    return scholarlyProfiles.length;
   }
 
   if (source === "dataciteDownloads") {
@@ -335,7 +359,29 @@ const computeMetricValue = (source: DashboardMetricSource): number | null => {
 export const dashboardHomeSection = data.homeSection;
 export const dashboardHero = data.hero;
 export const dashboardTrendWindowLabel = data.trendWindowLabel;
-export const dashboardResearchMetrics = data.researchMetrics;
+export const dashboardResearchMetrics = {
+  ...data.researchMetrics,
+  scholarlyProfiles: scholarlyProfiles.length,
+};
+export const dashboardSynchronizationModel: {
+  authoritativeSources: DashboardSynchronizationSource[];
+  excludedMetricTypes: ExcludedDashboardMetricType[];
+} = {
+  authoritativeSources: [
+    ...scholarlyProfiles.map((profile) => profile.synchronizationName),
+    "GitHub",
+    "LinkedIn Newsletter (edition metadata only)",
+    "Amazon KDP (book metadata only)",
+  ],
+  excludedMetricTypes: [
+    "Views",
+    "Impressions",
+    "Page Visits",
+    "Social Analytics",
+    "Website Analytics",
+    "Platform-specific popularity metrics",
+  ],
+};
 
 export const dashboardMetrics: DashboardMetric[] = data.metrics.map((metric) => {
   const value = computeMetricValue(metric.source);
@@ -355,6 +401,9 @@ export const dashboardMetrics: DashboardMetric[] = data.metrics.map((metric) => 
     source: metric.source,
     breakdown,
     trend: breakdown.map((item) => item.value),
+    display: metric.display,
+    footer: metric.footer,
+    actionLabel: metric.actionLabel,
   };
 });
 

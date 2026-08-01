@@ -1,12 +1,10 @@
 import { employment } from "@/data/employment";
 import { profile } from "@/data/profile";
+import { scholarlyProfiles, type ScholarlyProfile } from "@/data/scholarlyProfiles";
 
 export type ExecutiveProfileLinkKey =
   | "github"
-  | "google-scholar"
-  | "orcid"
-  | "researchgate"
-  | "zenodo"
+  | ScholarlyProfile["id"]
   | "enterprise-intelligence-lab";
 
 export type ExecutiveProfileAction = {
@@ -90,10 +88,11 @@ export const executiveProfile: ExecutiveProfileConfig = {
   ],
   links: [
     { key: "github", label: "GitHub", href: "https://github.com/RakeshKumarAgrawal" },
-    { key: "google-scholar", label: "Google Scholar", href: "https://scholar.google.com/citations?hl=en&user=dhXBvxQAAAAJ" },
-    { key: "orcid", label: "ORCID", href: "https://orcid.org/0009-0009-7113-5539" },
-    { key: "researchgate", label: "ResearchGate", href: "https://www.researchgate.net/profile/Rakesh-Agrawal-6?ev=hdr_xprf" },
-    { key: "zenodo", label: "Zenodo", href: "https://zenodo.org/" },
+    ...scholarlyProfiles.map((scholarlyProfile) => ({
+      key: scholarlyProfile.id,
+      label: scholarlyProfile.name,
+      href: scholarlyProfile.url,
+    })),
     { key: "enterprise-intelligence-lab", label: "Enterprise Intelligence Lab", href: "https://www.enterpriseintelligencelab.com/" },
   ],
   careerTimeline: employment.items.map((item) => ({

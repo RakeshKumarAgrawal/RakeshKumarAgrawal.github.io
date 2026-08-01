@@ -5,7 +5,6 @@ import { dashboardResearchMetrics } from "@/data/dashboardMetrics";
 import { datasets } from "@/data/datasets";
 import { employment } from "@/data/employment";
 import { executiveProfile } from "@/data/executiveProfile";
-import { externalProfiles } from "@/data/externalProfiles";
 import { frameworksLibrary } from "@/data/frameworksLibrary";
 import { globalSearchEntries } from "@/data/globalSearchIndex";
 import { memberships } from "@/data/memberships";
@@ -20,6 +19,7 @@ import { projects } from "@/data/projects";
 import { publicationsLibrary } from "@/data/publicationsLibrary";
 import { researchAreas } from "@/data/researchAreas";
 import { researchDomains } from "@/data/researchDomains";
+import { scholarlyProfiles } from "@/data/scholarlyProfiles";
 import { services } from "@/data/services";
 import { skills } from "@/data/skills";
 import { software } from "@/data/software";
@@ -134,7 +134,7 @@ const professionalMembershipCount = memberships.items.length;
 const peerReviewCount = peerReviews.items.length;
 const editorialActivityCount = professionalServiceTimelineEntries.filter((item) => item.category === "Editorial Activities").length;
 const conferenceParticipationCount = professionalServiceTimelineEntries.filter((item) => item.category === "Conference Service").length;
-const openScienceProfileCount = new Set(externalProfiles.items.map((item) => item.title)).size;
+const openScienceProfileCount = scholarlyProfiles.length;
 const githubRepositoryCount = software.items.length;
 const speakingCount = speaking.items.length;
 const volunteerCount = professionalServiceTimelineEntries.filter((item) => item.category === "Volunteer Activities").length;
@@ -143,7 +143,7 @@ const researchImpactCount = publicationCount + originalContributionCount + frame
 const researchMetricsValue = [
   dashboardResearchMetrics.works,
   dashboardResearchMetrics.citations,
-  dashboardResearchMetrics.views,
+  dashboardResearchMetrics.scholarlyProfiles,
   dashboardResearchMetrics.downloads,
 ].reduce<number>((sum, value) => sum + (value ?? 0), 0);
 
@@ -287,7 +287,7 @@ const rawMetrics: Omit<ExecutiveMetric, "progress">[] = [
     id: "research-metrics",
     title: "Research Metrics",
     value: researchMetricsValue,
-    description: "DataCite profile metrics including works, citations, views, and downloads.",
+    description: "Verified scholarly metrics including works, citations, connected research identities, and downloads.",
     href: "/dashboard",
     icon: "activity",
     filter: "Research",
@@ -517,74 +517,13 @@ export const recognitionCards: DashboardLinkedCard[] = [
   },
 ];
 
-const openScienceTargetNames = [
-  "ORCID",
-  "Google Scholar",
-  "ResearchGate",
-  "Zenodo",
-  "Harvard Dataverse",
-  "IEEE DataPort",
-  "GitHub",
-  "LinkedIn",
-  "Lens",
-  "DataCite Commons",
-  "ResearcherID",
-  "Web of Science",
-];
-
-type OpenScienceLinkRecord = {
-  title: string;
-  description: string;
-  href: string;
-  linkLabel?: string;
-  openInNewTab?: boolean;
-  meta?: readonly string[];
-};
-
-const normalizedProfileName = (title: string) => {
-  const lower = title.toLowerCase();
-  if (lower.includes("lens")) {
-    return "Lens";
-  }
-  if (lower.includes("researcherid")) {
-    return "ResearcherID";
-  }
-  if (lower.includes("web of science")) {
-    return "Web of Science";
-  }
-
-  return title;
-};
-
-const externalProfileMap = new Map<string, OpenScienceLinkRecord>(
-  externalProfiles.items.map((item) => [normalizedProfileName(item.title), item]),
-);
-
-externalProfileMap.set("DataCite Commons", {
-  title: "DataCite Commons",
-  description: dataciteProfile.profileSummary,
-  href: dataciteProfile.profileUrl,
-  linkLabel: "Open Profile",
-  openInNewTab: true,
-  meta: ["DataCite"],
-});
-
-export const openScienceCards: DashboardLinkedCard[] = openScienceTargetNames
-  .map((name) => {
-    const profileItem = externalProfileMap.get(name);
-    if (!profileItem) {
-      return null;
-    }
-
-    return {
-      id: `open-science-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
-      title: name,
-      description: profileItem.description,
-      href: profileItem.href,
-      chips: ["Open Science", "Profile"],
-    };
-  })
-  .filter((item): item is DashboardLinkedCard => item !== null);
+export const openScienceCards: DashboardLinkedCard[] = scholarlyProfiles.map((profile) => ({
+  id: `open-science-${profile.id}`,
+  title: profile.name,
+  description: profile.description,
+  href: profile.url,
+  chips: ["Open Science", "Profile"],
+}));
 
 const skillInputs = [
   "Artificial Intelligence",
@@ -907,6 +846,6 @@ export const executiveSignals = {
   openIdentityCount: openScienceCards.length,
   works: dataciteProfile.researchMetrics.works ?? 0,
   citations: dataciteProfile.researchMetrics.citations ?? 0,
-  views: dataciteProfile.researchMetrics.views ?? 0,
+  scholarlyProfiles: dashboardResearchMetrics.scholarlyProfiles,
   downloads: dataciteProfile.researchMetrics.downloads ?? 0,
 } as const;

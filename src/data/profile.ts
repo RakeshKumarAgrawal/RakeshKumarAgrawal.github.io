@@ -1,4 +1,5 @@
 import { createAuditMetadata, orcidSource, withTraceability } from "./sources";
+import { scholarlyProfiles } from "./scholarlyProfiles";
 
 export const profile = {
   ...orcidSource,
@@ -21,14 +22,10 @@ export const profile = {
   verifiedDomains: ["ieee.org"],
   keywords: ["Artificial Intelligence", "Healthcare Intelligence", "Smart Healthcare"],
   researcherUrls: [
+    ...scholarlyProfiles.map((profile) => profile.url),
     "https://www.linkedin.com/in/rakeshkumaragrawal/",
-    "https://www.researchgate.net/profile/Rakesh-Agrawal-6?ev=hdr_xprf",
-    "https://scholar.google.com/citations?user=dhXBvxQAAAAJ",
     "https://www.researchid.co/rid147706",
-    "https://www.webofscience.com/wos/author/record/PSK-7083-2026",
-    "https://www.lens.org/lens/profile/700800239/scholar",
     "https://ieee.academia.edu/RakeshAgrawal",
-    "https://zenodo.org/me/uploads?q=&f=shared_with_me%3Afalse&l=list&p=1&s=10&sort=newest",
     "https://sciprofiles.com/profile/5234141",
   ],
   externalIdentifiers: [

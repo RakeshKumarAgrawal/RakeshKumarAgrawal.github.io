@@ -20,6 +20,7 @@ import {
 
 import Card from "@/components/ui/Card";
 import type { DashboardMetric } from "@/data/dashboardMetrics";
+import { scholarlyProfiles } from "@/data/scholarlyProfiles";
 
 import MiniTrendChart from "./MiniTrendChart";
 
@@ -85,7 +86,11 @@ export default function DashboardMetricCard({ metric, trendWindowLabel }: Dashbo
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted">{metric.title}</p>
           <p className="font-display text-3xl font-semibold tracking-tight text-foreground" aria-live="polite">
-            <CountUpValue value={metric.value} />
+            {metric.display === "verified-platform-list" ? (
+              <>{scholarlyProfiles.length} Verified Research Profiles</>
+            ) : (
+              <CountUpValue value={metric.value} />
+            )}
           </p>
         </div>
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary" aria-hidden="true">
@@ -96,16 +101,31 @@ export default function DashboardMetricCard({ metric, trendWindowLabel }: Dashbo
       <p className="text-sm leading-7 text-muted">{metric.description}</p>
 
       <div className="space-y-2 rounded-2xl border border-border/70 bg-surface/60 p-3">
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">{trendWindowLabel}</p>
-        <MiniTrendChart values={metric.trend} />
+        {metric.display === "verified-platform-list" ? (
+          <ul className="grid gap-2 text-xs text-muted sm:grid-cols-2" aria-label={`Verified platforms for ${metric.title}`}>
+            {scholarlyProfiles.map((profile) => (
+              <li key={profile.id} className="flex items-center gap-2">
+                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
+                <span>{profile.name}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <>
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">{trendWindowLabel}</p>
+            <MiniTrendChart values={metric.trend} />
+          </>
+        )}
       </div>
+
+      {metric.footer ? <p className="text-xs uppercase tracking-[0.18em] text-muted">{metric.footer}</p> : null}
 
       <Link
         href={metric.href}
         className="inline-flex rounded-full border border-border/80 bg-white/5 px-4 py-2 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-white/10"
         aria-label={`Open details for ${metric.title}`}
       >
-        Open details
+        {metric.actionLabel ?? "Open details"}
       </Link>
     </Card>
   );
