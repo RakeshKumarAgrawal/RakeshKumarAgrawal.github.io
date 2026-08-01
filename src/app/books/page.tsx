@@ -12,35 +12,35 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { topmateProfile } from "@/data/profileLinks";
 import { createPageMetadata } from "@/lib/seo";
 
-const amazonUrl = "https://a.co/d/005afKP6";
+const amazonUrl = "https://www.amazon.com/dp/B0HCCR1V4H";
 
-const categories = ["Artificial Intelligence", "Enterprise AI", "Agentic AI", "AI Governance"];
+const categories = ["Artificial Intelligence", "Machine Learning", "Generative AI", "AI Agents"];
 
 const highlights = [
-  "Constitutional AI",
-  "Agentic AI",
-  "Enterprise AI Governance",
+  "Artificial Intelligence",
+  "Machine Learning",
+  "Generative AI",
+  "ChatGPT",
+  "AI Agents",
+  "Prompt Engineering",
+  "Real-world Applications",
   "Responsible AI",
-  "AI Assurance",
-  "AI Safety",
-  "Enterprise Architecture",
-  "Practical Implementation",
+  "Future of Intelligent Systems",
 ];
 
 const metrics = [
   { label: "Published Books", value: "1" },
-  { label: "Book Chapters", value: "0", note: "Placeholder" },
-  { label: "Research Topics", value: "8+" },
-  { label: "Available Worldwide", value: "Amazon" },
-  { label: "Publication Status", value: "Published" },
+  { label: "Book Series", value: "1" },
+  { label: "Current Volume", value: "Book 1" },
+  { label: "Publisher", value: "Amazon KDP" },
+  { label: "Status", value: "Published" },
 ];
 
 const plannedBooks = [
-  "Enterprise AI Assurance\u2122",
-  "Enterprise AI Incident\u2122",
-  "Enterprise AI Operating Model",
-  "Enterprise Digital Brain",
-  "Enterprise AI Governance",
+  { volume: "Book 2", title: "Enterprise AI for Professionals" },
+  { volume: "Book 3", title: "Enterprise AI Architecture" },
+  { volume: "Book 4", title: "Enterprise AI Governance" },
+  { volume: "Book 5", title: "Enterprise AI Assurance" },
 ];
 
 const researchConnections = [
@@ -53,11 +53,11 @@ const researchConnections = [
 ];
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Books",
+  title: "From Zero to AI: An Easy Beginner's Guide to Artificial Intelligence, Machine Learning, Generative AI, ChatGPT, AI Agents, and the Future of Intelligent Systems",
   description:
-    "Published books and technical contributions by Rakesh Kumar Agrawal covering Enterprise AI, Constitutional AI, Agentic AI, AI Governance, and Responsible Artificial Intelligence.",
+    "From Zero to AI by Rakesh Kumar Agrawal is a beginner-friendly guide to Artificial Intelligence, Machine Learning, Generative AI, ChatGPT, AI Agents, and intelligent systems.",
   canonical: "/books",
-  keywords: ["books", "enterprise AI", "constitutional AI", "agentic AI", "AI governance", "responsible AI"],
+  keywords: ["From Zero to AI", "artificial intelligence", "machine learning", "generative AI", "ChatGPT", "AI agents", "responsible AI"],
 });
 
 export default function BooksPage() {
@@ -76,8 +76,8 @@ export default function BooksPage() {
           <div className="grid gap-8 md:grid-cols-[15rem_1fr] lg:gap-10">
             <div className="relative mx-auto aspect-[2/3] w-full max-w-60 overflow-hidden rounded-2xl border border-border/70 bg-surface md:mx-0">
               <Image
-                src="/images/books/book-cover.jpg"
-                alt="Cover of Constitutional Agentic AI"
+                src="/images/books/from-zero-to-ai.jpg"
+                alt="Cover of From Zero to AI"
                 fill
                 priority
                 sizes="(max-width: 768px) 240px, 240px"
@@ -92,13 +92,14 @@ export default function BooksPage() {
               </div>
               <div className="space-y-2">
                 <h1 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                  Constitutional Agentic AI
+                  From Zero to AI: An Easy Beginner&apos;s Guide to Artificial Intelligence, Machine Learning, Generative AI, ChatGPT, AI Agents, and the Future of Intelligent Systems
                 </h1>
+                <p className="text-sm text-muted">The Enterprise AI Learning Series · Book 1</p>
                 <p className="text-sm font-medium text-foreground">Rakesh Kumar Agrawal</p>
                 <p className="text-sm text-muted">Amazon Kindle Direct Publishing</p>
               </div>
               <p className="text-sm leading-7 text-muted sm:text-base">
-                Constitutional Agentic AI presents a practical approach for designing trustworthy autonomous AI systems through constitutional governance, policy-driven decision making, safety constraints, and enterprise-scale AI assurance. The book bridges research concepts with real-world enterprise implementation for responsible AI deployment.
+                From Zero to AI is a beginner-friendly guide that introduces readers to the foundations of Artificial Intelligence, Machine Learning, Generative AI, ChatGPT, AI Agents, and modern intelligent systems. Combining practical explanations with real-world examples, the book helps students, professionals, and technology enthusiasts understand how AI is transforming industries while building a strong foundation for future learning.
               </p>
               <div className="flex flex-wrap gap-2">
                 {categories.map((category) => <Badge key={category}>{category}</Badge>)}
@@ -134,14 +135,13 @@ export default function BooksPage() {
             <Card key={metric.label} className="h-full space-y-3 p-5">
               <p className="font-display text-3xl font-semibold tracking-tight text-foreground">{metric.value}</p>
               <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">{metric.label}</h3>
-              {metric.note ? <p className="text-xs text-muted">{metric.note}</p> : null}
             </Card>
           ))}
         </div>
       </section>
 
       <section className="space-y-5" aria-label="Future books timeline">
-        <SectionTitle eyebrow="Future Books Timeline" title="Published and Planned Work" description="A continuing technical writing program focused on enterprise AI systems and governance." />
+        <SectionTitle eyebrow="Book Series Timeline" title="Enterprise AI Learning Series" description="Published and planned volumes in a practical learning series for artificial intelligence and enterprise AI." />
         <div className="space-y-4">
           <div className="relative pl-8 sm:pl-10">
             <span className="absolute left-0 top-6 h-3 w-3 rounded-full border border-primary/50 bg-primary" aria-hidden="true" />
@@ -149,21 +149,22 @@ export default function BooksPage() {
             <Card className="flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6">
               <div className="space-y-2">
                 <Badge className="border-primary/20 bg-primary/10 text-primary">Published</Badge>
-                <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">Constitutional Agentic AI</h3>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Book 1</p>
+                <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">From Zero to AI</h3>
               </div>
               <Button href={amazonUrl} target="_blank" rel="noreferrer" size="sm">View on Amazon</Button>
             </Card>
           </div>
-          {plannedBooks.map((title) => (
-            <div key={title} className="relative pl-8 sm:pl-10">
+          {plannedBooks.map((book) => (
+            <div key={book.volume} className="relative pl-8 sm:pl-10">
               <span className="absolute left-0 top-6 h-3 w-3 rounded-full border border-border bg-surface" aria-hidden="true" />
               <span className="absolute left-[5px] top-9 h-[calc(100%+1rem)] w-px bg-border/80 last:hidden" aria-hidden="true" />
               <Card className="flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6">
                 <div className="space-y-2">
                   <Badge>Planned</Badge>
-                  <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">{title}</h3>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">{book.volume}</p>
+                  <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">{book.title}</h3>
                 </div>
-                <Badge className="border-primary/20 bg-primary/10 text-primary">In Progress</Badge>
               </Card>
             </div>
           ))}
