@@ -11,6 +11,7 @@
     "White Papers",
     "Technical Reports",
     "Professional Articles",
+    "Enterprise AI Security",
     "Newsletter Editions"
   ],
   "statusOptions": ["Published", "Accepted", "Under Review", "Preprint", "Manuscript"],
@@ -23,6 +24,24 @@
     { "value": "status", "label": "Status" }
   ],
   "publications": [
+    {
+      "slug": "enterprise-ai-security-autonomous-enterprise-edition-8",
+      "title": "Enterprise AI Security: Protecting the Autonomous AI Enterprise",
+      "category": "Enterprise AI Security",
+      "status": "Published",
+      "abstract": "As enterprises move toward autonomous AI systems, security must evolve beyond traditional application protection. This edition explores how organizations can secure AI agents, models, data, prompts, tools, and autonomous workflows through a comprehensive Enterprise AI Security framework.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "Enterprise Intelligence Lab Newsletter, Edition #8",
+      "publicationDate": "2026-08-03",
+      "doi": null,
+      "citation": "Agrawal, R. K. (2026). Enterprise AI Security: Protecting the Autonomous AI Enterprise. Enterprise Intelligence Lab Newsletter, Edition 8. https://www.linkedin.com/pulse/enterprise-ai-security-protecting-autonomous-rakesh-agrawal-vgxpc/",
+      "bibtex": "@misc{agrawal2026enterpriseaisecurity, title={Enterprise AI Security: Protecting the Autonomous AI Enterprise}, author={Agrawal, Rakesh Kumar}, year={2026}, month={August}, howpublished={Enterprise Intelligence Lab Newsletter, Edition 8}, url={https://www.linkedin.com/pulse/enterprise-ai-security-protecting-autonomous-rakesh-agrawal-vgxpc/}}",
+      "keywords": ["Enterprise AI Security Architecture", "AI Agent Security", "AI Identity Security", "AI Data Protection", "Model Security", "Prompt and Context Security", "Runtime AI Security", "Tool and API Security", "AI Security Governance", "AI Security Maturity Model"],
+      "githubRepositoryNames": ["RakeshKumarAgrawal.github.io"],
+      "relatedFrameworkTitles": ["Enterprise AI Control Plane", "LLMOps Maturity Model", "AI Observability Framework"],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": ["Enterprise AI Control Plane"]
+    },
     {
       "slug": "biobrain-explainable-federated-ai",
       "title": "BioBrain: An Explainable Federated AI Framework for Multi-Omics Disease Risk Prediction in Life Science",

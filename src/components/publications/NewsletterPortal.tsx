@@ -32,7 +32,6 @@ import {
   archiveStatistics,
   authorityMetrics,
   ecosystemConnections,
-  LATEST_EDITION,
   latestNewsletterEdition,
   NEWSLETTER_HOME,
   newsletterEditions,
@@ -81,7 +80,7 @@ export default function NewsletterPortal() {
                 <p className="max-w-4xl text-sm leading-7 text-muted sm:text-base">{newsletterPortal.description}</p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button href={LATEST_EDITION} target="_blank" rel="noopener noreferrer" rightIcon={<ExternalLink className="h-4 w-4" />} ariaLabel="Open Edition 7 of the Enterprise Intelligence Lab newsletter on LinkedIn">
+                <Button href={latestNewsletterEdition?.linkedinUrl ?? NEWSLETTER_HOME} target="_blank" rel="noopener noreferrer" rightIcon={<ExternalLink className="h-4 w-4" />} ariaLabel={`Open Edition ${latestNewsletterEdition?.edition ?? "latest"} of the Enterprise Intelligence Lab newsletter on LinkedIn`}>
                   Read Latest Edition
                 </Button>
                 <Button href={NEWSLETTER_HOME} target="_blank" rel="noopener noreferrer" variant="secondary" leftIcon={<FaLinkedin className="h-4 w-4" />}>
@@ -135,7 +134,7 @@ export default function NewsletterPortal() {
                       {latestNewsletterEdition.topics.map((topic) => <Badge key={topic}>{topic}</Badge>)}
                     </div>
                     <div className="flex flex-wrap gap-3">
-                      <Button href={LATEST_EDITION} target="_blank" rel="noopener noreferrer">Read Latest Edition</Button>
+                      <Button href={latestNewsletterEdition.linkedinUrl} target="_blank" rel="noopener noreferrer">Read Latest Edition</Button>
                       <Button href={NEWSLETTER_HOME} target="_blank" rel="noopener noreferrer" variant="secondary" leftIcon={<FaLinkedin className="h-4 w-4" />}>View Newsletter Home</Button>
                       <Button href={shareUrl} target="_blank" rel="noopener noreferrer" variant="ghost" leftIcon={<Share2 className="h-4 w-4" />}>Share</Button>
                     </div>

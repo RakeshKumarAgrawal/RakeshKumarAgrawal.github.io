@@ -1,7 +1,7 @@
 export const NEWSLETTER_HOME =
   "https://www.linkedin.com/newsletters/enterprise-intelligence-lab-7462839222043828224/";
 export const LATEST_EDITION =
-  "https://www.linkedin.com/pulse/enterprise-ai-assurance-building-trustworthy-systems-scale-agrawal-mhdlc/?trackingId=iVIBR8XOSECQ22HsR2oUFQ%3D%3D";
+  "https://www.linkedin.com/pulse/enterprise-ai-security-protecting-autonomous-rakesh-agrawal-vgxpc/";
 
 export type NewsletterEdition = {
   title: string;
@@ -22,6 +22,16 @@ export type NewsletterEdition = {
 
 export const newsletterTopics = [
   "Enterprise AI",
+  "Enterprise AI Security Architecture",
+  "AI Agent Security",
+  "AI Identity Security",
+  "AI Data Protection",
+  "Model Security",
+  "Prompt and Context Security",
+  "Runtime AI Security",
+  "Tool and API Security",
+  "AI Security Governance",
+  "AI Security Maturity Model",
   "Enterprise AI Assurance™",
   "Enterprise AI Operating Model",
   "AI Governance",
@@ -44,6 +54,39 @@ export const newsletterTopics = [
 
 export const newsletterEditions: NewsletterEdition[] = [
   {
+    title: "Enterprise AI Security: Protecting the Autonomous AI Enterprise",
+    edition: 8,
+    publicationDate: "2026-08-03",
+    summary:
+      "As enterprises move toward autonomous AI systems, security must evolve beyond traditional application protection. This edition explores how organizations can secure AI agents, models, data, prompts, tools, and autonomous workflows through a comprehensive Enterprise AI Security framework.",
+    topics: [
+      "Enterprise AI Security Architecture",
+      "AI Agent Security",
+      "AI Identity Security",
+      "AI Data Protection",
+      "Model Security",
+      "Prompt and Context Security",
+      "Runtime AI Security",
+      "Tool and API Security",
+      "AI Security Governance",
+      "AI Security Maturity Model",
+    ],
+    readingTime: null,
+    linkedinUrl: LATEST_EDITION,
+    featured: true,
+    category: "Enterprise AI Security",
+    relatedFrameworks: [
+      { label: "Enterprise AI Control Plane", href: "/frameworks/enterprise-ai-control-plane" },
+      { label: "Enterprise AI Assurance™", href: "/research/responsible-ai" },
+      { label: "AI Observability", href: "/research/ai-observability" },
+      { label: "LLMOps", href: "/research/llmops" },
+    ],
+    relatedPublications: [],
+    relatedBooks: [],
+    relatedRepositories: [],
+    relatedDatasets: [],
+  },
+  {
     title: "Enterprise AI Assurance: Building Trustworthy AI Systems at Scale",
     edition: 7,
     publicationDate: "2026-07-27",
@@ -52,7 +95,7 @@ export const newsletterEditions: NewsletterEdition[] = [
     topics: ["Enterprise AI Assurance™", "AI Governance", "Responsible AI"],
     readingTime: null,
     linkedinUrl: LATEST_EDITION,
-    featured: true,
+    featured: false,
     category: "Enterprise AI Assurance",
     relatedFrameworks: [{ label: "Enterprise AI Governance Framework", href: "/frameworks/enterprise-ai-governance-framework" }],
     relatedPublications: [],
@@ -164,9 +207,9 @@ export const newsletterPortal = {
   description:
     "The Enterprise Intelligence Lab Newsletter is my official publication series exploring Enterprise Artificial Intelligence, AI Governance, Platform Engineering, Enterprise Architecture, AI Assurance, Responsible AI, and Digital Transformation. Each edition translates applied research into practical guidance for technology leaders, architects, researchers, and engineering professionals.",
   archiveUrl: NEWSLETTER_HOME,
-  frequency: "Weekly",
+  frequency: "Monthly",
   establishedYear: 2026,
-  badges: ["LinkedIn Newsletter", "Enterprise Intelligence Lab", "Original Content", "Weekly Publication"],
+  badges: ["LinkedIn Newsletter", "Enterprise Intelligence Lab", "Original Content", "Monthly Research Publication"],
 } as const;
 
 export const researchConnections = [

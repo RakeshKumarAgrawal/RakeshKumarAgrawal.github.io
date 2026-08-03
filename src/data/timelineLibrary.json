@@ -7,6 +7,24 @@
   "filterOptions": ["Research", "Publications", "Datasets", "Projects", "Professional Service"],
   "entries": [
     {
+      "id": "newsletter-edition-8-enterprise-ai-security",
+      "title": "Newsletter Edition #8: Enterprise AI Security",
+      "category": "Publications",
+      "milestoneType": "Newsletter edition",
+      "date": "2026-08-03",
+      "status": "Published",
+      "summary": "Published Enterprise AI Security: Protecting the Autonomous AI Enterprise, examining security across AI agents, models, data, prompts, tools, and autonomous workflows.",
+      "details": [
+        "Introduced a comprehensive Enterprise AI Security framework for autonomous AI systems.",
+        "Connected AI security architecture with agent identity, data protection, model security, runtime controls, governance, observability, and LLMOps."
+      ],
+      "relatedFrameworkSlugs": ["enterprise-ai-control-plane", "ai-observability-framework", "llmops-maturity-model"],
+      "relatedPublicationSlugs": ["enterprise-ai-security-autonomous-enterprise-edition-8"],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": ["Enterprise AI Control Plane"],
+      "relatedRepositoryNames": ["RakeshKumarAgrawal.github.io"]
+    },
+    {
       "id": "research-track-2026",
       "title": "Research Milestone Program",
       "category": "Research",
