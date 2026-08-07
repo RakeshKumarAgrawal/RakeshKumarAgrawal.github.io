@@ -6,48 +6,35 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-
-const amazonUrl = "https://a.co/d/005afKP6";
+import { formatBookTitle, publishedBooks } from "@/data/books";
 
 export default function FeaturedBook() {
   return (
-    <section className="py-6 sm:py-8" aria-labelledby="featured-book-title">
-      <Container>
-        <Reveal>
-          <Card className="overflow-hidden p-5 sm:p-6">
-            <div className="grid gap-6 sm:grid-cols-[9rem_1fr] sm:items-center">
-              <div className="relative mx-auto aspect-[2/3] w-36 overflow-hidden rounded-2xl border border-border/70 bg-surface sm:mx-0">
-                <Image
-                  src="/images/books/from-zero-to-ai.jpg"
-                  alt="Cover of From Zero to AI"
-                  fill
-                  sizes="144px"
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="space-y-4">
-                <Badge className="border-primary/20 bg-primary/10 text-primary">Published Book</Badge>
-                <div className="space-y-2">
-                  <h2 id="featured-book-title" className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                    Constitutional Agentic AI
-                  </h2>
-                  <p className="max-w-3xl text-sm leading-7 text-muted sm:text-base">
-                    A practical guide to trustworthy autonomous AI through constitutional governance, safety constraints, and enterprise-scale assurance.
-                  </p>
+    <section className="py-6 sm:py-8" aria-labelledby="latest-books-title">
+      <Container className="space-y-5">
+        <h2 id="latest-books-title" className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">Latest Books</h2>
+        <div className="grid gap-4 lg:grid-cols-2">
+          {publishedBooks.map((book, index) => (
+            <Reveal key={book.id} delay={index * 0.04}>
+              <Card className="grid h-full gap-5 p-5 sm:grid-cols-[7rem_1fr] sm:p-6">
+                <div className="relative mx-auto aspect-[2/3] w-28 overflow-hidden rounded-2xl border border-border/70 bg-surface sm:mx-0">
+                  <Image src={book.coverImage} alt={`Cover of ${formatBookTitle(book)}`} fill sizes="112px" className="object-cover" />
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  <Button href={amazonUrl} target="_blank" rel="noreferrer" rightIcon={<ExternalLink className="h-4 w-4" />}>
-                    View on Amazon
-                  </Button>
-                  <Button href="/books" variant="secondary" rightIcon={<ArrowRight className="h-4 w-4" />}>
-                    Learn More
-                  </Button>
+                <div className="flex min-w-0 flex-col space-y-4">
+                  <Badge className="w-fit border-primary/20 bg-primary/10 text-primary">Published</Badge>
+                  <div className="space-y-2">
+                    <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">{formatBookTitle(book)}</h3>
+                    <p className="text-sm leading-7 text-muted">{book.description}</p>
+                  </div>
+                  <div className="mt-auto flex flex-wrap gap-3 pt-1">
+                    <Button href={book.amazonUrl} target="_blank" rel="noreferrer" size="sm" rightIcon={<ExternalLink className="h-4 w-4" />}>Amazon</Button>
+                    <Button href={`/books#${book.id}`} variant="secondary" size="sm" rightIcon={<ArrowRight className="h-4 w-4" />}>Details</Button>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </Card>
-        </Reveal>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
       </Container>
     </section>
   );
