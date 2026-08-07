@@ -184,7 +184,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
-      <Container className="flex h-[73px] max-w-[96rem] items-center justify-between gap-2 py-3 xl:gap-3" onMouseLeave={() => setActiveMenu(null)}>
+      <Container className="flex h-[73px] max-w-[96rem] items-center justify-between gap-2 py-3 xl:gap-3 2xl:max-w-[116rem]" onMouseLeave={() => setActiveMenu(null)}>
         <Link href="/#home" className="flex shrink-0 items-center gap-3 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70">
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 text-sm font-semibold text-primary">
             RK
@@ -196,7 +196,7 @@ export default function Navbar() {
         </Link>
 
         <nav aria-label="Primary" className="hidden min-w-0 flex-1 justify-center xl:flex">
-          <ul className="flex min-w-0 items-center justify-center gap-0 rounded-full border border-border/70 bg-surface/60 p-1 backdrop-blur 2xl:gap-0.5">
+          <ul className="flex min-w-0 items-center justify-center gap-0 rounded-full border border-border/70 bg-surface/60 p-1 backdrop-blur 2xl:gap-[14px]">
             {desktopNavigation.map((item) => (
               <li key={`${item.label}-${item.href}`}>{renderGroup(item)}</li>
             ))}
