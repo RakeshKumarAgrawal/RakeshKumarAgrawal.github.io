@@ -47,7 +47,7 @@ export const navigation: readonly NavigationGroup[] = [
   { label: "Original Contributions", href: "/original-contributions" },
   { label: "Professional Service", href: "/professional-service" },
   { label: "Open Science", href: "/open-science" },
-  { label: "Achievements", href: "/professional-certifications" },
+  { label: "Honors & Awards", href: "/honors-awards" },
   {
     label: "Ecosystem",
     href: "/ecosystem/",
