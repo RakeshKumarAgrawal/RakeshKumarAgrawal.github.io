@@ -191,10 +191,118 @@
       ]
     },
     {
+      "slug": "bqeb-research-program",
+      "title": "BIO-Quantum Energy Brain (BQEB) Research Program",
+      "researchStatus": "Active",
+      "overview": "A reproducibility-first modular research program for energy AI benchmarking and intelligent energy systems. Its connected research lineage comprises the BQEB Reproducibility Architecture, BQEB-Data, ForecastBench, SecBench, FoundationBench, ExplainBench, and TwinAgentBench. The architecture, dataset, executed forecasting benchmark, and subsequent benchmark specifications are distinct, independently citable research artifacts.",
+      "researchProblem": "Energy AI research needs traceable connections between manuscripts, datasets, models, experiments, and benchmark protocols, with a clear distinction between specified infrastructure and executed experimental evidence.",
+      "motivation": "Support independently verifiable research artifacts and comparative studies while preserving version history, citation lineage, and explicit evidence boundaries.",
+      "architecture": "The four-layer BQEB Reproducibility Architecture comprises: (1) Research Artifact Layer, connecting manuscripts, datasets, models, and experiments; (2) Reproducibility Layer, using deterministic execution, checksummed artifacts, and an evidence registry; (3) Benchmark Evolution Layer, supporting benchmark extensions and comparative studies; and (4) Scientific Lineage Layer, managing citation tracking, version management, and DOI separation. The benchmark modules register within the existing Benchmark Evolution Layer; they do not introduce additional architectural layers.",
+      "technicalInnovation": "Separates the architecture specification from its benchmark implementations and maintains lineage across independently citable artifacts. ForecastBench is the first validated benchmark implementation within the architecture. SecBench specifies a benchmark protocol; FoundationBench, ExplainBench, and TwinAgentBench define benchmark infrastructure without reporting executed model evaluations. ForecastBench validation does not establish experimental validation of the other modules.",
+      "researchContributionsTitle": "BQEB Research Program: Research Lineage",
+      "researchContributions": [
+        "BQEB Reproducibility Architecture (architecture specification): defines the four-layer framework connecting research artifacts, reproducibility evidence, benchmark evolution, and scientific lineage; the manuscript and archived software artifact have separate DOIs.",
+        "BQEB-Data (dataset): provides the program's open benchmark dataset foundation for autonomous energy intelligence and smart-grid analytics, retained as its own contribution and independently citable artifact.",
+        "ForecastBench (executed benchmark): the first validated benchmark implementation within the BQEB architecture, evaluating smart-grid forecasting tasks using BQEB-Data; retained as its own contribution.",
+        "BQEB SecBench (benchmark framework/specification): specifies reproducible cybersecurity and attack-detection evaluation for intelligent energy systems, including a threat model and benchmark protocol. Protocol specification is distinct from future benchmark execution; no trained or evaluated detection models are claimed here.",
+        "BQEB FoundationBench (benchmark framework/specification): specifies zero-shot and few-shot evaluation paradigms using existing ForecastBench forecasting targets, with a model registry and deployment-mode distinctions. The paper describes benchmark infrastructure, not executed model evaluation or experimental results.",
+        "ExplainBench (benchmark framework/specification): specifies reproducible, measurable explanation-quality evaluation for on-device agentic AI in energy systems, including faithfulness, stability, actionability, human interpretability, and uncertainty-awareness. It registers within the existing BQEB Benchmark Evolution Layer and reports no executed evaluations.",
+        "BQEB TwinAgentBench (benchmark specification): specifies joint evaluation of digital-twin fidelity and multi-agent coordination as distinct, diagnosable dimensions, with reproducibility requirements inherited from the BQEB architecture. It registers as the fifth module within the existing Benchmark Evolution Layer and reports no executed evaluations."
+      ],
+      "relatedPublicationTitles": [],
+      "publicationsTitle": "Evidence & Publications",
+      "evidencePublications": [
+        {
+          "title": "BQEB: A Reproducibility-First Architecture for Modular Energy AI Benchmarking",
+          "description": "2026 | Preprint (v2). Four-layer architecture specification; ForecastBench is its first validated benchmark implementation.",
+          "doi": "10.20944/preprints202608.2262.v2",
+          "href": "https://doi.org/10.20944/preprints202608.2262.v2"
+        },
+        {
+          "title": "BQEB: A Reproducibility-First Architecture for Modular Energy AI Benchmarking",
+          "description": "2026 | Archived software artifact (Zenodo, v1.0.1). Independently citable architecture artifact, separate from the preprint.",
+          "doi": "10.5281/zenodo.22291930",
+          "href": "https://doi.org/10.5281/zenodo.22291930"
+        },
+        {
+          "title": "BQEB SecBench: A Reproducible Cyber-Resilience Benchmark Framework for Intelligent Energy Systems",
+          "description": "2026 | Preprint (v2). Threat-model and benchmark-protocol specification for reproducible cybersecurity and attack-detection evaluation; future execution is distinct from the framework.",
+          "doi": "10.20944/preprints202609.0013.v2",
+          "href": "https://doi.org/10.20944/preprints202609.0013.v2"
+        },
+        {
+          "title": "BQEB FoundationBench: A Reproducibility-First Benchmark Framework for Foundation Models in Energy Forecasting",
+          "description": "2026 | Preprint (v2). Benchmark infrastructure for zero-shot and few-shot forecasting, with a model registry and deployment-mode distinctions; no executed model evaluation results.",
+          "doi": "10.20944/preprints202609.0115.v2",
+          "href": "https://doi.org/10.20944/preprints202609.0115.v2"
+        },
+        {
+          "title": "ExplainBench: A Reproducibility-First Explainability Benchmark for Trustworthy On-Device Agentic AI in Energy Systems",
+          "description": "2026 | Preprint (v2). Explanation-quality benchmark infrastructure within the existing Benchmark Evolution Layer; no executed evaluations.",
+          "doi": "10.20944/preprints202609.0201.v2",
+          "href": "https://doi.org/10.20944/preprints202609.0201.v2"
+        },
+        {
+          "title": "BQEB TwinAgentBench: A Reproducibility-First Benchmark for Digital Twins and Multi-Agent AI in Trustworthy Energy Systems",
+          "description": "2026 | Preprint (v1). Digital-twin and multi-agent benchmark specification; fifth module within the existing Benchmark Evolution Layer, with no executed evaluations.",
+          "doi": "10.20944/preprints202609.0927.v1",
+          "href": "https://doi.org/10.20944/preprints202609.0927.v1"
+        }
+      ],
+      "relatedDatasetTitles": [
+        "BQEB-Data: An Open Benchmark Dataset for Autonomous Energy Intelligence and Smart Grid Analytics",
+        "BQEB ForecastBench"
+      ],
+      "relatedRepositoryNames": [],
+      "imagePlaceholders": [],
+      "timelineTitle": "Research Program Evolution",
+      "timeline": [
+        {
+          "phase": "1. Architecture",
+          "period": "2026",
+          "milestone": "Four-layer reproducibility architecture and independently citable architecture artifact."
+        },
+        {
+          "phase": "2. Dataset",
+          "period": "2026",
+          "milestone": "BQEB-Data provides the open dataset foundation."
+        },
+        {
+          "phase": "3. Forecasting benchmark",
+          "period": "2026",
+          "milestone": "ForecastBench is the first validated benchmark implementation within the architecture."
+        },
+        {
+          "phase": "4. Cyber-resilience benchmark",
+          "period": "2026",
+          "milestone": "SecBench specifies threat models and reproducible evaluation protocols; execution remains separate."
+        },
+        {
+          "phase": "5. Foundation-model benchmark",
+          "period": "2026",
+          "milestone": "FoundationBench specifies zero-shot and few-shot forecasting evaluation; experimental results are not reported."
+        },
+        {
+          "phase": "6. Explainability benchmark",
+          "period": "2026",
+          "milestone": "ExplainBench specifies measurable explanation quality within the existing Benchmark Evolution Layer; evaluations are not executed."
+        },
+        {
+          "phase": "7. Digital-twin + multi-agent benchmark",
+          "period": "2026",
+          "milestone": "TwinAgentBench specifies the fifth benchmark module, separating twin fidelity from agent coordination; evaluations are not executed."
+        }
+      ],
+      "futureResearch": [
+        "Execute and report the specified SecBench, FoundationBench, ExplainBench, and TwinAgentBench evaluations with reproducibility evidence.",
+        "Keep future experimental results and their independently citable artifacts distinct from current architecture and benchmark specifications."
+      ]
+    },
+    {
       "slug": "bqeb-data",
       "title": "BQEB-Data",
       "researchStatus": "Active",
-      "overview": "An open benchmark dataset for autonomous energy intelligence and smart grid analytics research.",
+      "overview": "An open benchmark dataset for autonomous energy intelligence and smart grid analytics research. BQEB-Data provides the dataset foundation within the BIO-Quantum Energy Brain (BQEB) Research Program and remains an independently citable contribution.",
       "researchProblem": "Energy intelligence research needs open, reproducible benchmark datasets covering forecasting, optimization, and resilience dimensions.",
       "motivation": "Enable transparent evaluation and repeatable experimentation for smart-grid AI systems.",
       "architecture": "Dataset architecture organized around energy forecasting tasks, storage optimization contexts, and resilience scenarios.",
@@ -241,7 +349,7 @@
       "slug": "forecastbench",
       "title": "ForecastBench",
       "researchStatus": "Active",
-      "overview": "A benchmarking suite for evaluating AI models on smart-grid forecasting tasks using BQEB-Data.",
+      "overview": "A benchmarking suite for evaluating AI models on smart-grid forecasting tasks using BQEB-Data. ForecastBench is the first validated benchmark implementation within the four-layer BQEB Reproducibility Architecture and part of the BIO-Quantum Energy Brain (BQEB) Research Program. Its executed benchmark evidence is distinct from the program's later benchmark framework/specification modules.",
       "researchProblem": "Model benchmarking in smart-grid forecasting often lacks consistent baselines and transparent comparative evaluation.",
       "motivation": "Provide standardized benchmark conditions and measurable model comparison criteria.",
       "architecture": "Benchmark pipeline integrating dataset inputs, model execution protocols, and comparative performance reporting.",

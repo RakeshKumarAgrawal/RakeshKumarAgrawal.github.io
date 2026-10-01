@@ -22,7 +22,11 @@ type OriginalContributionRecord = {
   architecture: string;
   technicalInnovation: string;
   researchContributions: string[];
+  researchContributionsTitle?: string;
   relatedPublicationTitles: string[];
+  evidencePublications?: LinkedArtifact[];
+  publicationsTitle?: string;
+  timelineTitle?: string;
   relatedDatasetTitles: string[];
   relatedRepositoryNames: string[];
   imagePlaceholders: string[];
@@ -44,6 +48,7 @@ export type LinkedArtifact = {
   title: string;
   href?: string;
   description?: string;
+  doi?: string;
 };
 
 export type ContributionTimelineEntry = {
@@ -62,7 +67,10 @@ export type OriginalContribution = {
   architecture: string;
   technicalInnovation: string;
   researchContributions: string[];
+  researchContributionsTitle?: string;
   publications: LinkedArtifact[];
+  publicationsTitle?: string;
+  timelineTitle?: string;
   datasets: LinkedArtifact[];
   repositories: LinkedArtifact[];
   imagePlaceholders: string[];
@@ -88,7 +96,13 @@ export const originalContributions: OriginalContribution[] = data.contributions.
   architecture: item.architecture,
   technicalInnovation: item.technicalInnovation,
   researchContributions: item.researchContributions,
-  publications: resolveLinkedByTitle(item.relatedPublicationTitles, publicationIndex),
+  researchContributionsTitle: item.researchContributionsTitle,
+  publications: [
+    ...(item.evidencePublications ?? []),
+    ...resolveLinkedByTitle(item.relatedPublicationTitles, publicationIndex),
+  ],
+  publicationsTitle: item.publicationsTitle,
+  timelineTitle: item.timelineTitle,
   datasets: resolveLinkedByTitle(item.relatedDatasetTitles, datasetIndex),
   repositories: resolveLinkedByTitle(item.relatedRepositoryNames, repositoryIndex),
   imagePlaceholders: item.imagePlaceholders,

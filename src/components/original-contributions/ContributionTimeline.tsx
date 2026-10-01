@@ -4,12 +4,13 @@ import type { ContributionTimelineEntry } from "@/data/originalContributions";
 
 type ContributionTimelineProps = {
   entries: readonly ContributionTimelineEntry[];
+  title?: string;
 };
 
-export default function ContributionTimeline({ entries }: ContributionTimelineProps) {
+export default function ContributionTimeline({ entries, title = "Timeline" }: ContributionTimelineProps) {
   return (
     <Card className="space-y-4 p-5">
-      <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-muted">Timeline</h3>
+      <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-muted">{title}</h3>
       <ol className="space-y-3">
         {entries.map((entry) => (
           <li key={`${entry.phase}-${entry.period}`} className="rounded-2xl border border-border/70 bg-white/5 p-3">

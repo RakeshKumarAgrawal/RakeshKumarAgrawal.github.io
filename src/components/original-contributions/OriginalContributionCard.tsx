@@ -55,7 +55,9 @@ export default function OriginalContributionCard({ contribution }: OriginalContr
         {renderDetailSections(detailSections)}
 
         <Card className="space-y-4 p-5">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-muted">Research Contributions</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-muted">
+            {contribution.researchContributionsTitle ?? "Research Contributions"}
+          </h3>
           <ul className="space-y-2">
             {contribution.researchContributions.map((item) => (
               <li key={item} className="text-sm leading-7 text-muted">
@@ -67,7 +69,7 @@ export default function OriginalContributionCard({ contribution }: OriginalContr
 
         <div className="grid gap-4 lg:grid-cols-3">
           <ContributionArtifactList
-            title="Publications"
+            title={contribution.publicationsTitle ?? "Publications"}
             items={contribution.publications}
             emptyLabel="No linked publications available in the current verified index."
           />
@@ -83,21 +85,23 @@ export default function OriginalContributionCard({ contribution }: OriginalContr
           />
         </div>
 
-        <Card className="space-y-4 p-5">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-muted">Images Placeholder</h3>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {contribution.imagePlaceholders.map((placeholder) => (
-              <div
-                key={placeholder}
-                className="rounded-2xl border border-dashed border-border/80 bg-background/40 p-4 text-sm text-muted"
-              >
-                {placeholder}
-              </div>
-            ))}
-          </div>
-        </Card>
+        {contribution.imagePlaceholders.length ? (
+          <Card className="space-y-4 p-5">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-muted">Images Placeholder</h3>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {contribution.imagePlaceholders.map((placeholder) => (
+                <div
+                  key={placeholder}
+                  className="rounded-2xl border border-dashed border-border/80 bg-background/40 p-4 text-sm text-muted"
+                >
+                  {placeholder}
+                </div>
+              ))}
+            </div>
+          </Card>
+        ) : null}
 
-        <ContributionTimeline entries={contribution.timeline} />
+        <ContributionTimeline entries={contribution.timeline} title={contribution.timelineTitle} />
 
         <Card className="space-y-4 p-5">
           <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-muted">Future Research</h3>
