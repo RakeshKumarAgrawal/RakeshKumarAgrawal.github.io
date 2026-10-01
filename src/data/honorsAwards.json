@@ -243,6 +243,36 @@
       "tags": ["Employer", "Leadership", "Professional Growth"],
       "status": "Active",
       "displayOrder": 12
+    },
+    {
+      "id": "international-achievers-award-2026",
+      "title": "International Achievers' Award \u2013 2026",
+      "organization": "Indian Achievers' Forum",
+      "category": "Leadership Awards",
+      "description": "In recognition of outstanding leadership, professional excellence, and unwavering commitment to fostering Responsible Businesses for an Inclusive Bharat, presented as Senior Consultant/Technology Leader, ATOS, USA, at National Conclave 2026 (\"Role of Responsible Businesses for Inclusive Bharat\"), New Delhi.",
+      "issueDate": "2026-08-04",
+      "featured": true,
+      "logo": "IAF",
+      "image": "/images/recognitions/recognition-international-achievers-award-2026.jpg",
+      "verificationUrl": "https://www.iafindia.com/mr-rakesh-kumar-agrawal/",
+      "tags": ["Leadership", "Professional Excellence", "Responsible Business", "International"],
+      "status": "Completed",
+      "displayOrder": 13
+    },
+    {
+      "id": "silver-globee-winner-2026-ai-implementation",
+      "title": "Silver Globee\u00ae Winner \u2013 Achievement in AI Implementation",
+      "organization": "Atos",
+      "category": "Innovation Awards",
+      "description": "Silver Globee\u00ae Winner in the Achievement in AI Implementation category of the Globee\u00ae Awards for Innovation (2026), recognizing development of the BIO-Quantum Energy Brain for intelligent energy optimization and resilience.",
+      "issueDate": "2026-01-01",
+      "featured": true,
+      "logo": "GLB",
+      "image": "/images/recognitions/recognition-silver-globee-winner-2026.jpg",
+      "verificationUrl": "https://credential.globeeawards.com/1f1175d9-6ec9-4a7c-9a3b-043de2d69679#acc.tcH8g1G3",
+      "tags": ["Innovation", "AI Implementation", "Globee Awards", "Energy AI"],
+      "status": "Completed",
+      "displayOrder": 14
     }
   ]
 }
