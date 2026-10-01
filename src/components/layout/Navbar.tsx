@@ -105,7 +105,7 @@ export default function Navbar() {
             target={topmateProfile.target}
             rel={topmateProfile.rel}
             aria-label={item.ariaLabel ?? item.label}
-            className="relative inline-flex h-9 items-center rounded-full px-2.5 text-xs font-medium text-muted transition duration-200 hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-3 2xl:text-sm"
+            className="relative inline-flex h-9 items-center rounded-full px-1.5 text-xs font-medium text-muted transition duration-200 hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-1 2xl:text-sm"
             onClick={handleDesktopNavigate}
           >
             {item.label}
@@ -118,7 +118,7 @@ export default function Navbar() {
           href={item.href}
           aria-current={isActive ? "page" : undefined}
           className={cn(
-            "relative inline-flex h-9 items-center rounded-full px-2.5 text-xs font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-3 2xl:text-sm",
+            "relative inline-flex h-9 items-center rounded-full px-1.5 text-xs font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-1 2xl:text-sm",
             isActive ? "text-foreground" : "text-muted hover:bg-white/5 hover:text-foreground",
           )}
           onClick={handleDesktopNavigate}
@@ -138,7 +138,7 @@ export default function Navbar() {
         <button
           type="button"
           className={cn(
-            "relative inline-flex h-9 items-center gap-1 rounded-full px-2.5 text-xs font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-3 2xl:text-sm",
+            "relative inline-flex h-9 items-center gap-1 rounded-full px-1.5 text-xs font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 2xl:h-10 2xl:px-1 2xl:text-sm",
             isOpen || isActive ? "bg-white/10 text-foreground" : "text-muted hover:bg-white/5 hover:text-foreground",
           )}
           aria-current={isActive ? "page" : undefined}
@@ -184,24 +184,28 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
-      <Container className="flex h-[73px] max-w-[96rem] items-center justify-between gap-2 py-3 xl:gap-3 2xl:max-w-[116rem]" onMouseLeave={() => setActiveMenu(null)}>
-        <Link href="/#home" className="flex shrink-0 items-center gap-3 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 text-sm font-semibold text-primary">
+      <Container className="flex h-[73px] max-w-[96rem] items-center justify-between gap-2 py-3 2xl:max-w-[116rem] 2xl:gap-3" onMouseLeave={() => setActiveMenu(null)}>
+        <Link href="/#home" className="flex shrink-0 items-center gap-3 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 xl:w-[260px]">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 text-sm font-semibold text-primary">
             RK
           </span>
-          <span className="hidden flex-col 2xl:flex">
+          <span className="hidden flex-col xl:flex">
             <span className="text-sm font-semibold text-foreground">Rakesh Kumar Agrawal</span>
             <span className="text-xs text-muted">Enterprise AI · Platform · Cloud</span>
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden min-w-0 flex-1 justify-center xl:flex">
-          <ul className="flex min-w-0 items-center justify-center gap-0 rounded-full border border-border/70 bg-surface/60 p-1 backdrop-blur 2xl:gap-[14px]">
+        <nav aria-label="Primary" className="hidden min-w-0 flex-1 xl:flex">
+          <ul className="flex min-w-0 flex-1 items-center justify-between gap-0 rounded-full border border-border/70 bg-surface/60 p-1 backdrop-blur">
             {desktopNavigation.map((item) => (
               <li key={`${item.label}-${item.href}`}>{renderGroup(item)}</li>
             ))}
-            <li
-              className="relative"
+          </ul>
+        </nav>
+
+        <div className="flex shrink-0 items-center gap-1.5 2xl:gap-2">
+            <div
+              className="relative hidden shrink-0 rounded-full border border-border/70 bg-surface/60 p-1 backdrop-blur xl:block"
               onMouseEnter={() => setActiveMenu("More")}
               onMouseLeave={() => setActiveMenu(null)}
             >
@@ -252,11 +256,7 @@ export default function Navbar() {
                   </motion.div>
                 ) : null}
               </AnimatePresence>
-            </li>
-          </ul>
-        </nav>
-
-        <div className="flex shrink-0 items-center gap-1.5 2xl:gap-2">
+            </div>
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-white/5 text-foreground transition hover:border-primary/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 xl:hidden"
