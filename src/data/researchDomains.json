@@ -22,6 +22,7 @@
     "title": "Enterprise AI Governance",
     "summary": "Building governance models that link AI policy, controls, evidence, and accountability across the lifecycle.",
     "relatedPublicationTitles": [
+      "An Enterprise AI Assurance Framework for Biomedical Diagnostics: Integrating a Human Validation Boundary and a Multidimensional Assurance Score into a Lifecycle Governance Model.",
       "Enterprise AI Governance Framework™: A governance reference model connecting policy, controls, evidence, review, escalation, and lifecycle accountability",
       "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery"
     ],
@@ -97,6 +98,7 @@
     "title": "Healthcare AI",
     "summary": "Advancing explainable and edge-enabled healthcare AI systems for patient monitoring and disease risk prediction.",
     "relatedPublicationTitles": [
+      "An Enterprise AI Assurance Framework for Biomedical Diagnostics: Integrating a Human Validation Boundary and a Multidimensional Assurance Score into a Lifecycle Governance Model.",
       "BioBrain: An Explainable Federated AI Framework for Multi-Omics Disease Risk Prediction in Life Science",
       "Smart ICU Monitoring System Using IoT and Edge AI for Real-Time Patient Risk Prediction",
       "Human Gastrointestinal Gas as a Non-Invasive Biomarker: A Wearable IoT and Edge AI Framework for Real-Time Health Monitoring"
@@ -117,6 +119,7 @@
     "summary": "Designing AI-assisted decision systems that integrate evidence, uncertainty, and operational context.",
     "relatedPublicationTitles": [
       "Enterprise Intelligence Framework™: A Reference Framework for Connecting Executive Intent, Control Architecture, Operating Models, and Platform Delivery",
+      "BQEB: A Reproducibility-First Architecture for Modular Energy AI Benchmarking",
       "BQEB ForecastBench: Benchmarking AI Models for Smart Grid Forecasting Using BQEB-Data v1"
     ],
     "relatedRepositoryNames": ["research-portfolio", "RakeshKumarAgrawal.github.io"],
@@ -153,6 +156,7 @@
     "title": "Agentic AI",
     "summary": "Researching governed agentic systems with bounded autonomy, human oversight, and operational safeguards.",
     "relatedPublicationTitles": [
+      "Dynamic Constitutional Control of Agentic Enterprise Digital Twins via Meta-Governor Agents",
       "Agentic Enterprise Blueprint™: A blueprint for introducing governed agentic systems into enterprise workflows with bounded autonomy and human oversight"
     ],
     "relatedRepositoryNames": ["research-portfolio", "Rakesh-K-Agrawal"],

@@ -189,7 +189,14 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
           volumeNumber: scholarlyMetadata.volume,
           issueNumber: scholarlyMetadata.issue,
         },
-        pagination: scholarlyMetadata.articleNumber,
+        publicationIssue: {
+          "@type": "PublicationIssue",
+          issueNumber: scholarlyMetadata.issue,
+          name: scholarlyMetadata.issueTitle,
+        },
+        ...(scholarlyMetadata.articleNumber
+          ? { pagination: scholarlyMetadata.articleNumber }
+          : {}),
         identifier: doiUrl,
         sameAs: publication.articleUrl,
         keywords: publication.keywords,
@@ -320,12 +327,23 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
                   <ul className="space-y-2">
                     {publication.relatedResearchLinks.map((research) => (
                       <li key={`${publication.slug}-${research.title}`}>
-                        <Link
-                          href={research.href ?? "/research"}
-                          className="text-primary transition hover:text-primary/80"
-                        >
-                          {research.title}
-                        </Link>
+                        {research.href?.startsWith("https://") ? (
+                          <a
+                            href={research.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-primary transition hover:text-primary/80"
+                          >
+                            {research.title}
+                          </a>
+                        ) : (
+                          <Link
+                            href={research.href ?? "/research"}
+                            className="text-primary transition hover:text-primary/80"
+                          >
+                            {research.title}
+                          </Link>
+                        )}
                       </li>
                     ))}
                   </ul>

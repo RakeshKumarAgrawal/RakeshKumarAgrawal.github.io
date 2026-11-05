@@ -64,6 +64,14 @@
         {
           "title": "Enterprise AI Assurance and Responsible AI research",
           "href": "/research/responsible-ai"
+        },
+        {
+          "title": "Enterprise AI Governance",
+          "href": "/research/enterprise-ai-governance"
+        },
+        {
+          "title": "Biomedical AI and human oversight",
+          "href": "/research/healthcare-ai"
         }
       ],
       "scholarlyMetadata": {
@@ -72,6 +80,104 @@
         "volume": 13,
         "issue": 11,
         "articleNumber": "186"
+      }
+    },
+    {
+      "slug": "bqeb-reproducibility-first-energy-ai-benchmarking",
+      "title": "BQEB: A Reproducibility-First Architecture for Modular Energy AI Benchmarking",
+      "category": "Journal Articles",
+      "status": "Published",
+      "abstract": "The paper presents the BQEB Reproducibility Architecture, a four-layer framework for organizing energy-AI research artifacts, deterministic execution, checksummed evidence, benchmark evolution, version management, and scientific lineage. Within-environment deterministic execution was verified through 15 real executions, and checksum-based tamper detection was confirmed. Cross-environment reproducibility, statistical significance of model comparisons, and broader extensibility remain pending or future work; the paper also documents an unresolved numerical discrepancy between two published versions of a benchmark result as a governance case.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "International Journal of Global Innovations and Solutions (IJGIS), 3(10), October 2026",
+      "publicationDate": "2026-10-31",
+      "doi": "10.63412/8cwwr131",
+      "citation": "Agrawal, R.K. (2026). BQEB: A Reproducibility-First Architecture for Modular Energy AI Benchmarking. International Journal of Global Innovations and Solutions, 3(10), October 2026. https://doi.org/10.63412/8cwwr131.",
+      "bibtex": "@article{agrawal2026bqebreproducibility,\n  title={BQEB: A Reproducibility-First Architecture for Modular Energy AI Benchmarking},\n  author={Agrawal, Rakesh Kumar},\n  journal={International Journal of Global Innovations and Solutions},\n  year={2026},\n  volume={3},\n  number={10},\n  doi={10.63412/8cwwr131}\n}",
+      "keywords": [
+        "Reproducible Research",
+        "Benchmark Governance",
+        "Research Software Engineering",
+        "Energy Artificial Intelligence",
+        "FAIR Data Principles",
+        "Scientific Artifact Lineage"
+      ],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "featured": true,
+      "articleUrl": "https://ijgis.org/home/article/view/82",
+      "relatedResearchLinks": [
+        {
+          "title": "BIO-Quantum Energy Brain research program",
+          "href": "/original-contributions"
+        },
+        {
+          "title": "Open Science and research artifacts",
+          "href": "/open-science"
+        },
+        {
+          "title": "BQEB Reproducibility Architecture artifact",
+          "href": "https://doi.org/10.5281/zenodo.22291930"
+        },
+        {
+          "title": "BQEB ForecastBench benchmark",
+          "href": "https://doi.org/10.5281/zenodo.21735978"
+        }
+      ],
+      "scholarlyMetadata": {
+        "journalName": "International Journal of Global Innovations and Solutions",
+        "publisher": "The New World Foundation",
+        "volume": 3,
+        "issue": 10,
+        "issueTitle": "IJGIS October 2026"
+      }
+    },
+    {
+      "slug": "dynamic-constitutional-control-agentic-enterprise-digital-twins",
+      "title": "Dynamic Constitutional Control of Agentic Enterprise Digital Twins via Meta-Governor Agents",
+      "category": "Journal Articles",
+      "status": "Published",
+      "abstract": "This paper proposes a Dynamic Constitutional Control framework for Agentic Enterprise Digital Twins, using Meta-Governor Agents to continuously supervise, constrain, and adapt autonomy policies. It translates enterprise governance principles into machine-enforceable control rules for escalation thresholds, action boundaries, rollback, and human approval checkpoints. The published evaluation reports experimental benchmarking on a synthetic enterprise governance dataset; it does not establish real-world enterprise deployment.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "International Journal of Global Innovations and Solutions (IJGIS), 3(8), September 2026",
+      "publicationDate": "2026-09-01",
+      "doi": "10.63412/8byqcw98",
+      "citation": "Agrawal, R.K. (2026). Dynamic Constitutional Control of Agentic Enterprise Digital Twins via Meta-Governor Agents. International Journal of Global Innovations and Solutions, 3(8), September 2026. https://doi.org/10.63412/8byqcw98.",
+      "bibtex": "@article{agrawal2026dynamicconstitutionalcontrol,\n  title={Dynamic Constitutional Control of Agentic Enterprise Digital Twins via Meta-Governor Agents},\n  author={Agrawal, Rakesh Kumar},\n  journal={International Journal of Global Innovations and Solutions},\n  year={2026},\n  volume={3},\n  number={8},\n  doi={10.63412/8byqcw98}\n}",
+      "keywords": [
+        "Agentic AI",
+        "Enterprise Digital Twins",
+        "Human-in-the-loop",
+        "Trustworthy AI",
+        "Explainable AI",
+        "Meta-Governor Agents",
+        "Constitutional AI",
+        "Algorithmic Fairness",
+        "Transparency and Accountability"
+      ],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "articleUrl": "https://ijgis.org/home/article/view/78",
+      "relatedResearchLinks": [
+        {
+          "title": "Agentic AI research",
+          "href": "/research/agentic-ai"
+        },
+        {
+          "title": "Enterprise AI Governance",
+          "href": "/research/enterprise-ai-governance"
+        }
+      ],
+      "scholarlyMetadata": {
+        "journalName": "International Journal of Global Innovations and Solutions",
+        "publisher": "The New World Foundation",
+        "volume": 3,
+        "issue": 8,
+        "issueTitle": "IJGIS September 2026"
       }
     },
     {

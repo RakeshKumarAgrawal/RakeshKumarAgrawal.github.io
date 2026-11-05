@@ -60,13 +60,25 @@ export default function PublicationCard({ item }: PublicationCardProps) {
         <div className="space-y-2 text-sm text-muted">
           <p className="font-semibold text-foreground">Related research</p>
           {item.relatedResearchLinks.map((research) => (
-            <Link
-              key={`${item.slug}-${research.title}`}
-              href={research.href ?? "/research"}
-              className="block text-primary transition hover:text-primary/80"
-            >
-              {research.title}
-            </Link>
+            research.href?.startsWith("https://") ? (
+              <a
+                key={`${item.slug}-${research.title}`}
+                href={research.href}
+                target="_blank"
+                rel="noreferrer"
+                className="block text-primary transition hover:text-primary/80"
+              >
+                {research.title}
+              </a>
+            ) : (
+              <Link
+                key={`${item.slug}-${research.title}`}
+                href={research.href ?? "/research"}
+                className="block text-primary transition hover:text-primary/80"
+              >
+                {research.title}
+              </Link>
+            )
           ))}
         </div>
       ) : null}

@@ -43,7 +43,8 @@ type PublicationRecord = {
     publisher: string;
     volume: number;
     issue: number;
-    articleNumber: string;
+    articleNumber?: string;
+    issueTitle?: string;
   };
 };
 
