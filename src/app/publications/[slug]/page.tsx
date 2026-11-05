@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import Footer from "@/components/layout/Footer";
@@ -86,6 +87,32 @@ export async function generateMetadata({ params }: PublicationPageProps): Promis
       },
       twitter: {
         card: "summary_large_image",
+        title: publication.title,
+        description: publication.abstract,
+      },
+    };
+  }
+
+  if (publication.category === "Professional Articles" && publication.articleUrl) {
+    return {
+      title: publication.title,
+      description: publication.abstract,
+      keywords: publication.keywords,
+      alternates: {
+        canonical: `/publications/${publication.slug}`,
+      },
+      openGraph: {
+        type: "article",
+        url: `${siteConfig.url}/publications/${publication.slug}/`,
+        title: publication.title,
+        description: publication.abstract,
+        siteName: siteConfig.name,
+        locale: siteConfig.locale,
+        publishedTime: publication.publicationDate,
+        authors: publication.authors,
+      },
+      twitter: {
+        card: "summary",
         title: publication.title,
         description: publication.abstract,
       },
@@ -201,6 +228,31 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
         sameAs: publication.articleUrl,
         keywords: publication.keywords,
       }
+    : publication.category === "Professional Articles" && publication.articleUrl
+      ? {
+          "@context": "https://schema.org",
+          "@type": publication.publication === "Medium" ? "BlogPosting" : "Article",
+          "@id": `${siteConfig.url}/publications/${publication.slug}/`,
+          headline: publication.title,
+          name: publication.title,
+          description: publication.abstract,
+          datePublished: publication.publicationDate,
+          url: publication.articleUrl,
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `${siteConfig.url}/publications/${publication.slug}/`,
+          },
+          author: publication.authors.map((name) => ({
+            "@type": "Person",
+            name,
+          })),
+          publisher: {
+            "@type": "Organization",
+            name: publication.publication,
+          },
+          keywords: publication.keywords,
+          inLanguage: "en",
+        }
     : null;
 
   return (
@@ -253,10 +305,12 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
                 <a
                   href={publication.articleUrl}
                   target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/15"
+                  rel="noopener noreferrer"
+                  aria-label={`Read full article on ${publication.publication} (opens in a new tab)`}
+                  className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/15"
                 >
                   Read Full Article
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               ) : null}
             </Card>
@@ -274,7 +328,9 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
                 </ul>
               </PublicationDetailSection>
 
-              <PublicationDetailSection title="Publication">
+              <PublicationDetailSection
+                title={publication.category === "Professional Articles" ? "Publisher" : "Publication"}
+              >
                 <p>
                   {publication.publication}
                   {doiUrl ? (
@@ -292,15 +348,13 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
                 <p>{publication.status}</p>
               </PublicationDetailSection>
 
-              <PublicationDetailSection title="DOI">
-                {doiUrl ? (
-                  <a href={doiUrl} target="_blank" rel="noreferrer" className="text-primary transition hover:text-primary/80">
+              {doiUrl ? (
+                <PublicationDetailSection title="DOI">
+                  <a href={doiUrl} target="_blank" rel="noopener noreferrer" className="text-primary transition hover:text-primary/80">
                     {publication.doi}
                   </a>
-                ) : (
-                  <p>Not available</p>
-                )}
-              </PublicationDetailSection>
+                </PublicationDetailSection>
+              ) : null}
 
               <PublicationDetailSection title="Citation">
                 <p>{publication.citation}</p>

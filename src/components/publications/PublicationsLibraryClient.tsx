@@ -58,14 +58,25 @@ export default function PublicationsLibraryClient({
 }: PublicationsLibraryClientProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<PublicationCategory | "All">("All");
+  const [publisher, setPublisher] = useState("All");
   const [status, setStatus] = useState<PublicationStatus | "All">("All");
   const [sortBy, setSortBy] = useState<PublicationSortValue>("newest");
+
+  const publishers = useMemo(
+    () =>
+      [...new Set(items.filter((item) => item.category === "Professional Articles").map((item) => item.publication))]
+        .sort((a, b) => a.localeCompare(b)),
+    [items],
+  );
 
   const filteredAndSorted = useMemo(() => {
     const normalized = query.trim().toLowerCase();
 
     const filtered = items.filter((item) => {
       const categoryMatch = category === "All" || item.category === category;
+      const publisherMatch =
+        publisher === "All" ||
+        (item.category === "Professional Articles" && item.publication === publisher);
       const statusMatch = status === "All" || item.status === status;
       const queryMatch =
         !normalized ||
@@ -73,6 +84,7 @@ export default function PublicationsLibraryClient({
           item.title,
           item.abstract,
           item.publication,
+          ...(item.articleUrl ? [item.articleUrl] : []),
           item.category,
           item.status,
           ...item.authors,
@@ -88,11 +100,11 @@ export default function PublicationsLibraryClient({
           .toLowerCase()
           .includes(normalized);
 
-      return categoryMatch && statusMatch && queryMatch;
+      return categoryMatch && publisherMatch && statusMatch && queryMatch;
     });
 
     return sortItems(filtered, sortBy);
-  }, [category, items, query, sortBy, status]);
+  }, [category, items, publisher, query, sortBy, status]);
 
   return (
     <div className="space-y-6">
@@ -104,7 +116,7 @@ export default function PublicationsLibraryClient({
               type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search title, abstract, authors, DOI, citation, keywords, and related artifacts"
+              placeholder="Search title, publisher, abstract, authors, DOI, citation, and keywords"
               aria-label="Search publications"
               className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted/70"
             />
@@ -141,6 +153,25 @@ export default function PublicationsLibraryClient({
                 All
               </option>
               {statuses.map((value) => (
+                <option key={value} value={value} className="bg-surface text-foreground">
+                  {value}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="flex items-center gap-3 rounded-2xl border border-border/70 bg-surface/70 px-4 py-3 text-sm text-muted focus-within:border-primary/40 focus-within:ring-2 focus-within:ring-ring/40">
+            <span className="whitespace-nowrap text-xs font-semibold uppercase tracking-[0.24em]">Publisher</span>
+            <select
+              value={publisher}
+              onChange={(event) => setPublisher(event.target.value)}
+              aria-label="Filter by publisher"
+              className="w-full bg-transparent text-sm text-foreground outline-none"
+            >
+              <option value="All" className="bg-surface text-foreground">
+                All
+              </option>
+              {publishers.map((value) => (
                 <option key={value} value={value} className="bg-surface text-foreground">
                   {value}
                 </option>

@@ -70,7 +70,14 @@ const publicationEntries: GlobalSearchEntry[] = publicationsLibrary
     description: item.abstract,
     category: "Publications",
     href: `/publications/${item.slug}`,
-    keywords: [item.category, item.status, ...item.keywords, ...item.authors],
+    keywords: [
+      item.category,
+      item.status,
+      item.publication,
+      ...(item.articleUrl ? [item.articleUrl] : []),
+      ...item.keywords,
+      ...item.authors,
+    ],
   }));
 
 const newsletterEntries: GlobalSearchEntry[] = publicationsLibrary
