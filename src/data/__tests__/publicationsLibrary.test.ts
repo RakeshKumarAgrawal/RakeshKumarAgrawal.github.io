@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { globalSearchEntries } from "@/data/globalSearchIndex";
 import { publicationsLibrary } from "@/data/publicationsLibrary";
 import { getResearchDomainBySlug } from "@/data/researchDomains";
 
@@ -130,6 +131,84 @@ describe("publications library", () => {
     });
     expect(getResearchDomainBySlug("decision-intelligence")?.relatedPublications).toContainEqual(
       expect.objectContaining({ title: publication?.title }),
+    );
+  });
+
+  it("includes each IEEE and Medium professional article exactly once with verified metadata", () => {
+    const articles = [
+      {
+        title: "Beyond AI Agents: The Case for an Enterprise AI Control Plane",
+        publisher: "IEEE Computer Society Tech News",
+        date: "2026-10-29",
+        url: "https://www.computer.org/publications/tech-news/trends/next-gen-computing-beyond-ai-agents",
+      },
+      {
+        title: "The New AI Engineer: Skills Beyond Prompting That Will Matter in 2030",
+        publisher: "IEEE Computer Society Tech News",
+        date: "2026-11-05",
+        url: "https://www.computer.org/publications/tech-news/build-your-career/ai-engineer-skills-future",
+      },
+      {
+        title: "From CMDB to Dynamic Digital Twins: Lessons Learned in Building Enterprise Digital Brains",
+        publisher: "IEEE Computer Society Tech News",
+        date: "2026-04-25",
+        url: "https://www.computer.org/publications/tech-news/trends/building-enterprise-digital-brains",
+      },
+      {
+        title: "When Traffic Signals Fail: How Trustworthy AI Could Help Cities Keep Moving",
+        publisher: "Medium",
+        date: "2026-11-04",
+        url: "https://medium.com/@rakesh1608/when-traffic-signals-fail-how-trustworthy-ai-could-help-cities-keep-moving-cdbdbe2cd63b",
+      },
+      {
+        title: "The Authority Plane: A Runtime Architecture for Governing Autonomous Enterprise AI",
+        publisher: "Medium",
+        date: "2026-11-03",
+        url: "https://medium.com/@rakesh1608/the-authority-plane-a-runtime-architecture-for-governing-autonomous-enterprise-ai-8e9f3ce44bd8",
+      },
+      {
+        title: "The Agent Is Not the Application: Six Operational Controls for Enterprise AI",
+        publisher: "Medium",
+        date: "2026-11-01",
+        url: "https://medium.com/@rakesh1608/the-agent-is-not-the-application-six-operational-controls-for-enterprise-ai-2491dfdc6c20",
+      },
+      {
+        title:
+          "The Silent Drift of AI Authority: When Enterprise Systems Start Changing Decisions Without Changing Their Code",
+        publisher: "Medium",
+        date: "2026-10-30",
+        url: "https://medium.com/@rakesh1608/the-silent-drift-of-ai-authority-when-enterprise-systems-start-changing-bdd08d99d629",
+      },
+    ];
+
+    for (const article of articles) {
+      const records = publicationsLibrary.filter((item) => item.articleUrl === article.url);
+
+      expect(records).toHaveLength(1);
+      expect(records[0]).toMatchObject({
+        title: article.title,
+        category: "Professional Articles",
+        status: "Published",
+        authors: ["Rakesh Kumar Agrawal"],
+        publication: article.publisher,
+        publicationDate: article.date,
+        doi: null,
+        articleUrl: article.url,
+      });
+      expect(records[0]?.abstract).toBeTruthy();
+      expect(records[0]?.keywords.length).toBeGreaterThan(0);
+      expect(records[0]?.scholarlyMetadata).toBeUndefined();
+      expect(globalSearchEntries).toContainEqual(
+        expect.objectContaining({
+          title: article.title,
+          description: records[0]?.abstract,
+          keywords: expect.arrayContaining([article.publisher, article.url]),
+        }),
+      );
+    }
+
+    expect(publicationsLibrary.filter((item) => articles.some((article) => article.title === item.title))).toHaveLength(
+      articles.length,
     );
   });
 });

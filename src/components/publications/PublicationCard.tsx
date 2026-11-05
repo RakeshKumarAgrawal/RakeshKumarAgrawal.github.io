@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 import Badge from "@/components/ui/Badge";
@@ -30,21 +31,25 @@ export default function PublicationCard({ item }: PublicationCardProps) {
 
       <div className="space-y-2 text-sm text-muted">
         <p>
-          <span className="font-semibold text-foreground">Publication:</span> {item.publication}
+          <span className="font-semibold text-foreground">
+            {item.category === "Professional Articles" ? "Publisher:" : "Publication:"}
+          </span>{" "}
+          {item.publication}
+        </p>
+        <p>
+          <span className="font-semibold text-foreground">Publication date:</span> {item.publicationDate}
         </p>
         <p>
           <span className="font-semibold text-foreground">Authors:</span> {item.authors.join(", ")}
         </p>
-        <p className="break-words">
-          <span className="font-semibold text-foreground">DOI:</span>{" "}
-          {item.doi ? (
-            <a href={`https://doi.org/${item.doi}`} target="_blank" rel="noreferrer" className="text-primary hover:text-primary/80">
+        {item.doi ? (
+          <p className="break-words">
+            <span className="font-semibold text-foreground">DOI:</span>{" "}
+            <a href={`https://doi.org/${item.doi}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80">
               {item.doi}
             </a>
-          ) : (
-            "Not available"
-          )}
-        </p>
+          </p>
+        ) : null}
         {item.frameworkConceptualization ? (
           <p className="font-medium text-foreground">{item.frameworkConceptualization}</p>
         ) : null}
@@ -65,7 +70,7 @@ export default function PublicationCard({ item }: PublicationCardProps) {
                 key={`${item.slug}-${research.title}`}
                 href={research.href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="block text-primary transition hover:text-primary/80"
               >
                 {research.title}
@@ -94,10 +99,12 @@ export default function PublicationCard({ item }: PublicationCardProps) {
           <a
             href={item.articleUrl}
             target="_blank"
-            rel="noreferrer"
-            className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/15"
+            rel="noopener noreferrer"
+            aria-label={`Read full article on ${item.publication} (opens in a new tab)`}
+            className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/15"
           >
             Read Full Article
+            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
           </a>
         ) : null}
       </div>

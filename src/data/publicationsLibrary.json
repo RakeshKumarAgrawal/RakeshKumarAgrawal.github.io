@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Publications Library",
     "title": "Modern library for verified publications and technical outputs",
-    "description": "Search, filter, and explore verified journal work, technical reports, white papers, and professional publication records, with linked artifacts across datasets, projects, frameworks, and repositories."
+    "description": "Search, filter, and explore journal research, technical outputs, and professional articles. IEEE Computer Society Tech News and Medium editorial works are classified separately from journal and conference research."
   },
   "categories": [
     "Journal Articles",
@@ -401,7 +401,7 @@
       "title": "LinkedIn Professional Articles Authority Record",
       "category": "Professional Articles",
       "status": "Published",
-      "abstract": "LinkedIn is the authoritative public source for professional article records in this portfolio. Individual verified article-level records are currently not enumerated.",
+      "abstract": "LinkedIn remains the authoritative source for LinkedIn-hosted professional article records. Individual LinkedIn articles are not enumerated here; professional articles published on other platforms are listed separately.",
       "authors": ["Rakesh Kumar Agrawal"],
       "publication": "LinkedIn",
       "publicationDate": "2026-07-20",
@@ -413,6 +413,168 @@
       "relatedFrameworkTitles": [],
       "relatedDatasetTitles": [],
       "relatedProjectTitles": []
+    },
+    {
+      "slug": "beyond-ai-agents-enterprise-ai-control-plane-ieee",
+      "title": "Beyond AI Agents: The Case for an Enterprise AI Control Plane",
+      "category": "Professional Articles",
+      "status": "Published",
+      "abstract": "Examines how enterprise computing may move beyond standalone AI agents toward an enterprise control plane that governs their actions and autonomy.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "IEEE Computer Society Tech News",
+      "publicationDate": "2026-10-29",
+      "doi": null,
+      "citation": "Agrawal, R. K. (2026, October 29). Beyond AI Agents: The Case for an Enterprise AI Control Plane. IEEE Computer Society Tech News. https://www.computer.org/publications/tech-news/trends/next-gen-computing-beyond-ai-agents",
+      "bibtex": "@misc{agrawal2026enterpriseaicontrolplane, title={Beyond AI Agents: The Case for an Enterprise AI Control Plane}, author={Agrawal, Rakesh Kumar}, year={2026}, howpublished={IEEE Computer Society Tech News}, url={https://www.computer.org/publications/tech-news/trends/next-gen-computing-beyond-ai-agents}}",
+      "keywords": ["Enterprise AI", "AI Agents", "AI Control Plane", "Enterprise AI Governance", "Autonomy"],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "articleUrl": "https://www.computer.org/publications/tech-news/trends/next-gen-computing-beyond-ai-agents",
+      "relatedResearchLinks": [
+        { "title": "Enterprise AI Governance", "href": "/research/enterprise-ai-governance" },
+        { "title": "Agentic AI research", "href": "/research/agentic-ai" }
+      ]
+    },
+    {
+      "slug": "ai-engineer-skills-2030-ieee",
+      "title": "The New AI Engineer: Skills Beyond Prompting That Will Matter in 2030",
+      "category": "Professional Articles",
+      "status": "Published",
+      "abstract": "Discusses skills for future AI engineers beyond prompting, including system design, context architecture, and governance.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "IEEE Computer Society Tech News",
+      "publicationDate": "2026-11-05",
+      "doi": null,
+      "citation": "Agrawal, R. K. (2026, November 5). The New AI Engineer: Skills Beyond Prompting That Will Matter in 2030. IEEE Computer Society Tech News. https://www.computer.org/publications/tech-news/build-your-career/ai-engineer-skills-future",
+      "bibtex": "@misc{agrawal2026aiengineerskills, title={The New AI Engineer: Skills Beyond Prompting That Will Matter in 2030}, author={Agrawal, Rakesh Kumar}, year={2026}, howpublished={IEEE Computer Society Tech News}, url={https://www.computer.org/publications/tech-news/build-your-career/ai-engineer-skills-future}}",
+      "keywords": ["AI Engineering", "System Design", "Context Architecture", "AI Governance", "Prompt Engineering"],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "articleUrl": "https://www.computer.org/publications/tech-news/build-your-career/ai-engineer-skills-future",
+      "relatedResearchLinks": [
+        { "title": "Enterprise AI research", "href": "/research/enterprise-ai" },
+        { "title": "Responsible AI research", "href": "/research/responsible-ai" }
+      ]
+    },
+    {
+      "slug": "cmdb-dynamic-digital-twins-ieee",
+      "title": "From CMDB to Dynamic Digital Twins: Lessons Learned in Building Enterprise Digital Brains",
+      "category": "Professional Articles",
+      "status": "Published",
+      "abstract": "Explores why enterprise AI can benefit from dynamic digital twins, real-time graph context, and causal topology maps rather than relying on static configuration records alone.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "IEEE Computer Society Tech News",
+      "publicationDate": "2026-04-25",
+      "doi": null,
+      "citation": "Agrawal, R. K. (2026, April 25). From CMDB to Dynamic Digital Twins: Lessons Learned in Building Enterprise Digital Brains. IEEE Computer Society Tech News. https://www.computer.org/publications/tech-news/trends/building-enterprise-digital-brains",
+      "bibtex": "@misc{agrawal2026enterprisedigitalbrains, title={From CMDB to Dynamic Digital Twins: Lessons Learned in Building Enterprise Digital Brains}, author={Agrawal, Rakesh Kumar}, year={2026}, howpublished={IEEE Computer Society Tech News}, url={https://www.computer.org/publications/tech-news/trends/building-enterprise-digital-brains}}",
+      "keywords": ["Enterprise Digital Twins", "CMDB", "Enterprise AI", "Knowledge Graphs", "Real-Time Context"],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "articleUrl": "https://www.computer.org/publications/tech-news/trends/building-enterprise-digital-brains",
+      "relatedResearchLinks": [
+        { "title": "Enterprise AI research", "href": "/research/enterprise-ai" },
+        { "title": "Knowledge Systems research", "href": "/research/knowledge-systems" }
+      ]
+    },
+    {
+      "slug": "trustworthy-ai-traffic-signals-medium",
+      "title": "When Traffic Signals Fail: How Trustworthy AI Could Help Cities Keep Moving",
+      "category": "Professional Articles",
+      "status": "Published",
+      "abstract": "Explores how trustworthy AI could help traffic systems respond to disruptions while accounting for unreliable sensor data, uncertainty in digital-twin estimates, and independent safety checks. It outlines a proposed research framework rather than reporting a deployed system.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "Medium",
+      "publicationDate": "2026-11-04",
+      "doi": null,
+      "citation": "Agrawal, R. K. (2026, November 4). When Traffic Signals Fail: How Trustworthy AI Could Help Cities Keep Moving. Medium. https://medium.com/@rakesh1608/when-traffic-signals-fail-how-trustworthy-ai-could-help-cities-keep-moving-cdbdbe2cd63b",
+      "bibtex": "@misc{agrawal2026trustworthytrafficai, title={When Traffic Signals Fail: How Trustworthy AI Could Help Cities Keep Moving}, author={Agrawal, Rakesh Kumar}, year={2026}, howpublished={Medium}, url={https://medium.com/@rakesh1608/when-traffic-signals-fail-how-trustworthy-ai-could-help-cities-keep-moving-cdbdbe2cd63b}}",
+      "keywords": ["Trustworthy AI", "Smart Cities", "Intelligent Transport", "Urban Resilience", "Digital Twins"],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "articleUrl": "https://medium.com/@rakesh1608/when-traffic-signals-fail-how-trustworthy-ai-could-help-cities-keep-moving-cdbdbe2cd63b",
+      "relatedResearchLinks": [
+        { "title": "Responsible AI research", "href": "/research/responsible-ai" },
+        { "title": "Agentic AI research", "href": "/research/agentic-ai" }
+      ]
+    },
+    {
+      "slug": "authority-plane-autonomous-enterprise-ai-medium",
+      "title": "The Authority Plane: A Runtime Architecture for Governing Autonomous Enterprise AI",
+      "category": "Professional Articles",
+      "status": "Published",
+      "abstract": "Presents an Authority Plane concept for governing autonomous enterprise AI through runtime authorization, bounded autonomy, distributed execution controls, and revocable permissions.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "Medium",
+      "publicationDate": "2026-11-03",
+      "doi": null,
+      "citation": "Agrawal, R. K. (2026, November 3). The Authority Plane: A Runtime Architecture for Governing Autonomous Enterprise AI. Medium. https://medium.com/@rakesh1608/the-authority-plane-a-runtime-architecture-for-governing-autonomous-enterprise-ai-8e9f3ce44bd8",
+      "bibtex": "@misc{agrawal2026authorityplane, title={The Authority Plane: A Runtime Architecture for Governing Autonomous Enterprise AI}, author={Agrawal, Rakesh Kumar}, year={2026}, howpublished={Medium}, url={https://medium.com/@rakesh1608/the-authority-plane-a-runtime-architecture-for-governing-autonomous-enterprise-ai-8e9f3ce44bd8}}",
+      "keywords": ["Enterprise AI", "AI Governance", "Agentic AI", "Runtime Authorization", "Bounded Autonomy"],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "articleUrl": "https://medium.com/@rakesh1608/the-authority-plane-a-runtime-architecture-for-governing-autonomous-enterprise-ai-8e9f3ce44bd8",
+      "relatedResearchLinks": [
+        { "title": "Enterprise AI Governance", "href": "/research/enterprise-ai-governance" },
+        { "title": "Agentic AI research", "href": "/research/agentic-ai" }
+      ]
+    },
+    {
+      "slug": "operational-controls-enterprise-ai-medium",
+      "title": "The Agent Is Not the Application: Six Operational Controls for Enterprise AI",
+      "category": "Professional Articles",
+      "status": "Published",
+      "abstract": "Describes six operational controls for treating enterprise AI agents as production services, including identity and ownership, configuration versioning, external authorization, operational limits, monitoring, and failure recovery.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "Medium",
+      "publicationDate": "2026-11-01",
+      "doi": null,
+      "citation": "Agrawal, R. K. (2026, November 1). The Agent Is Not the Application: Six Operational Controls for Enterprise AI. Medium. https://medium.com/@rakesh1608/the-agent-is-not-the-application-six-operational-controls-for-enterprise-ai-2491dfdc6c20",
+      "bibtex": "@misc{agrawal2026enterpriseaioperationalcontrols, title={The Agent Is Not the Application: Six Operational Controls for Enterprise AI}, author={Agrawal, Rakesh Kumar}, year={2026}, howpublished={Medium}, url={https://medium.com/@rakesh1608/the-agent-is-not-the-application-six-operational-controls-for-enterprise-ai-2491dfdc6c20}}",
+      "keywords": ["Enterprise AI", "Agentic AI", "Operations", "Authorization", "Monitoring", "Failure Recovery"],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "articleUrl": "https://medium.com/@rakesh1608/the-agent-is-not-the-application-six-operational-controls-for-enterprise-ai-2491dfdc6c20",
+      "relatedResearchLinks": [
+        { "title": "Enterprise AI Governance", "href": "/research/enterprise-ai-governance" },
+        { "title": "Agentic AI research", "href": "/research/agentic-ai" },
+        { "title": "Platform Engineering research", "href": "/research/platform-engineering" }
+      ]
+    },
+    {
+      "slug": "silent-drift-ai-authority-medium",
+      "title": "The Silent Drift of AI Authority: When Enterprise Systems Start Changing Decisions Without Changing Their Code",
+      "category": "Professional Articles",
+      "status": "Published",
+      "abstract": "Examines how an AI system's decision-making authority can expand over time without code changes and proposes an Enterprise AI Authority Envelope and continuous authority assurance as governance responses.",
+      "authors": ["Rakesh Kumar Agrawal"],
+      "publication": "Medium",
+      "publicationDate": "2026-10-30",
+      "doi": null,
+      "citation": "Agrawal, R. K. (2026, October 30). The Silent Drift of AI Authority: When Enterprise Systems Start Changing Decisions Without Changing Their Code. Medium. https://medium.com/@rakesh1608/the-silent-drift-of-ai-authority-when-enterprise-systems-start-changing-bdd08d99d629",
+      "bibtex": "@misc{agrawal2026silentdriftaiauthority, title={The Silent Drift of AI Authority: When Enterprise Systems Start Changing Decisions Without Changing Their Code}, author={Agrawal, Rakesh Kumar}, year={2026}, howpublished={Medium}, url={https://medium.com/@rakesh1608/the-silent-drift-of-ai-authority-when-enterprise-systems-start-changing-bdd08d99d629}}",
+      "keywords": ["AI Authority", "Enterprise AI Governance", "Agentic AI", "Authority Drift", "Continuous Assurance"],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "articleUrl": "https://medium.com/@rakesh1608/the-silent-drift-of-ai-authority-when-enterprise-systems-start-changing-bdd08d99d629",
+      "relatedResearchLinks": [
+        { "title": "Enterprise AI Governance", "href": "/research/enterprise-ai-governance" },
+        { "title": "Agentic AI research", "href": "/research/agentic-ai" }
+      ]
     },
     {
       "slug": "linkedin-newsletter-authority-record",
