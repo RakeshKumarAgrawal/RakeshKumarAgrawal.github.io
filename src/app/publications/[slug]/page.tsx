@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import Footer from "@/components/layout/Footer";
@@ -62,6 +63,32 @@ export async function generateMetadata({ params }: PublicationPageProps): Promis
   if (!publication) {
     return {
       title: "Publication",
+    };
+  }
+
+  if (publication.scholarlyMetadata) {
+    return {
+      title: publication.title,
+      description: publication.abstract,
+      keywords: publication.keywords,
+      alternates: {
+        canonical: `/publications/${publication.slug}`,
+      },
+      openGraph: {
+        type: "article",
+        url: `${siteConfig.url}/publications/${publication.slug}/`,
+        title: publication.title,
+        description: publication.abstract,
+        siteName: siteConfig.name,
+        locale: siteConfig.locale,
+        publishedTime: publication.publicationDate,
+        authors: publication.authors,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: publication.title,
+        description: publication.abstract,
+      },
     };
   }
 
@@ -133,6 +160,41 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
   }
 
   const doiUrl = publication.doi ? `https://doi.org/${publication.doi}` : null;
+  const scholarlyMetadata = publication.scholarlyMetadata;
+  const structuredData = scholarlyMetadata && publication.articleUrl
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "@id": `${siteConfig.url}/publications/${publication.slug}/`,
+        headline: publication.title,
+        name: publication.title,
+        description: publication.abstract,
+        datePublished: publication.publicationDate,
+        url: publication.articleUrl,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `${siteConfig.url}/publications/${publication.slug}/`,
+        },
+        author: publication.authors.map((name) => ({
+          "@type": "Person",
+          name,
+        })),
+        publisher: {
+          "@type": "Organization",
+          name: scholarlyMetadata.publisher,
+        },
+        isPartOf: {
+          "@type": "Periodical",
+          name: scholarlyMetadata.journalName,
+          volumeNumber: scholarlyMetadata.volume,
+          issueNumber: scholarlyMetadata.issue,
+        },
+        pagination: scholarlyMetadata.articleNumber,
+        identifier: doiUrl,
+        sameAs: publication.articleUrl,
+        keywords: publication.keywords,
+      }
+    : null;
 
   return (
     <>
@@ -148,8 +210,20 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
               ]}
             />
 
+            {structuredData ? (
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+              />
+            ) : null}
+
             <Card className="space-y-5 p-6 sm:p-7">
               <div className="flex flex-wrap gap-2">
+                {publication.featured ? (
+                  <Badge className="border-accent/30 bg-accent/10 text-[0.65rem] tracking-[0.18em] text-accent">
+                    Featured Journal Article
+                  </Badge>
+                ) : null}
                 <Badge className="border-primary/20 bg-primary/10 text-[0.65rem] tracking-[0.24em] text-primary">
                   {publication.category}
                 </Badge>
@@ -163,6 +237,21 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
               <p className="text-sm leading-7 text-muted sm:text-base">
                 Publication date: {publication.publicationDate}
               </p>
+              {publication.frameworkConceptualization ? (
+                <p className="text-sm font-medium leading-7 text-foreground">
+                  {publication.frameworkConceptualization}
+                </p>
+              ) : null}
+              {publication.articleUrl ? (
+                <a
+                  href={publication.articleUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/15"
+                >
+                  Read Full Article
+                </a>
+              ) : null}
             </Card>
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -179,7 +268,17 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
               </PublicationDetailSection>
 
               <PublicationDetailSection title="Publication">
-                <p>{publication.publication}</p>
+                <p>
+                  {publication.publication}
+                  {doiUrl ? (
+                    <>
+                      {" "}
+                      <a href={doiUrl} target="_blank" rel="noreferrer" className="text-primary transition hover:text-primary/80">
+                        DOI: {publication.doi}
+                      </a>
+                    </>
+                  ) : null}
+                </p>
               </PublicationDetailSection>
 
               <PublicationDetailSection title="Status">
@@ -216,6 +315,22 @@ export default async function PublicationDetailPage({ params }: PublicationPageP
             </div>
 
             <div className="grid gap-4 lg:grid-cols-2">
+              {publication.relatedResearchLinks.length ? (
+                <PublicationDetailSection title="Related research">
+                  <ul className="space-y-2">
+                    {publication.relatedResearchLinks.map((research) => (
+                      <li key={`${publication.slug}-${research.title}`}>
+                        <Link
+                          href={research.href ?? "/research"}
+                          className="text-primary transition hover:text-primary/80"
+                        >
+                          {research.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </PublicationDetailSection>
+              ) : null}
               <PublicationArtifactList
                 title="GitHub Repository"
                 items={publication.githubRepositories}

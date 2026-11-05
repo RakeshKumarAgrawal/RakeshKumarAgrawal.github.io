@@ -25,6 +25,56 @@
   ],
   "publications": [
     {
+      "slug": "enterprise-ai-assurance-biomedical-diagnostics",
+      "title": "An Enterprise AI Assurance Framework for Biomedical Diagnostics: Integrating a Human Validation Boundary and a Multidimensional Assurance Score into a Lifecycle Governance Model.",
+      "category": "Journal Articles",
+      "status": "Published",
+      "abstract": "This paper presents the Enterprise AI Assurance Framework for Biomedical Diagnostics (EAIA-BD), a design-science framework combining a five-layer architecture, a Human Validation Boundary that specifies when and by whom AI outputs must be reviewed, the Biomedical AI Assurance Score (BAAS) with a safety-critical gate, and a seven-stage assurance lifecycle with a maturity model. The paper reports an analytical comparison with healthcare-AI frameworks and standards, standards mapping, a worked example, and score sensitivity analysis. These analyses do not constitute independent or empirical clinical validation: the framework has not been empirically validated, and no improvement in clinical safety, decision-making, diagnostic performance, or regulatory readiness is claimed.",
+      "authors": [
+        "Rakesh Kumar Agrawal",
+        "Ather Husain",
+        "Wasim Mohammed Amin Tambe",
+        "Pankaj Kumar Yadav",
+        "Anjan Chatterjee"
+      ],
+      "publication": "Informatics, 13(11), Article 186 (MDPI)",
+      "publicationDate": "2026-11-05",
+      "doi": "10.3390/informatics13110186",
+      "citation": "Agrawal, R.K.; Husain, A.; Tambe, W.M.A.; Yadav, P.K.; Chatterjee, A. An Enterprise AI Assurance Framework for Biomedical Diagnostics: Integrating a Human Validation Boundary and a Multidimensional Assurance Score into a Lifecycle Governance Model. Informatics 2026, 13, 186. https://doi.org/10.3390/informatics13110186.",
+      "bibtex": "@article{agrawal2026enterpriseaibiomedicalassurance,\n  title={An Enterprise AI Assurance Framework for Biomedical Diagnostics: Integrating a Human Validation Boundary and a Multidimensional Assurance Score into a Lifecycle Governance Model},\n  author={Agrawal, Rakesh Kumar and Husain, Ather and Tambe, Wasim Mohammed Amin and Yadav, Pankaj Kumar and Chatterjee, Anjan},\n  journal={Informatics},\n  year={2026},\n  volume={13},\n  number={11},\n  pages={186},\n  doi={10.3390/informatics13110186}\n}",
+      "keywords": [
+        "Enterprise AI Assurance",
+        "Enterprise AI Governance",
+        "Trustworthy AI",
+        "Responsible AI",
+        "Biomedical AI",
+        "Healthcare AI",
+        "Human-in-the-loop AI governance",
+        "Human Validation Boundary",
+        "Biomedical AI Assurance Score (BAAS)"
+      ],
+      "githubRepositoryNames": [],
+      "relatedFrameworkTitles": [],
+      "relatedDatasetTitles": [],
+      "relatedProjectTitles": [],
+      "featured": true,
+      "articleUrl": "https://www.mdpi.com/2227-9709/13/11/186",
+      "frameworkConceptualization": "Framework conceptualization: Rakesh Kumar Agrawal and Ather Husain.",
+      "relatedResearchLinks": [
+        {
+          "title": "Enterprise AI Assurance and Responsible AI research",
+          "href": "/research/responsible-ai"
+        }
+      ],
+      "scholarlyMetadata": {
+        "journalName": "Informatics",
+        "publisher": "MDPI",
+        "volume": 13,
+        "issue": 11,
+        "articleNumber": "186"
+      }
+    },
+    {
       "slug": "enterprise-ai-security-autonomous-enterprise-edition-8",
       "title": "Enterprise AI Security: Protecting the Autonomous AI Enterprise",
       "category": "Enterprise AI Security",

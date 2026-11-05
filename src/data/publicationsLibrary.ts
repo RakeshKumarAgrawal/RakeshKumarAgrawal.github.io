@@ -34,6 +34,17 @@ type PublicationRecord = {
   relatedFrameworkTitles: string[];
   relatedDatasetTitles: string[];
   relatedProjectTitles: string[];
+  featured?: boolean;
+  articleUrl?: string;
+  frameworkConceptualization?: string;
+  relatedResearchLinks?: LinkedPublicationArtifact[];
+  scholarlyMetadata?: {
+    journalName: string;
+    publisher: string;
+    volume: number;
+    issue: number;
+    articleNumber: string;
+  };
 };
 
 type PublicationSortOption = {
@@ -76,6 +87,11 @@ export type PublicationLibraryItem = {
   relatedFrameworks: LinkedPublicationArtifact[];
   relatedDatasets: LinkedPublicationArtifact[];
   relatedProjects: LinkedPublicationArtifact[];
+  featured: boolean;
+  articleUrl?: string;
+  frameworkConceptualization?: string;
+  relatedResearchLinks: LinkedPublicationArtifact[];
+  scholarlyMetadata?: PublicationRecord["scholarlyMetadata"];
 };
 
 const data = rawPublicationsLibrary as PublicationsLibraryRecord;
@@ -106,6 +122,11 @@ export const publicationsLibrary: PublicationLibraryItem[] = data.publications.m
   relatedFrameworks: resolveLinkedByTitle(item.relatedFrameworkTitles, projectIndex),
   relatedDatasets: resolveLinkedByTitle(item.relatedDatasetTitles, datasetIndex),
   relatedProjects: resolveLinkedByTitle(item.relatedProjectTitles, projectIndex),
+  featured: item.featured ?? false,
+  articleUrl: item.articleUrl,
+  frameworkConceptualization: item.frameworkConceptualization,
+  relatedResearchLinks: item.relatedResearchLinks ?? [],
+  scholarlyMetadata: item.scholarlyMetadata,
 }));
 
 const publicationBySlug = new Map(publicationsLibrary.map((item) => [item.slug, item]));

@@ -1,6 +1,7 @@
 import { datasets } from "./datasets";
 import { projects } from "./projects";
 import { publications } from "./publications";
+import { publicationsLibrary } from "./publicationsLibrary";
 import rawResearchDomains from "./researchDomains.json";
 import { software } from "./software";
 import { createTitleIndex, resolveLinkedByTitle } from "@/lib/data/linking";
@@ -42,6 +43,15 @@ export type ResearchDomain = {
 const researchDomainRecords = rawResearchDomains as ResearchDomainRecord[];
 
 const publicationIndex = createTitleIndex(publications.items);
+publicationsLibrary.forEach((publication) => {
+  if (!publicationIndex.has(publication.title)) {
+    publicationIndex.set(publication.title, {
+      title: publication.title,
+      href: `/publications/${publication.slug}/`,
+      description: publication.citation,
+    });
+  }
+});
 const repositoryIndex = createTitleIndex(software.items);
 const datasetIndex = createTitleIndex(datasets.items);
 const frameworkIndex = createTitleIndex(projects.items);

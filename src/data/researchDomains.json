@@ -134,6 +134,7 @@
     "title": "Responsible AI",
     "summary": "Structuring responsible AI methods for transparency, governance, and reliability in enterprise deployments.",
     "relatedPublicationTitles": [
+      "An Enterprise AI Assurance Framework for Biomedical Diagnostics: Integrating a Human Validation Boundary and a Multidimensional Assurance Score into a Lifecycle Governance Model.",
       "Enterprise AI Governance Framework™: A governance reference model connecting policy, controls, evidence, review, escalation, and lifecycle accountability",
       "LLMOps Maturity Model™: A maturity model for progressing from experimental LLM use to resilient, governed, observable, and scalable operations"
     ],
